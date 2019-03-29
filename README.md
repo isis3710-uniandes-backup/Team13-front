@@ -4,9 +4,24 @@
 
 #  To Deploy
 
-## Available Scripts
+This project communicates with a back-end API for it to work properly,therefore you must also clone the back-end repo (you can find the source code here: https://github.com/isis3710-uniandes/Team13-back). 
 
-In the project directory, you can run:
+So, in order to run the app, first run these commands on the back-end project's root directory:
+
+### `npm install`
+
+Installs node dependencies.
+
+### `npm start`
+
+Starts the server at [http://localhost:3001](http://localhost:3001), with the purpose of avoiding port collisions with the front-end.
+
+
+On the other hand, run these commands in the front-end project's root directory:
+
+### `npm install`
+
+Installs node dependencies.
 
 ### `npm start`
 
@@ -42,7 +57,7 @@ Scroll.
 
 Scroll once more.
 
-![alt text](https://i.imgur.com/jMHYgww.png
+![alt text](https://i.imgur.com/jMHYgww.png)
 
 And now the footer... with our social media of course.
 
