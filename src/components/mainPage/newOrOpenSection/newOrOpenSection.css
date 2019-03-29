@@ -1,0 +1,69 @@
+.NewOrOpen {
+  background-color: #BCE7FD;
+  top: -300px;
+  left: -15%;
+  width: 30rem;
+  height: 30rem;
+  padding: 5%;
+  border-radius: 5%;
+
+  align-items: center !important;
+  text-align: center !important;
+  alignment: center !important;
+  align-content: center !important;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2rem;
+}
+
+.CloseButton{
+  position: static;
+}
+
+.intext-new{
+  position: relative;
+  top:10rem;
+}
+
+.intext-load{
+  position: relative;
+  top:8rem;
+}
+
+.New{
+  background-color: #21FA90;
+  color: #424651;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.New:hover{
+  background-color: 
+}
+
+.Open{
+  background-color: #B54998;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  height: 27rem;
+}
+
+.no-padding{
+  padding: 0 !important;
+}
+
+.no-margin{
+  margin: 0 !important;
+}
+
+.Open-color{
+  background-color: #B54998;
+}
+
+.New-color{
+  background-color: #21FA90;
+}
+
+.Placeholder{
+  height: 100px;
+}

@@ -1,0 +1,232 @@
+ILogin
+IAbrir
+IFeatures
+IEscena
+IColaborativo
+IPor equipos
+INuevo
+IAbout
+IIndividual
+IVersus
+IDibujo
+ISign up
+ITexto
+IBanner
+IChat
+P3
+GCourse types
+I6
+I5
+I9
+I10
+GContent type
+I2
+I4
+I13
+I15
+I11
+GLogin features
+I12
+I7
+I1
+GOther
+I3
+I14
+I8
+P4
+Gtask 'restrictions'
+I5
+I10
+I9
+I6
+Gusual web page elements
+I14
+I15
+I8
+I1
+I12
+Ggraphic elements
+I11
+I13
+I4
+Gfeatures :P
+I2
+I7
+I3
+P6
+GFeatures
+I13
+I15
+I8
+I14
+I11
+I4
+I3
+GInd
+I2
+I12
+I1
+I9
+GGrupal
+I10
+I5
+I6
+I7
+P11
+GSuperior
+I1
+I8
+I11
+I12
+I14
+GContenido
+I5
+I9
+I7
+I13
+I10
+I2
+I6
+I3
+I15
+I4
+P12
+Gcontent type
+I2
+I11
+I13
+I4
+I15
+Gmatch type
+I10
+I9
+I5
+I6
+Guser type
+I7
+I1
+I12
+Gheader
+I8
+I14
+I3
+P13
+GFile
+I11
+I2
+I13
+I4
+GHome
+I12
+I8
+I1
+GGame
+I9
+I5
+I6
+I7
+I10
+GOptions_Page
+I14
+I3
+I15
+P14
+GStart
+I1
+I8
+I12
+GFeatures y elementos
+I7
+I3
+I14
+I15
+I4
+I2
+GGraph
+I11
+I13
+GGame modes
+I9
+I5
+I6
+I10
+P15
+GRegistro
+I1
+I14
+I12
+GGuion
+I11
+I4
+I8
+I3
+I13
+GGrupo
+I10
+I6
+I9
+I5
+GHerramientas
+I2
+I15
+I7
+P16
+GAuth
+I12
+I1
+GGame modes?
+I15
+I9
+I10
+I6
+I5
+GGeneral infi
+I3
+I8
+I14
+GFile/herramientas
+I13
+I7
+I2
+I4
+I11
+P18
+GModalidad de trabajo/juego
+I6
+I10
+I5
+I9
+GEntrada a sitio web
+I12
+I1
+GEmpezar o reanudar algo
+I7
+I2
+GObjetos gráficos
+I14
+I11
+I13
+GPara conocer más
+I3
+I8
+GInteracción social
+I4
+I15
+P19
+GGrupo1
+I9
+I1
+I12
+I2
+I7
+GGrupo2
+I3
+I13
+I11
+I15
+I14
+I6
+I4
+I5
+I10
+I8

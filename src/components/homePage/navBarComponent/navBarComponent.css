@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Sacramento|Amatic+SC');
+
+.Fixed-bar {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  color: white !important;
+}
+
+.bg-dark {
+  background-color: #424651 !important;
+}
+
+.whiteFont {
+  font-size: 18pt;
+  color: white !important;
+  background-color: inherit !important;
+  border: 0px !important;
+}
+
+.navbar-dark {
+  background-color: #424651 !important;
+  padding: 10%;
+}
+.berrybar {
+  background-color: #424651 !important;
+  min-height: 5rem;
+}
+.profile-btn{
+   outline: none !important;
+   box-shadow: none;
+}
+
+

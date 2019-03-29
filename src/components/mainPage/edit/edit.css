@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Sacramento|Amatic+SC');
+
+.Edit {
+    padding: 10%;
+}
+
+.txtInEditor{
+	width: 100%;
+}
+
+label{
+	color: white;
+}

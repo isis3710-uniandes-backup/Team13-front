@@ -1,0 +1,43 @@
+.title{
+	width: 100%;
+	margin-top: 100px;
+	font-size: 3rem;
+	text-align: center;
+	color: #bce7fd;
+}
+.Icon {
+	position: relative;
+	height: 65%;
+	width:  65%;
+}
+.Feature1 {
+	background-color: #B54998;
+}
+
+.Feature-core{
+	width: 16rem;
+	border-radius: 50%;
+	height: 16rem;
+}
+
+.text{
+	color: #bce7fd;
+	width: 100%;
+	font-size: 1.5rem;
+	margin-top: 20px;
+}
+
+.selection{
+	text-align: center;
+  	font-family: 'Raleway', sans-serif;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+	
+a:hover{
+	text-decoration: none;
+	color: inherit;
+}

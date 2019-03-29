@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Sacramento|Amatic+SC');
+
+.About {
+  text-align: center;
+  background-color: #c492b1;
+  padding-top: 5%;
+}
+
+#wave2 {
+  position: relative;
+  height: 70px;
+  width: 100%;
+  background: #bce7fd;
+}

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Sacramento|Amatic+SC');
+
+.Feature {
+  text-align: center;
+  background-color: #bce7fd;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+}
+
+.Feature-core{
+	width: 16rem;
+	border-radius: 50%;
+	height: 16rem;
+}
+
+.Icon {
+	position: relative;
+	top: 19%;
+	height: 60%;
+	width:  60%;
+}
+.Feature1 {
+	background-color: #B54998;
+
+}
+
+.Feature2 {
+	
+	background-color: #21FA90;
+}
+
+.Feature3 {
+	background-color: #C492B1;
+
+}
+
+.Text {
+	background-color: #424651;
+}
+
+.Spacer {
+	width: 100%;
+	height: 100px;
+}

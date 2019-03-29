@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Sacramento|Amatic+SC');
+
+.Home {
+  display: flex;
+  flex-direction: column;
+}
+
+.section{
+  min-height: 50rem;
+}
+
+.centerThisComponent {
+  text-align: center;
+  alignment: center;
+  align-items: center;
+}
