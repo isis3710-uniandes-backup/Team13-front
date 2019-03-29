@@ -14,22 +14,10 @@ Installs node dependencies.
 
 ### `npm start`
 
-Starts the server at [http://localhost:3001](http://localhost:3001), with the purpose of avoiding port collisions with the front-end.
+Starts the server at [http://localhost:3000](http://localhost:3001).
 
 
-On the other hand, run these commands in the front-end project's root directory:
-
-### `npm install`
-
-Installs node dependencies.
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+On the other hand, run these commands in the back-end project's root directory:
 
 ### `npm run build`
 
