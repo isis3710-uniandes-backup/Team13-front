@@ -28,12 +28,12 @@ class NavBarComponent extends Component {
             };   
         }
 
+        this.cerrarSesion = this.cerrarSesion.bind(this);
     }
 
     cerrarSesion(event) {
-        document.cookie = "empleador_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        Router.push('/', )
-        event.preventDefault();
+        this.props.handleLogout();
+        this.setState({loggedIn: false});
     }
 
     iniciarSesion(event) {
@@ -62,6 +62,10 @@ class NavBarComponent extends Component {
                             { !this.state.loggedIn &&
                                 <Nav.Link className="whiteFont" onClick={this.props.handleLoginFunction}>Log in</Nav.Link>
                             }
+                            {
+                                this.state.loggedIn &&
+                                <Nav.Link className="whiteFont"><Link to = "/main"> Start Playing </Link></Nav.Link>
+                            }
                         </Nav>
                         {
                             this.state.loggedIn &&
@@ -73,7 +77,7 @@ class NavBarComponent extends Component {
                                     <Dropdown.Menu>
                                         <Dropdown.Item href="#" onClick={this.props.handleNew}> New </Dropdown.Item>
                                         <Dropdown.Item href="#" onClick={this.props.handleLoad}> Open </Dropdown.Item>
-                                        <Dropdown.Item href="#" onClick={this.props.handleLogout}> Logout </Dropdown.Item>
+                                        <Dropdown.Item href="#" onClick={this.cerrarSesion}> Logout </Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Form>

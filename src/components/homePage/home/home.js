@@ -8,6 +8,9 @@ import FooterSection from "../footerSection/footerSection";
 import {NavBarComponent} from "../navBarComponent/navBarComponent";
 import {LoginComponent} from "../loginComponent/loginComponent";
 import SignupComponent from "../signupComponent/signupComponent";
+import { userActions } from '../../../_actions/user.actions';
+import { connect } from 'react-redux';
+import {store} from '../../../_helpers/store';
 
 
 class Home extends Component {
@@ -23,6 +26,11 @@ class Home extends Component {
         this.changeLoginView = this.changeLoginView.bind(this);
         this.changeJustLoginView = this.changeJustLoginView.bind(this);
         this.changeSignUpView= this.changeSignUpView.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
+
+
+        console.log("HOME");
+        console.log(this.props);
     }
     changeLoginView(event) {
 
@@ -35,7 +43,9 @@ class Home extends Component {
         });
         if(event) event.preventDefault();
     }
-
+    handleLogout(event){
+        this.props.dispatch(userActions.logout());
+    }
      scrollTo(id){
         document.getElementById(id).scrollIntoView();
     }
@@ -79,10 +89,25 @@ class Home extends Component {
                 manageScrollFeatures= { () => {document.getElementById('features').scrollIntoView();}}
                 manageScrollAbout = { () => {document.getElementById('about').scrollIntoView();}} 
                 handleLoginFunction={this.changeJustLoginView} handleSignupFunction = {this.changeSignUpView}
-                loggedIn = {false} />
+                handleNew = {() => {console.log('todo');}} 
+                handleLoad = {() => console.log('todo')}
+                handleLogout = {this.handleLogout}/>
             </div>
         );
     }
 }
 
-export default Home;
+function mapStateToProps(state) {
+
+    const { user } = state.authentication;
+
+    return {
+        user
+    };
+}
+
+
+const connectedHome = connect(mapStateToProps)(Home);
+export { connectedHome as Home };
+
+//export default Home;

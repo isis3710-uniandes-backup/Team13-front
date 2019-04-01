@@ -30,6 +30,9 @@ class Main extends Component {
                 currentCard: -1
         };
 
+        console.log("MAIN");
+        console.log(this.props);
+
         //Si no hay login, debe reenviar al inicio.
         if(this.props.user === undefined || this.props.user === null){
             this.state.goHome = true;

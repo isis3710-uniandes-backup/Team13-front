@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import Home from './components/homePage/home/home';
+import {Home} from './components/homePage/home/home';
 import {Main} from './components/mainPage/main/main';
 import { connect } from 'react-redux';
 

@@ -17,7 +17,7 @@ class LoginComponent extends Component {
   constructor(props){
     super(props);
 
-    this.props.dispatch(userActions.logout());
+    //this.props.dispatch(userActions.logout());
 
 
         this.state = {
@@ -123,7 +123,6 @@ class LoginComponent extends Component {
 
 
 function mapStateToProps(state) {
-    console.log("mapStateToProps");
     const { user } = state.authentication;
 
     return {
