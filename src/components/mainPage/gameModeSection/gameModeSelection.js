@@ -3,7 +3,6 @@ import './gameModeSelection.css';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom';
 import {FaRegNewspaper} from 'react-icons/fa';
 import { connect } from 'react-redux';
 

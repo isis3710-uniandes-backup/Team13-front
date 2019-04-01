@@ -3,7 +3,6 @@
 
 import { userConstants } from '../_constants/user.constants';
 import { userService } from '../_services/user.service';
-import {store} from '../_helpers/store'
 
 export const userActions = {
     login,
@@ -16,7 +15,14 @@ function login(username, password) {
         dispatch(request({ username }));
 
         
-        dispatch(success(userService.login(username, password)));
+        let obj = userService.login(username, password)
+        
+        if(obj.isLoggedIn){
+            dispatch(success(obj));
+        }
+        else{
+            dispatch(failure(obj));
+        }
 
             /*userService(username,password).then(
                 user => { 

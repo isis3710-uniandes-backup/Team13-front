@@ -3,10 +3,14 @@ import './loginComponent.css';
 import {FormGroup} from "react-bootstrap";
 import FormCheckInput from "react-bootstrap/FormCheckInput";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
+
 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../../../_actions/user.actions';
+import {store} from '../../../_helpers/store';
+import { Redirect } from 'react-router';
 
 class LoginComponent extends Component {
 
@@ -18,7 +22,9 @@ class LoginComponent extends Component {
 
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            failedLogin: false,
+            redirect: false
         };
 
 
@@ -29,13 +35,31 @@ class LoginComponent extends Component {
   handleSubmit(e){
     e.preventDefault();
     e.preventDefault();
-
-
     const { username, password } = this.state;
     const { dispatch } = this.props;
     if (username && password) {
-      dispatch(userActions.login(username, password));
+      dispatch(userActions.login(username, password))
+
+      if(store.getState().authentication.user !== undefined && store.getState().authentication.user.isLoggedIn){
+        this.setState({
+            username: '',
+            password: '',
+            failedLogin: true,
+            redirect: true
+        })
+      }
+      else {
+       this.setState({
+              username: '',
+              password: '',
+              failedLogin: true,
+              redirect: false
+        })
+      }
+
     }
+
+
   }
 
    handleChange(e) {
@@ -46,11 +70,16 @@ class LoginComponent extends Component {
 
       this.setState({
         username: email,
-        password: pass
+        password: pass,
+        failedLogin: this.state.failedLogin,
+        redirect: this.state.redirect
       });
   }
 
   render() {
+      if (this.state.redirect) {
+        return <Redirect push to="/main" />;
+      }   
       if(this.props.showLogin){
           return (
               <div className="Login">
@@ -71,12 +100,18 @@ class LoginComponent extends Component {
                   <br/>
                   <div className="alignRight">
                       <Button className="mainColor" type="submit" onClick={this.handleSubmit}>
-                          <Link to="/main" className="mainColor">Login</Link>
+                         <div className="mainColor">Login</div>
                       </Button>
                   </div>
                   <div>Don't have an account yet? <div className="Green-link" onClick={this.props.changeSignUp}>Sign up!</div> It's free!</div>
                   
                   <br/>
+                   { 
+                    this.state.failedLogin &&
+                    <Alert variant='danger'>
+                      Username or Password Incorrect
+                    </Alert>
+                  }
               </div>
           );
       } else {
@@ -88,10 +123,11 @@ class LoginComponent extends Component {
 
 
 function mapStateToProps(state) {
+    console.log("mapStateToProps");
+    const { user } = state.authentication;
 
-    const { loggingIn } = state.authentication;
     return {
-        loggingIn
+        user
     };
 }
 
