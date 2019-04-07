@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './home.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import IntroSection from '../introSection/introSection';
+import {IntroSection} from '../introSection/introSection';
 import FeaturesSection from "../featuresSection/featuresSection";
 import AboutSection from "../aboutSection/aboutSection";
 import FooterSection from "../footerSection/footerSection";
