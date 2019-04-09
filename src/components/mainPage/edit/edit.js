@@ -9,7 +9,6 @@ import imgUndo from "./undo.svg";
 import { SketchPicker } from 'react-color'
 import CanvasDraw from 'react-canvas-draw'
 
-
 class Edit extends Component {
 
     constructor(props) {
@@ -125,7 +124,14 @@ class Edit extends Component {
                 <div className="Edit">
         <Container>
             <Row>
-                <input type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
+                <Col className = "no-padding">
+                    <input type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
+                </Col>
+                <Col>
+                    <button type="button" class="close close-btn" aria-label="Close" onClick = {this.props.closeEditor}>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </Col>
             </Row>
             <Row>
                 <Col>

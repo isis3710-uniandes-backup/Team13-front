@@ -30,9 +30,6 @@ class Main extends Component {
                 currentCard: -1
         };
 
-        console.log("MAIN");
-        console.log(this.props);
-
         //Si no hay login, debe reenviar al inicio.
         if(this.props.user === undefined || this.props.user === null){
             this.state.goHome = true;
@@ -52,6 +49,7 @@ class Main extends Component {
         this.handleStoryboardOpen = this.handleStoryboardOpen.bind(this);
         this.handleStoryboardOpenClose = this.handleStoryboardOpenClose.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
+        this.closeEditor = this.closeEditor.bind(this);
     }
 
     changeStoryboardView(event) {
@@ -180,6 +178,22 @@ class Main extends Component {
             })
         );
     }
+
+    closeEditor(){
+        this.setState({
+            showStoryboard: true,
+            showEdition: false,
+            showGameMode: false,
+            showNewOrOpen: false,
+            showOpen: false,
+            goHome: false,
+            cards:[],
+            currentCard: -1
+
+        });
+
+        this.componentDidMount();
+    }
     
     render() {
         const cardsToSend = this.state.cards;
@@ -189,7 +203,7 @@ class Main extends Component {
                 <GameModeSelection show={ this.state.showGameMode } onClick={ this.openStoryboardNewOrOpen } />
                 <Storyboard addCardBE={this.addCardBE} getCardBE={this.getCardBE} removeCardBE={this.removeCardBE}
                 cardsIn={cardsToSend} show={ this.state.showStoryboard } onEdit={ this.changeView }/>
-                <Edit theID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE}/>
+                <Edit theID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE} closeEditor={this.closeEditor}/>
                 <NewOrOpenSection show={ this.state.showNewOrOpen} handleClose ={this.handleCloseShowNewOrOpen} 
                     handleNew={this.handleStoryboardOpen} handleLoad={this.handleStoryboardOpen} 
                     handleNewStoryboard={this.changeView}/>

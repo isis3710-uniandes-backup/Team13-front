@@ -11,3 +11,11 @@
 label{
 	color: white;
 }
+
+.close-btn{
+	color: white;
+}
+
+.no-padding{
+	padding: 0px !important;
+}
