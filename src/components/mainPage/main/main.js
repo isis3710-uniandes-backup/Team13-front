@@ -50,6 +50,7 @@ class Main extends Component {
         this.handleStoryboardOpenClose = this.handleStoryboardOpenClose.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
         this.closeEditor = this.closeEditor.bind(this);
+        this.closeStoryboard = this.closeStoryboard.bind(this);
     }
 
     changeStoryboardView(event) {
@@ -114,6 +115,17 @@ class Main extends Component {
             showGameMode: false,
             showNewOrOpen: true,
             showOpen: false
+        });
+    }
+
+    closeStoryboard(){
+        this.setState({
+            showStoryboard: false,
+            showEdition: false,
+            showGameMode: true,
+            showNewOrOpen: false,
+            showOpen: false,
+            goHome: false
         });
     }
 
@@ -202,7 +214,8 @@ class Main extends Component {
             <div className="Main">
                 <GameModeSelection show={ this.state.showGameMode } onClick={ this.openStoryboardNewOrOpen } />
                 <Storyboard addCardBE={this.addCardBE} getCardBE={this.getCardBE} removeCardBE={this.removeCardBE}
-                cardsIn={cardsToSend} show={ this.state.showStoryboard } onEdit={ this.changeView }/>
+                cardsIn={cardsToSend} show={ this.state.showStoryboard } onEdit={ this.changeView }
+                closeStoryboard={this.closeStoryboard} />
                 <Edit theID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE} closeEditor={this.closeEditor}/>
                 <NewOrOpenSection show={ this.state.showNewOrOpen} handleClose ={this.handleCloseShowNewOrOpen} 
                     handleNew={this.handleStoryboardOpen} handleLoad={this.handleStoryboardOpen} 

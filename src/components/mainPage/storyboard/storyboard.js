@@ -70,6 +70,13 @@ class Storyboard extends Component {
                 <div className="Storyboard">
                     <Container>
                         <Row>
+                            <Col>
+                                <button type="button" class="close close-btn" aria-label="Close" onClick = {this.props.closeStoryboard}>
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </Col>
+                        </Row>
+                        <Row>
                             { getCards }
                             <Col>
                                 <Button variant="primary" onClick={(e) => this.addCard(e)}>Agregar</Button>
