@@ -5,6 +5,7 @@ import FormCheckInput from "react-bootstrap/FormCheckInput";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import { FaRegCheckCircle } from "react-icons/fa/index";
+import {FormattedMessage} from 'react-intl';
 
 
 class SignupComponent extends Component {
@@ -90,15 +91,15 @@ class SignupComponent extends Component {
                     <span aria-hidden="true">&times;</span>
                   </Button>
                   <h1 className="titleBerry">
-                      Sign up
+                      <FormattedMessage id="Join"/>
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
-                      <FormCheckInput id = "email" onChange={this.handleChange} className="pinky" type="email" placeholder="Enter email" /> <br/>
+                      <FormCheckInput aria-label="email" id = "email" onChange={this.handleChange} className="pinky" type="email" placeholder="Enter email" /> <br/>
                   </FormGroup>
                   <br/>
                   <FormGroup controlId="formBasicPassword">
-                      <FormCheckInput id = "pass" onChange={this.handleChange} className="pinky" type="password" placeholder="Password" />
+                      <FormCheckInput aria-label="password" id = "pass" onChange={this.handleChange} className="pinky" type="password" placeholder="Password" />
                   </FormGroup>
                   <br/>
                   <div className="alignRight">
@@ -111,13 +112,13 @@ class SignupComponent extends Component {
                   { 
                     this.state.signUpError &&
                     <Alert variant='danger'>
-                      Email Already in Use
+                    <FormattedMessage id="already use"/>
                     </Alert>
                   }
                   { 
                     this.state.signUpOk &&
                     <Alert variant='success'>
-                      User registered. Please login now.
+                    <FormattedMessage id="User registered"/>
                     </Alert>
                   }
               </div>

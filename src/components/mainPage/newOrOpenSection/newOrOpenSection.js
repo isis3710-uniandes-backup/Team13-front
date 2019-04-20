@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import './newOrOpenSection.css';
+import {FormattedMessage} from 'react-intl';
 
 class NewOrOpenSection extends Component {
 
@@ -29,11 +30,12 @@ class NewOrOpenSection extends Component {
 	                  			<Container className="no-padding no-margin">
 	                  				<Row className = "no-margin no-padding">
 	                  					<Col className = "New no-margin" onClick = {this.props.handleNewStoryboard}>
-	                  						<b className="intext-new">Create a new Storyboard</b>
+
+	                  						<h1 className="intext-new"><FormattedMessage id="Create a new Storyboard"/></h1>
 	                  					</Col>
 	                  					<Col className = "Open no-margin" onClick = {this.props.handleLoad}>
 	                  					
-	                  						<b className="intext-load">Open an existing Storyboard</b>
+	                  						<h1 className="intext-load"><FormattedMessage id="Open an existing storyboard"/></h1>
 	                  					</Col>
 	                  				</Row>
 	                  			</Container>

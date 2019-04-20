@@ -31,7 +31,8 @@
 
 .main-display-sbo{
 	background-color: white;
-	height: 23rem;
+	min-height: 26rem;
+	height: auto;
 }
 
 .filename{

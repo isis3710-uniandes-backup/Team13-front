@@ -4,6 +4,7 @@ import imgBrand from "./logo.svg";
 import Button from "react-bootstrap/es/Button";
 import { connect } from 'react-redux';
 import { HashLink as Link } from 'react-router-hash-link';
+import {FormattedMessage} from 'react-intl';
 
 
 class IntroSection extends Component {
@@ -28,21 +29,21 @@ class IntroSection extends Component {
     return (
       <div className="Intro section" id="intro" onClick={this.props.onClick}>
           <div className="transformText">4Berry</div>
-        <img className="Intro-logo" src={imgBrand} alt="logo"/>
+        <img className="Intro-logo" src={imgBrand} alt="4Berry Logo"/>
         <div className="pushCenter">
             <div className="mainBerry">
-                4Berry
+                <h1>4Berry</h1>
             </div>
-            <h4 className="subtitleBerry">
-                Life started from a storyboard !
-            </h4>
+            <h2 className="subtitleBerry">
+              <FormattedMessage id="Life"/>
+            </h2>
             { !this.state.loggedIn &&
-              <Button className="mainButton" onClick={this.props.handleJoin}>Join now !</Button>
+              <Button className="mainButton" onClick={this.props.handleJoin}><FormattedMessage id="Join now"/></Button>
             }
             {
               this.state.loggedIn &&
               <Button className="mainButton">
-                <Link to = "/main"> Start Playing </Link>
+                <Link to = "/main"><FormattedMessage id="Start playing"/></Link>
               </Button>
             }
 

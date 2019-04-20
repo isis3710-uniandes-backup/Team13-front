@@ -7,6 +7,7 @@ import { Router } from 'react-router';
 import { HashLink as Link } from 'react-router-hash-link';
 import { connect } from 'react-redux';
 import {FaRegUser} from "react-icons/fa/index";
+import {FormattedMessage} from 'react-intl';
 
 
 class NavBarComponent extends Component {
@@ -44,7 +45,6 @@ class NavBarComponent extends Component {
 
 
         return (
-
             <Navbar className="Fixed-bar" bg="dark" expand="lg" variant="dark">
                 <Navbar.Brand  onClick = {this.props.manageScrollIntro} className="whiteFont">
                     <img alt="" src={imgBrand} width="60" height="60" className="d-inline-block align-top"/>
@@ -80,8 +80,6 @@ class NavBarComponent extends Component {
                                 </Dropdown.Menu>
                             </Dropdown>
                         </Form>
-
-
                     }
                 </Navbar.Collapse>
             </Navbar>

@@ -8,6 +8,7 @@ import imgClear from "./clear.svg";
 import imgUndo from "./undo.svg";
 import { SketchPicker } from 'react-color'
 import CanvasDraw from 'react-canvas-draw'
+import {FormattedMessage} from 'react-intl'
 
 class Edit extends Component {
 
@@ -124,8 +125,12 @@ class Edit extends Component {
                 <div className="Edit">
         <Container>
             <Row>
+                <h1 className="AxeH1">{this.state.title}</h1>
+            </Row>
+            <br/>
+            <Row>
                 <Col className = "no-padding">
-                    <input type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
+                    <input aria-label= "card title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                 </Col>
                 <Col>
                     <button type="button" className="close close-btn" aria-label="Close" onClick = {this.props.closeEditor}>
@@ -136,37 +141,37 @@ class Edit extends Component {
             <Row>
                 <Col>
                     <Row>
-                        <label>Canvas Width:</label>
+                        <label><FormattedMessage id="Canvas Width"/></label>
                     </Row>
                     <Row>
-                        <input type="number" value={this.state.width} onChange={e =>
+                        <input aria-label="set canvas width" type="number" value={this.state.width} onChange={e =>
                         this.setState({ width: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>
                 <Col>
                     <Row>
-                        <label>Canvas Height:</label>
+                        <label><FormattedMessage id="Canvas Height"/></label>
                     </Row>
                     <Row>
-                        <input type="number" value={this.state.height} onChange={e =>
+                        <input aria-label="set canvas height" type="number" value={this.state.height} onChange={e =>
                         this.setState({ height: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>
                 <Col>
                     <Row>
-                        <label>Brush Radius:</label>
+                        <label><FormattedMessage id="Brush Radius"/></label>
                     </Row>
                     <Row>
-                        <input type="number" value={this.state.brushRadius} onChange={e =>
+                        <input aria-label="set bursh radius" type="number" value={this.state.brushRadius} onChange={e =>
                         this.setState({ brushRadius: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>  
                 <Col>
                     <Row>
-                        <label>Lazy Radius:</label>
+                        <label><FormattedMessage id="Lazy Radius"/></label>
                     </Row>
                     <Row>
-                        <input type="number" value={this.state.lazyRadius} onChange={e =>
+                        <input aria-label="set lazy radius" type="number" value={this.state.lazyRadius} onChange={e =>
                         this.setState({ lazyRadius: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>
@@ -217,7 +222,7 @@ class Edit extends Component {
             </Row>
             <br/>
             <Row>
-                <input className="txtInEditor" type="text" defaultValue={this.state.txtArea} ref={(ref) => this.inputTxt = ref}/>
+                <input aria-label= "card text" className="txtInEditor" type="text" defaultValue={this.state.txtArea} ref={(ref) => this.inputTxt = ref}/>
             </Row>
         </Container>        
       </div>

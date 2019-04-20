@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Card, Button, Col, Row, Container } from 'react-bootstrap';
 import './storyboard.css';
+import {FormattedMessage} from 'react-intl';
 
 const getNewId = (array) => {
     if (array.length > 0) {
@@ -83,7 +84,7 @@ class Storyboard extends Component {
         const getCards = this.state.cards.map((c) => {
             return (
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://static3planetadelibroscom.cdnstatics.com/usuaris/web_minisite/fotos/1/original/148__c_comic_mobile3.jpg" />
+                <Card.Img alt="card image" variant="top" src="https://static3planetadelibroscom.cdnstatics.com/usuaris/web_minisite/fotos/1/original/148__c_comic_mobile3.jpg" />
                 <Card.Body>
                     <Card.Title>
                         { c.title }
@@ -91,8 +92,8 @@ class Storyboard extends Component {
                     <Card.Text>
                         { c.text }
                     </Card.Text>
-                        <Button variant="primary" onClick={() => this.onEdit(c.id)}>Editar</Button>
-                    <Button variant="primary" onClick={() => this.removeCard(c.id)}>Borrar</Button>
+                        <Button variant="primary" onClick={() => this.onEdit(c.id)}><FormattedMessage id="Edit"/></Button>
+                    <Button variant="primary" onClick={() => this.removeCard(c.id)}><FormattedMessage id="Remove"/></Button>
                 </Card.Body>
             </Card>);
         })
@@ -101,11 +102,15 @@ class Storyboard extends Component {
                 <div className="Storyboard">
                     <Container>
                         <Row>
+                            <h1 className="AxeH1">{this.state.title}</h1>
+                        </Row>
+                        <br/>
+                        <Row>
                             <Col className = "no-padding">
-                                <input type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
+                                <input aria-label= "storyboard's title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                             </Col>
                             <Col className = "no-padding">
-                                <Button variant="primary" onClick={(e) => this.updateStoryboard(e)}>Guardar</Button>
+                                <Button variant="primary" onClick={(e) => this.updateStoryboard(e)}><FormattedMessage id="Guardar"/></Button>
                             </Col>
                             <Col>
                                 <button type="button" className="close close-btn" aria-label="Close" onClick = {this.props.closeStoryboard}>
@@ -113,10 +118,11 @@ class Storyboard extends Component {
                                 </button>
                             </Col>
                         </Row>
+                        <br/>
                         <Row>
                             { getCards }
                             <Col>
-                                <Button variant="primary" onClick={(e) => this.addCard(e)}>Agregar</Button>
+                                <Button variant="primary" onClick={(e) => this.addCard(e)}><FormattedMessage id="Add"/></Button>
                             </Col>
                         </Row>
                     </Container>

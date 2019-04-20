@@ -9,6 +9,7 @@ import { userActions } from '../../../_actions/user.actions';
 import {store} from '../../../_helpers/store';
 import { Redirect } from 'react-router';
 import { FaRegCheckCircle } from "react-icons/fa/index";
+import {FormattedMessage} from 'react-intl';
 
 class LoginComponent extends Component {
 
@@ -85,15 +86,15 @@ class LoginComponent extends Component {
                     <span aria-hidden="true">&times;</span>
                   </Button>
                   <h1 className="titleBerry">
-                      Login
+                      <FormattedMessage id="Log in"/>
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
-                      <FormCheckInput id = "email" className="pinky" type="email" placeholder="Enter email" onChange={this.handleChange} /> <br/>
+                      <FormCheckInput aria-label="email" id = "email" className="pinky" type="email" placeholder="Enter email" onChange={this.handleChange} /> <br/>
                   </FormGroup>
                   <br/>
                   <FormGroup controlId="formBasicPassword">
-                      <FormCheckInput id = "pass" className="pinky" type="password" placeholder="Password" onChange={this.handleChange} />
+                      <FormCheckInput aria-label="password" id = "pass" className="pinky" type="password" placeholder="Password" onChange={this.handleChange} />
                   </FormGroup>
                   <br/>
                   <div className="alignRight">
@@ -103,12 +104,13 @@ class LoginComponent extends Component {
                   </div>
                   <br/>
                   <div className="mini">Don't have an account yet? <div className="Green-link" onClick={this.props.changeSignUp}>Sign up!</div> It's free!</div>
+
                   
                   <br/>
                    { 
                     this.state.failedLogin &&
                     <Alert variant='danger'>
-                      Username or Password Incorrect
+                      <FormattedMessage id="Incorrect"/>
                     </Alert>
                   }
               </div>

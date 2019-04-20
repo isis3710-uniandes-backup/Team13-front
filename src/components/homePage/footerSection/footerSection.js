@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './footerSection.css';
 import {FaFacebook, FaGithub, FaInstagram} from "react-icons/fa/index";
+import {FormattedMessage} from 'react-intl';
+import imgBrand from "./logo.svg";
 
 class FooterSection extends Component {
   render() {
@@ -8,20 +10,20 @@ class FooterSection extends Component {
       <div className="Footer">
           <div className="row">
               <div className="col">
-                  <span onClick = {this.props.manageScrollIntro}>Home </span><br/><br/>
-                  <span onClick = {this.props.manageScrollFeatures}>Features </span><br/><br/>
-                  <span onClick = {this.props.manageScrollAbout}>About </span><br/>
+                  <span onClick = {this.props.manageScrollIntro}><FormattedMessage id="Home"/></span><br/><br/>
+                  <span onClick = {this.props.manageScrollFeatures}><FormattedMessage id="Features"/></span><br/><br/>
+                  <span onClick = {this.props.manageScrollAbout}><FormattedMessage id="About"/></span><br/>
               </div>
               <div className="col">
-                  <span onClick={this.props.handleLoginFunction}>Login </span><br/><br/>
-                  <span onClick={this.props.handleSignupFunction}>Sign up </span><br/>
+                  <span onClick={this.props.handleLoginFunction}><FormattedMessage id="Log in"/></span><br/><br/>
+                  <span onClick={this.props.handleSignupFunction}><FormattedMessage id="Join"/></span><br/>
               </div>
               <div className="col">
-                  <span onClick={this.props.handleLoginFunction}>Create new Drawing </span><br/><br/>
-                  <span onClick={this.props.handleLoginFunction}>Open project </span><br/>
+                  <span onClick={this.props.handleLoginFunction}><FormattedMessage id="New"/></span><br/><br/>
+                  <span onClick={this.props.handleLoginFunction}><FormattedMessage id="Open"/></span><br/>
               </div>
               <div className="col">
-                  <div className="Footer-logo" alt="logo"/>
+                  <img  src={imgBrand} className="Footer-logo" alt="logo"/>
               </div>
           </div>
           <div className="moveAbs">
