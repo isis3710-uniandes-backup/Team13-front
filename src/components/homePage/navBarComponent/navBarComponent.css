@@ -34,5 +34,7 @@ span.navbar-toggler-icon{
    outline: none !important;
    box-shadow: none;
 }
-
+span.navbar-toggler-icon{
+  color: white !important;
+}
 

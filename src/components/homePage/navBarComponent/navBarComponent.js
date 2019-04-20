@@ -45,7 +45,7 @@ class NavBarComponent extends Component {
 
         return (
 
-            <Navbar className="Fixed-bar" bg="dark" expand="lg">
+            <Navbar className="Fixed-bar" bg="dark" expand="lg" variant="dark">
                 <Navbar.Brand  onClick = {this.props.manageScrollIntro} className="whiteFont">
                     <img alt="" src={imgBrand} width="60" height="60" className="d-inline-block align-top"/>
                 </Navbar.Brand>
