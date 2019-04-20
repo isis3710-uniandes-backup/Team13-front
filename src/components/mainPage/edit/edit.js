@@ -125,8 +125,9 @@ class Edit extends Component {
                 <div className="Edit">
         <Container>
             <Row>
-                <h1 className="AxeH1"><FormattedMessage id = "CardEditor"/></h1>
+                <h1 className="AxeH1">{this.state.title}</h1>
             </Row>
+            <br/>
             <Row>
                 <Col className = "no-padding">
                     <input aria-label= "card title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>

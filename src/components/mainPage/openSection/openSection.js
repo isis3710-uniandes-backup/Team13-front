@@ -50,11 +50,11 @@ class OpenSection extends Component {
 	render() {
 		const getStoryboards = this.state.storyboards.map((f) => {
 			return (
-				<Card style={{ width: '18rem' }}>
-                <Card.Img alt = "storyboard image" variant="top" src="https://static3planetadelibroscom.cdnstatics.com/usuaris/web_minisite/fotos/1/original/148__c_comic_mobile3.jpg" />
+				<Card style={{ width: '13rem' }}>
+                <Card.Img alt = "storyboard image" variant="top" src="https://live.staticflickr.com/1703/25397451530_014f042484_b.jpg" />
                 <Card.Body>
                     <Card.Title>
-                        { f.title }
+                        {f.id}. { f.title }
                     </Card.Title>
                     <Button variant="primary" onClick={() => this.onEdit(f.id)}><FormattedMessage id="Edit"/></Button>
 							<Button variant="primary" onClick={() => this.removeStoryboard(f.id)}><FormattedMessage id="Remove"/></Button>
@@ -72,7 +72,7 @@ class OpenSection extends Component {
 						<Row>
 							<Col>
 							</Col>
-							<Col className="Open-sb sbo-container" xs ={6}>
+							<Col className="Open-sb sbo-container" xs ={9}>
 								<Container>
 									<Row>
 										<Col>

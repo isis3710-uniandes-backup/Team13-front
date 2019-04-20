@@ -102,8 +102,9 @@ class Storyboard extends Component {
                 <div className="Storyboard">
                     <Container>
                         <Row>
-                            <h1 className="AxeH1"><FormattedMessage id="SbEditor" /></h1>
+                            <h1 className="AxeH1">{this.state.title}</h1>
                         </Row>
+                        <br/>
                         <Row>
                             <Col className = "no-padding">
                                 <input aria-label= "storyboard's title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>

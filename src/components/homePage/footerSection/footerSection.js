@@ -3,6 +3,7 @@ import './footerSection.css';
 import {FaFacebook, FaGithub, FaInstagram} from "react-icons/fa/index";
 import {Nav} from "react-bootstrap";
 import {FormattedMessage} from 'react-intl';
+import imgBrand from "./logo.svg";
 
 class FooterSection extends Component {
   render() {
@@ -23,7 +24,7 @@ class FooterSection extends Component {
                   <span onClick={this.props.handleLoginFunction}><FormattedMessage id="Open"/></span><br/>
               </div>
               <div className="col">
-                  <div className="Footer-logo" alt="logo"/>
+                  <img  src={imgBrand} className="Footer-logo" alt="logo"/>
               </div>
           </div>
           <div className="moveAbs">
