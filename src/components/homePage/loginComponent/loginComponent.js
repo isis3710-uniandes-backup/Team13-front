@@ -4,13 +4,12 @@ import {FormGroup} from "react-bootstrap";
 import FormCheckInput from "react-bootstrap/FormCheckInput";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-
-
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../../../_actions/user.actions';
 import {store} from '../../../_helpers/store';
 import { Redirect } from 'react-router';
+import {FormattedMessage} from 'react-intl';
 
 class LoginComponent extends Component {
 
@@ -87,7 +86,7 @@ class LoginComponent extends Component {
                     <span aria-hidden="true">&times;</span>
                   </Button>
                   <h1 className="titleBerry">
-                      Login
+                      <FormattedMessage id="Log in"/>
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
@@ -100,16 +99,17 @@ class LoginComponent extends Component {
                   <br/>
                   <div className="alignRight">
                       <Button className="mainColor" type="submit" onClick={this.handleSubmit}>
-                         <div className="mainColor">Login</div>
+                         <div className="mainColor"><FormattedMessage id="Log in"/></div>
                       </Button>
                   </div>
-                  <div>Don't have an account yet? <div className="Green-link" onClick={this.props.changeSignUp}>Sign up!</div> It's free!</div>
+                  <div><FormattedMessage id="No account"/><div className="Green-link" onClick={this.props.changeSignUp}>
+                  <FormattedMessage id="Sign up"/></div><FormattedMessage id="Free"/></div>
                   
                   <br/>
                    { 
                     this.state.failedLogin &&
                     <Alert variant='danger'>
-                      Username or Password Incorrect
+                      <FormattedMessage id="Incorrect"/>
                     </Alert>
                   }
               </div>

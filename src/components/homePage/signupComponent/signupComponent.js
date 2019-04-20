@@ -4,6 +4,7 @@ import {FormGroup} from "react-bootstrap";
 import FormCheckInput from "react-bootstrap/FormCheckInput";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import {FormattedMessage} from 'react-intl';
 
 
 class SignupComponent extends Component {
@@ -90,7 +91,7 @@ class SignupComponent extends Component {
                     <span aria-hidden="true">&times;</span>
                   </Button>
                   <h1 className="titleBerry">
-                      Sign up
+                      <FormattedMessage id="Join"/>
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
@@ -104,20 +105,20 @@ class SignupComponent extends Component {
                   <br/>
                   <div className="alignRight">
                       <Button id="mainColor" type="submit" onClick={this.handleSubmit}>
-                          Sign up
+                          <FormattedMessage id="Join"/>
                       </Button>
                   </div>
-                  <div>Already have an account? <div className="Green-link" onClick={this.props.changeLogIn}>Log in!</div> It's free !</div>
+                  <div><FormattedMessage id="yes account"/><div className="Green-link" onClick={this.props.changeLogIn}><FormattedMessage id="Log in"/></div></div>
                   { 
                     this.state.signUpError &&
                     <Alert variant='danger'>
-                      Email Already in Use
+                    <FormattedMessage id="already use"/>
                     </Alert>
                   }
                   { 
                     this.state.signUpOk &&
                     <Alert variant='success'>
-                      User registered. Please login now.
+                    <FormattedMessage id="User registered"/>
                     </Alert>
                   }
               </div>

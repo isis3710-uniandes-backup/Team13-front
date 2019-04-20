@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Card, Button, Col, Row, Container } from 'react-bootstrap';
 import './openSection.css';
+import {FormattedMessage} from 'react-intl';
 
 const getNewId = (array) => {
     if (array.length > 0) {
@@ -52,20 +50,16 @@ class OpenSection extends Component {
 	render() {
 		const getStoryboards = this.state.storyboards.map((f) => {
 			return (
-				<Col xs = {4}>
-					<Container>
-						<Col xs = {1}>
-						</Col>
-						<button type="button" class="close close-btn" aria-label="Close" onClick = {() => this.removeStoryboard(f.id)}>
-                                <span aria-hidden="true">&times;</span>
-                        </button>
-						<Col xs={10} className = "titleCol" onClick={() => this.onEdit(f.id)}>
-							<p className="filename">{f.title} {f.id}</p>
-						 </Col>
-						 <Col xs = {1}>
-						 </Col>
-					</Container>
-				</Col>
+				<Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="https://static3planetadelibroscom.cdnstatics.com/usuaris/web_minisite/fotos/1/original/148__c_comic_mobile3.jpg" />
+                <Card.Body>
+                    <Card.Title>
+                        { f.title }
+                    </Card.Title>
+                    <Button variant="primary" onClick={() => this.onEdit(f.id)}><FormattedMessage id="Edit"/></Button>
+							<Button variant="primary" onClick={() => this.removeStoryboard(f.id)}><FormattedMessage id="Remove"/></Button>
+                </Card.Body>
+            	</Card>
 			);
 		});
 
@@ -94,7 +88,7 @@ class OpenSection extends Component {
 									<Row>
 										<Col className="title-sbo">
 											<h1>Select a storyboard to open</h1>
-											<b>Double-click on a storyboard to open it</b>
+											<b><FormattedMessage id="Click on"/></b>
 										</Col>
 									</Row>
 									<Row className = "main-display-sbo">
@@ -102,7 +96,7 @@ class OpenSection extends Component {
 											<Row>
 											{ getStoryboards }
 											<Col>
-                                				<Button variant="primary" onClick={(e) => this.addStoryboard(e)}>Agregar</Button>
+                                				<Button variant="primary" onClick={(e) => this.addStoryboard(e)}><FormattedMessage id="Add"/></Button>
                            					</Col>
 											</Row>
 										</Container>

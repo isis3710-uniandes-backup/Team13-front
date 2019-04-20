@@ -8,6 +8,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 import { connect } from 'react-redux';
 import {GiPerson, GiRamProfile} from "react-icons/gi";
 import {FaRegUser} from "react-icons/fa/index";
+import {FormattedMessage} from 'react-intl';
 
 
 class NavBarComponent extends Component {
@@ -17,7 +18,7 @@ class NavBarComponent extends Component {
         this.cerrarSesion = this.cerrarSesion.bind(this);
         this.iniciarSesion = this.iniciarSesion.bind(this);
 
-        if(this.props.user != undefined && this.props.user != null){
+        if(this.props.user !== undefined && this.props.user !== null){
             this.state = {
                 loggedIn: this.props.user.isLoggedIn
             };
@@ -53,18 +54,18 @@ class NavBarComponent extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link className="whiteFont" onClick = {this.props.manageScrollIntro}> <Link to="/" >Home </Link></Nav.Link>
-                            <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollFeatures}> <Link to="/"  onClick = {this.props.manageScrollFeatures}>Features </Link></Nav.Link>
-                            <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollAbout}> <Link to="/" > About </Link></Nav.Link>
+                            <Nav.Link className="whiteFont" onClick = {this.props.manageScrollIntro}> <Link to="/"><FormattedMessage id="Home"/></Link></Nav.Link>
+                            <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollFeatures}> <Link to="/"  onClick = {this.props.manageScrollFeatures}><FormattedMessage id="Features"/></Link></Nav.Link>
+                            <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollAbout}> <Link to="/" ><FormattedMessage id="About"/></Link></Nav.Link>
                             { !this.state.loggedIn &&
-                                <Nav.Link className="whiteFont" onClick={this.props.handleSignupFunction}>Join</Nav.Link>
+                                <Nav.Link className="whiteFont" onClick={this.props.handleSignupFunction}><FormattedMessage id="Join"/></Nav.Link>
                             }
                             { !this.state.loggedIn &&
-                                <Nav.Link className="whiteFont" onClick={this.props.handleLoginFunction}>Log in</Nav.Link>
+                                <Nav.Link className="whiteFont" onClick={this.props.handleLoginFunction}><FormattedMessage id="Log in"/></Nav.Link>
                             }
                             {
                                 this.state.loggedIn &&
-                                <Nav.Link className="whiteFont"><Link to = "/main"> Start Playing </Link></Nav.Link>
+                                <Nav.Link className="whiteFont"><Link to = "/main"><FormattedMessage id="Start playing"/></Link></Nav.Link>
                             }
                         </Nav>
                         {
@@ -75,9 +76,9 @@ class NavBarComponent extends Component {
                                         <FaRegUser/>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
-                                        <Dropdown.Item href="#" onClick={this.props.handleNew}> New </Dropdown.Item>
-                                        <Dropdown.Item href="#" onClick={this.props.handleLoad}> Open </Dropdown.Item>
-                                        <Dropdown.Item href="#" onClick={this.cerrarSesion}> Logout </Dropdown.Item>
+                                        <Dropdown.Item href="#" onClick={this.props.handleNew}><FormattedMessage id="New"/></Dropdown.Item>
+                                        <Dropdown.Item href="#" onClick={this.props.handleLoad}><FormattedMessage id="Open"/></Dropdown.Item>
+                                        <Dropdown.Item href="#" onClick={this.cerrarSesion}><FormattedMessage id="Logout"/></Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Form>

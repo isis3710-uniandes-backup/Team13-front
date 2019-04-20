@@ -10,6 +10,7 @@ import OpenSection from "../openSection/openSection";
 import { connect } from 'react-redux';
 import { userActions } from '../../../_actions/user.actions';
 import  { Redirect } from 'react-router-dom';
+import {FormattedMessage} from 'react-intl';
 
 const getNewId = (array) => {
     if (array.length > 0) {
@@ -83,26 +84,19 @@ class Main extends Component {
             let newID = getNewId(res)
             console.log(res)
         let newStoryboard = {
-            "id": 1,
+            "id": newID,
             "timestamp": "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
             "title": "Some Title"
         }
-        let newCard = {
-            id: 1,
-            storyboardId: newID,
-            title:"New Card",
-            imageURL: "https://www.nps.gov/articles/images/Image-w-cred-cap_-1200w-_-Brown-Bear-page_-brown-bear-in-fog_2_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
-            timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
-            text: "Some awesome text for your card :)"
-        }
         this.addStoryboardBE(newStoryboard)
-        this.addCardBE(newCard)
             this.setState({
-                showStoryboard: false,
-                showEdition: true,
+                showStoryboard: true,
+                showEdition: false,
                 showGameMode: false,
                 showNewOrOpen: false,
-                showOpen: false
+                showOpen: false,
+                goHome: false,
+                currentStoryboard: newID
             })
         });
     }
@@ -147,6 +141,7 @@ class Main extends Component {
                 showGameMode: false,
                 showNewOrOpen: false,
                 showOpen: true,
+                goHome: false,
                 cards:[],
                 currentCard: -1,
                 currentStoryboard:-1,
@@ -165,6 +160,7 @@ class Main extends Component {
                 showGameMode: false,
                 showNewOrOpen: false,
                 showOpen: true,
+                goHome: false,
                 cards:[],
                 currentCard: -1,
                 currentStoryboard:-1,
@@ -232,7 +228,8 @@ class Main extends Component {
                 showEdition: false,
                 showGameMode: false,
                 showNewOrOpen: false,
-                showOpen: false
+                showOpen: false,
+                goHome: false
             })
         });
     }
@@ -283,6 +280,7 @@ class Main extends Component {
                 showGameMode: false,
                 showNewOrOpen: false,
                 showOpen: false,
+                goHome: false,
                 currentCard:index
             })
         });
@@ -346,7 +344,7 @@ class Main extends Component {
                 removeStoryboardBE={this.removeStoryboardBE}
                 storyboardsIn={this.state.storyboards} show={this.state.showOpen} 
                 handleClose={this.handleStoryboardOpenClose}/>
-                <NavBarComponent loggedIn={true} handleNew = {() => {console.log('todo');}} 
+                <NavBarComponent loggedIn={true} handleNew = {this.changeView} 
                 handleLoad = {this.handleStoryboardOpen} handleLogout = {this.handleLogout}/>
                 {
                     this.state.goHome &&

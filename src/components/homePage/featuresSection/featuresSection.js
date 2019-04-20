@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import {FaPen, FaPalette, FaRegNewspaper} from 'react-icons/fa';
+import {FormattedMessage} from 'react-intl';
 
 class FeaturesSection extends Component {
   render() {
@@ -20,7 +21,7 @@ class FeaturesSection extends Component {
       					<div className = "Feature1 Feature-core">
       						<FaRegNewspaper className="Icon"/>
       					</div>
-      					<b>Create Storyboards</b>
+      					<b><FormattedMessage id="Create storyboards"/></b>
       				</div>
       			</Col>
       			<Col>
@@ -30,7 +31,7 @@ class FeaturesSection extends Component {
       					<div className = "Feature2 Feature-core">
       						<FaPen className="Icon"/>
       					</div>
-      					<b>Write your stories</b>
+      					<b><FormattedMessage id="Write your stories"/></b>
       				</div>
       			</Col>
       			<Col>
@@ -46,7 +47,7 @@ class FeaturesSection extends Component {
       					<div className = "Feature3 Feature-core">
       						<FaPalette className="Icon"/>
       					</div>
-      					<b>Create pixel art drawings</b>
+      					<b><FormattedMessage id="Draw in style"/></b>
       				</div>
       			</Col>
       			<Col>

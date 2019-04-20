@@ -4,6 +4,7 @@ import imgBrand from "./logo.svg";
 import Button from "react-bootstrap/es/Button";
 import { connect } from 'react-redux';
 import { HashLink as Link } from 'react-router-hash-link';
+import {FormattedMessage} from 'react-intl';
 
 
 class IntroSection extends Component {
@@ -33,16 +34,22 @@ class IntroSection extends Component {
             <div className="mainBerry">
                 <h1>4Berry</h1>
             </div>
+<<<<<<< HEAD
             <h2 className="subtitleBerry">
                 Life started from a storyboard !
             </h2>
+=======
+            <h4 className="subtitleBerry">
+              <FormattedMessage id="Life"/>
+            </h4>
+>>>>>>> 8281c75ed3221993cadec40c420f398fca046e1a
             { !this.state.loggedIn &&
-              <Button className="mainButton" onClick={this.props.handleJoin}>Join now !</Button>
+              <Button className="mainButton" onClick={this.props.handleJoin}><FormattedMessage id="Join now"/></Button>
             }
             {
               this.state.loggedIn &&
               <Button className="mainButton">
-                <Link to = "/main"> Start Playing </Link>
+                <Link to = "/main"><FormattedMessage id="Start playing"/></Link>
               </Button>
             }
 
