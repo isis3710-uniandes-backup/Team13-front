@@ -19,7 +19,7 @@ class GameModeSelection extends Component {
                   <div className = "selection">
                       <Row>
                           <div className = "title">
-                              <p><b>Select a Game Mode</b></p>
+                              <h1><b>Select a Game Mode</b></h1>
                           </div>
                       </Row>
                       <Row>

@@ -28,14 +28,14 @@ class IntroSection extends Component {
     return (
       <div className="Intro section" id="intro" onClick={this.props.onClick}>
           <div className="transformText">4Berry</div>
-        <img className="Intro-logo" src={imgBrand} alt="logo"/>
+        <img className="Intro-logo" src={imgBrand} alt="4Berry Logo"/>
         <div className="pushCenter">
             <div className="mainBerry">
-                4Berry
+                <h1>4Berry</h1>
             </div>
-            <h4 className="subtitleBerry">
+            <h2 className="subtitleBerry">
                 Life started from a storyboard !
-            </h4>
+            </h2>
             { !this.state.loggedIn &&
               <Button className="mainButton" onClick={this.props.handleJoin}>Join now !</Button>
             }

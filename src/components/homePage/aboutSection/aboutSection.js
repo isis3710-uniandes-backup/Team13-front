@@ -9,7 +9,7 @@ class AboutSection extends Component {
         <Container>
           <Row>
             <Col xs={12} md={12}>
-              <Image class="imgSize" src="about.png" fluid />
+              <Image class="imgSize" src="about.png" alt="About Image" fluid />
             </Col>
           </Row>
         </Container>

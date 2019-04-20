@@ -63,7 +63,7 @@ class OpenSection extends Component {
 									</Row>
 									<Row>
 										<Col className="title-sbo">
-											<b>Select a storyboard to open</b>
+											<h1>Select a storyboard to open</h1>
 										</Col>
 									</Row>
 									<Row className = "main-display-sbo">

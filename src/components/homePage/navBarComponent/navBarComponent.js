@@ -71,7 +71,7 @@ class NavBarComponent extends Component {
                             this.state.loggedIn &&
                             <Form inline>
                                 <Dropdown>
-                                    <Dropdown.Toggle className="whiteFont">
+                                    <Dropdown.Toggle className="whiteFont" aria-label="Toggle Profile Options">
                                         <FaRegUser/>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
