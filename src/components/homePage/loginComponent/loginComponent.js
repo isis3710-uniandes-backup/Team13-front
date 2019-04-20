@@ -4,13 +4,11 @@ import {FormGroup} from "react-bootstrap";
 import FormCheckInput from "react-bootstrap/FormCheckInput";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-
-
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../../../_actions/user.actions';
 import {store} from '../../../_helpers/store';
 import { Redirect } from 'react-router';
+import { FaRegCheckCircle } from "react-icons/fa/index";
 
 class LoginComponent extends Component {
 
@@ -100,10 +98,11 @@ class LoginComponent extends Component {
                   <br/>
                   <div className="alignRight">
                       <Button className="mainColor" type="submit" onClick={this.handleSubmit}>
-                         <div className="mainColor">Login</div>
+                          <FaRegCheckCircle />
                       </Button>
                   </div>
-                  <div>Don't have an account yet? <div className="Green-link" onClick={this.props.changeSignUp}>Sign up!</div> It's free!</div>
+                  <br/>
+                  <div className="mini">Don't have an account yet? <div className="Green-link" onClick={this.props.changeSignUp}>Sign up!</div> It's free!</div>
                   
                   <br/>
                    { 

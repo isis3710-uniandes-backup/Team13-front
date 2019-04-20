@@ -7,11 +7,11 @@ export const userService = {
 };
 
 function login(username, password) {
-    const requestOptions = {
+    /*const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
-    };
+    };*/
 
     //Solución temporal para simular login sin be
 

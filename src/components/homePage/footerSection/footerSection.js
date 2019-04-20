@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './footerSection.css';
 import {FaFacebook, FaGithub, FaInstagram} from "react-icons/fa/index";
-import {Nav} from "react-bootstrap";
 
 class FooterSection extends Component {
   render() {

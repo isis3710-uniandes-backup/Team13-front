@@ -6,7 +6,6 @@ import imgBrand from "./logo.svg";
 import { Router } from 'react-router';
 import { HashLink as Link } from 'react-router-hash-link';
 import { connect } from 'react-redux';
-import {GiPerson, GiRamProfile} from "react-icons/gi";
 import {FaRegUser} from "react-icons/fa/index";
 
 
@@ -17,7 +16,7 @@ class NavBarComponent extends Component {
         this.cerrarSesion = this.cerrarSesion.bind(this);
         this.iniciarSesion = this.iniciarSesion.bind(this);
 
-        if(this.props.user != undefined && this.props.user != null){
+        if(this.props.user !== undefined && this.props.user != null){
             this.state = {
                 loggedIn: this.props.user.isLoggedIn
             };
@@ -47,45 +46,45 @@ class NavBarComponent extends Component {
         return (
 
             <Navbar className="Fixed-bar" bg="dark" expand="lg">
-                    <Navbar.Brand onClick = {this.props.manageScrollIntro} className="whiteFont">
-                        <img alt="" src={imgBrand} width="70" height="70" className="d-inline-block align-top"/>
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="mr-auto">
-                            <Nav.Link className="whiteFont" onClick = {this.props.manageScrollIntro}> <Link to="/" >Home </Link></Nav.Link>
-                            <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollFeatures}> <Link to="/"  onClick = {this.props.manageScrollFeatures}>Features </Link></Nav.Link>
-                            <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollAbout}> <Link to="/" > About </Link></Nav.Link>
-                            { !this.state.loggedIn &&
-                                <Nav.Link className="whiteFont" onClick={this.props.handleSignupFunction}>Join</Nav.Link>
-                            }
-                            { !this.state.loggedIn &&
-                                <Nav.Link className="whiteFont" onClick={this.props.handleLoginFunction}>Log in</Nav.Link>
-                            }
-                            {
-                                this.state.loggedIn &&
-                                <Nav.Link className="whiteFont"><Link to = "/main"> Start Playing </Link></Nav.Link>
-                            }
-                        </Nav>
+                <Navbar.Brand  onClick = {this.props.manageScrollIntro} className="whiteFont">
+                    <img alt="" src={imgBrand} width="60" height="60" className="d-inline-block align-top"/>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link className="whiteFont" onClick = {this.props.manageScrollIntro}> <Link to="/" >Home </Link></Nav.Link>
+                        <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollFeatures}> <Link to="/"  onClick = {this.props.manageScrollFeatures}>Features </Link></Nav.Link>
+                        <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollAbout}> <Link to="/" > About </Link></Nav.Link>
+                        { !this.state.loggedIn &&
+                        <Nav.Link className="whiteFont" onClick={this.props.handleSignupFunction}>Join</Nav.Link>
+                        }
+                        { !this.state.loggedIn &&
+                        <Nav.Link className="whiteFont" onClick={this.props.handleLoginFunction}>Log in</Nav.Link>
+                        }
                         {
                             this.state.loggedIn &&
-                            <Form inline>
-                                <Dropdown>
-                                    <Dropdown.Toggle className="whiteFont">
-                                        <FaRegUser/>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu>
-                                        <Dropdown.Item href="#" onClick={this.props.handleNew}> New </Dropdown.Item>
-                                        <Dropdown.Item href="#" onClick={this.props.handleLoad}> Open </Dropdown.Item>
-                                        <Dropdown.Item href="#" onClick={this.cerrarSesion}> Logout </Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Form>
-
-
+                            <Nav.Link className="whiteFont"><Link to = "/main"> Start Playing </Link></Nav.Link>
                         }
-                     </Navbar.Collapse>
-                </Navbar>
+                    </Nav>
+                    {
+                        this.state.loggedIn &&
+                        <Form inline>
+                            <Dropdown>
+                                <Dropdown.Toggle className="whiteFont">
+                                    <FaRegUser/>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item href="#" onClick={this.props.handleNew}> New </Dropdown.Item>
+                                    <Dropdown.Item href="#" onClick={this.props.handleLoad}> Open </Dropdown.Item>
+                                    <Dropdown.Item href="#" onClick={this.cerrarSesion}> Logout </Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </Form>
+
+
+                    }
+                </Navbar.Collapse>
+            </Navbar>
         );
     }
 

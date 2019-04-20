@@ -19,8 +19,6 @@ const getNewId = (array) => {
     }
 }
 
-let storyboardsArray = []
-
 class Main extends Component {
 
     constructor(props)
@@ -155,24 +153,6 @@ class Main extends Component {
         });
     }
 
-    handleStoryboardOpen(event){
-        fetch("/api/storyboards")
-        .then(res => {
-        return res.json()}).then(res => {
-            this.setState({
-                showStoryboard: false,
-                showEdition: false,
-                showGameMode: false,
-                showNewOrOpen: false,
-                showOpen: true,
-                cards:[],
-                currentCard: -1,
-                currentStoryboard:-1,
-                storyboards:res
-            })
-        });
-    }
-
     handleStoryboardOpenClose(event){
         this.setState({
             showStoryboard: false,
@@ -205,7 +185,18 @@ class Main extends Component {
 
     handleLogout(event){
         this.props.dispatch(userActions.logout());
-        this.state.goHome = true;
+        this.setState({
+            showStoryboard: false,
+            showEdition: false,
+            showGameMode: true,
+            showNewOrOpen: false,
+            showOpen: false,
+            goHome: true,
+            cards:[],
+            currentCard: -1,
+            storyboards:[],
+            currentStoryboard:-1
+        });
     }
 
     addStoryboardBE = (newStoryboard) => {
@@ -238,7 +229,7 @@ class Main extends Component {
     }
 
     updateStoryboardBE = (index, newStoryboard) => {
-        fetch('/api/storyboards'+'/'+index, {
+        fetch('/api/storyboards/'+index, {
             method: 'put',
             body: JSON.stringify(newStoryboard),
             headers : { 
@@ -251,7 +242,7 @@ class Main extends Component {
     }
 
     removeStoryboardBE = (index) => {
-        fetch('/api/storyboards'+'/'+index, {
+        fetch('/api/storyboards/'+index, {
             method: 'delete',
         }).then(response =>
             response.json().then(json => {
@@ -274,7 +265,7 @@ class Main extends Component {
     }
 
     getCardBE = (index) => {
-        fetch('/api/cards'+'/'+index)
+        fetch('/api/cards/'+index)
         .then(res => {
         return res.json()}).then(res => {
             this.setState({
@@ -289,7 +280,7 @@ class Main extends Component {
     }
 
     updateCardBE = (index, newCard) => {
-        fetch('/api/cards'+'/'+index, {
+        fetch('/api/cards/'+index, {
             method: 'put',
             body: JSON.stringify(newCard),
             headers : { 
@@ -302,7 +293,7 @@ class Main extends Component {
     }
 
     removeCardBE = (index) => {
-        fetch('/api/cards'+'/'+index, {
+        fetch('/api/cards/'+index, {
             method: 'delete',
         }).then(response =>
             response.json().then(json => {

@@ -5,15 +5,19 @@
   position: absolute;
   top: 30%;
   left: 34.5%;
-  width: 30rem;
-  height: 30rem;
-  padding: 5%;
-  border-radius: 5%;
+  width: 26rem;
+  height: 28rem;
+  padding: 2%;
+  border-radius: 3%;
 
   align-items: center !important;
   text-align: center !important;
   alignment: center !important;
   align-content: center !important;
+}
+
+.mini{
+  font-size: 0.85rem;
 }
 
 .titleBerry {
@@ -27,6 +31,8 @@
 
 .Green-link{
   color: #21fa90 !important;
+  font-size: 1rem;
+  font-weight: bolder;
 }
 textarea:focus, input:focus{
   outline: none;

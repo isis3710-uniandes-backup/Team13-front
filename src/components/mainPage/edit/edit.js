@@ -41,7 +41,7 @@ class Edit extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        fetch('/api/cards'+'/'+nextProps.theCardID)
+        fetch('/api/cards/'+nextProps.theCardID)
         .then(res => {
         return res.json()}).then(res => {
             this.setState({
@@ -84,7 +84,7 @@ class Edit extends Component {
             timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
             text: newTxt
         }
-        if(this.state.currentID != -1 && this.state.currentID != undefined){
+        if(this.state.currentID !== -1 && this.state.currentID !== undefined){
             this.props.updateCardBE(this.state.currentID,newCard)
         }
     }
@@ -176,19 +176,19 @@ class Edit extends Component {
                 <Col xs={2}>
                     <Row>
                         <input type="image" src={imgSave} className="btTxt"
-                        width="60" height ="60" 
+                        width="60" height ="60" alt="https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
                         onClick={(e) => this.updateCard(e,"savedDrawing")}/>
                     </Row>
                     <br/>
                     <Row>
                         <input type="image" src={imgUndo} className="btTxt"
-                        width="60" height ="60" 
+                        width="60" height ="60" alt="https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
                         onClick={() => {this.saveableCanvas.undo();}}/>
                     </Row>
                     <br/>
                     <Row>
                         <input type="image" src={imgClear} className="btTxt"
-                        width="60" height ="60" 
+                        width="60" height ="60" alt="https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
                         onClick={() => {this.saveableCanvas.clear();}}/>
                     </Row>
                     <br/>

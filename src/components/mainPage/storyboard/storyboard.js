@@ -24,7 +24,7 @@ class Storyboard extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        fetch('/api/storyboards'+'/'+nextProps.theStoryID)
+        fetch('/api/storyboards/'+nextProps.theStoryID)
         .then(res => {
         return res.json()}).then(res => {
             this.setState({
@@ -60,7 +60,7 @@ class Storyboard extends Component {
     removeCard = (index) => {
         this.setState(({cards}) => {
           let mCards = [ ...cards ]
-          mCards = mCards.filter(p => p.id != index)
+          mCards = mCards.filter(p => p.id !== index)
           return { cards: mCards }
         })
         this.props.removeCardBE(index)
@@ -74,7 +74,7 @@ class Storyboard extends Component {
             timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
             title: newTitle
         }
-        if(this.state.currentID != -1 && this.state.currentID != undefined){
+        if(this.state.currentID !== -1 && this.state.currentID !== undefined){
             this.props.updateStoryboardBE(this.state.currentID,newStoryboard)
         }
     }

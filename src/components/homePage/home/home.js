@@ -10,7 +10,6 @@ import {LoginComponent} from "../loginComponent/loginComponent";
 import SignupComponent from "../signupComponent/signupComponent";
 import { userActions } from '../../../_actions/user.actions';
 import { connect } from 'react-redux';
-import {store} from '../../../_helpers/store';
 
 
 class Home extends Component {

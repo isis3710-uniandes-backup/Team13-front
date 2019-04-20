@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Sacramento|Amatic+SC');
 
+span.navbar-toggler-icon{
+  color: white !important;
+}
 .Fixed-bar {
   position: fixed;
   left: 0%;
   top: 0%;
   width: 100%;
+  height: 12%;
   color: white !important;
 }
 
@@ -15,13 +19,12 @@
 .whiteFont {
   font-size: 18pt;
   color: white !important;
-  background-color: inherit !important;
-  border: 0px !important;
+  background-color: #424651 !important;
+  text-align: center;
 }
-
 .navbar-dark {
   background-color: #424651 !important;
-  padding: 10%;
+  color: white !important;
 }
 .berrybar {
   background-color: #424651 !important;

@@ -11,7 +11,7 @@ class IntroSection extends Component {
   constructor(props){
     super(props);
 
-    if(this.props.user != undefined && this.props.user != null){
+    if(this.props.user !== undefined && this.props.user !== null){
             this.state = {
                 loggedIn: this.props.user.isLoggedIn
       };

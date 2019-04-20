@@ -4,6 +4,7 @@ import {FormGroup} from "react-bootstrap";
 import FormCheckInput from "react-bootstrap/FormCheckInput";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import { FaRegCheckCircle } from "react-icons/fa/index";
 
 
 class SignupComponent extends Component {
@@ -27,7 +28,6 @@ class SignupComponent extends Component {
     e.preventDefault();
 
     const { username, password } = this.state;
-    const { dispatch } = this.props;
 
 
     console.log(this.state)
@@ -101,13 +101,13 @@ class SignupComponent extends Component {
                       <FormCheckInput id = "pass" onChange={this.handleChange} className="pinky" type="password" placeholder="Password" />
                   </FormGroup>
                   <br/>
-                  <br/>
                   <div className="alignRight">
                       <Button id="mainColor" type="submit" onClick={this.handleSubmit}>
-                          Sign up
+                          <FaRegCheckCircle />
                       </Button>
                   </div>
-                  <div>Already have an account? <div className="Green-link" onClick={this.props.changeLogIn}>Log in!</div> It's free !</div>
+                  <br/>
+                  <div className="mini">Already have an account? <div className="Green-link" onClick={this.props.changeLogIn}>Log in!</div> It's free !</div>
                   { 
                     this.state.signUpError &&
                     <Alert variant='danger'>
