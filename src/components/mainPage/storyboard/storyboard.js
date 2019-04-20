@@ -102,7 +102,7 @@ class Storyboard extends Component {
                 <div className="Storyboard">
                     <Container>
                         <Row>
-                            <h1 className="AxeH1">Storyboard editor</h1>
+                            <h1 className="AxeH1"><FormattedMessage id="SbEditor" /></h1>
                         </Row>
                         <Row>
                             <Col className = "no-padding">

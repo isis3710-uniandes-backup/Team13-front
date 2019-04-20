@@ -33,5 +33,8 @@
 	"Add":"Add",
 	"Guardar":"Save",
 	"Edit":"Edit",
-	"Remove":"Remove"
+	"Remove":"Remove",
+	"SelectOpen": "Select a storyboard to open",
+	"SbEditor": "Storyboard Editor",
+	"CardEditor": "Card Editor"
 }

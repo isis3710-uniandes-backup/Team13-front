@@ -30,7 +30,7 @@ class NewOrOpenSection extends Component {
 	                  			<Container className="no-padding no-margin">
 	                  				<Row className = "no-margin no-padding">
 	                  					<Col className = "New no-margin" onClick = {this.props.handleNewStoryboard}>
-s
+
 	                  						<h1 className="intext-new"><FormattedMessage id="Create a new Storyboard"/></h1>
 	                  					</Col>
 	                  					<Col className = "Open no-margin" onClick = {this.props.handleLoad}>

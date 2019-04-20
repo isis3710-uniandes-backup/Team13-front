@@ -51,7 +51,7 @@ class OpenSection extends Component {
 		const getStoryboards = this.state.storyboards.map((f) => {
 			return (
 				<Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://static3planetadelibroscom.cdnstatics.com/usuaris/web_minisite/fotos/1/original/148__c_comic_mobile3.jpg" />
+                <Card.Img alt = "storyboard image" variant="top" src="https://static3planetadelibroscom.cdnstatics.com/usuaris/web_minisite/fotos/1/original/148__c_comic_mobile3.jpg" />
                 <Card.Body>
                     <Card.Title>
                         { f.title }
@@ -87,7 +87,7 @@ class OpenSection extends Component {
 									</Row>
 									<Row>
 										<Col className="title-sbo">
-											<h1>Select a storyboard to open</h1>
+											<h1><FormattedMessage id="SelectOpen"/></h1>
 											<b><FormattedMessage id="Click on"/></b>
 										</Col>
 									</Row>
