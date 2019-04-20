@@ -8,6 +8,7 @@ import imgClear from "./clear.svg";
 import imgUndo from "./undo.svg";
 import { SketchPicker } from 'react-color'
 import CanvasDraw from 'react-canvas-draw'
+import {FormattedMessage} from 'react-intl'
 
 class Edit extends Component {
 
@@ -136,7 +137,7 @@ class Edit extends Component {
             <Row>
                 <Col>
                     <Row>
-                        <label>Canvas Width:</label>
+                        <label><FormattedMessage id="Canvas Width"/></label>
                     </Row>
                     <Row>
                         <input type="number" value={this.state.width} onChange={e =>
@@ -145,7 +146,7 @@ class Edit extends Component {
                 </Col>
                 <Col>
                     <Row>
-                        <label>Canvas Height:</label>
+                        <label><FormattedMessage id="Canvas Height"/></label>
                     </Row>
                     <Row>
                         <input type="number" value={this.state.height} onChange={e =>
@@ -154,7 +155,7 @@ class Edit extends Component {
                 </Col>
                 <Col>
                     <Row>
-                        <label>Brush Radius:</label>
+                        <label><FormattedMessage id="Brush Radius"/></label>
                     </Row>
                     <Row>
                         <input type="number" value={this.state.brushRadius} onChange={e =>
@@ -163,7 +164,7 @@ class Edit extends Component {
                 </Col>  
                 <Col>
                     <Row>
-                        <label>Lazy Radius:</label>
+                        <label><FormattedMessage id="Lazy Radius"/></label>
                     </Row>
                     <Row>
                         <input type="number" value={this.state.lazyRadius} onChange={e =>

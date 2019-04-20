@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import './openSection.css';
+import {FormattedMessage} from 'react-intl';
 
 const getNewId = (array) => {
     if (array.length > 0) {
@@ -60,7 +61,7 @@ class OpenSection extends Component {
                                 <span aria-hidden="true">&times;</span>
                         </button>
 						<Col xs={10} className = "titleCol" onClick={() => this.onEdit(f.id)}>
-							<p className="filename">{f.title} {f.id}</p>
+							<p className="filename">{f.title}</p>
 						 </Col>
 						 <Col xs = {1}>
 						 </Col>
@@ -93,7 +94,7 @@ class OpenSection extends Component {
 									</Row>
 									<Row>
 										<Col className="title-sbo">
-											<b>Double-click on a storyboard to open it</b>
+											<b><FormattedMessage id="Click on"/></b>
 										</Col>
 									</Row>
 									<Row className = "main-display-sbo">
@@ -101,7 +102,7 @@ class OpenSection extends Component {
 											<Row>
 											{ getStoryboards }
 											<Col>
-                                				<Button variant="primary" onClick={(e) => this.addStoryboard(e)}>Agregar</Button>
+                                				<Button variant="primary" onClick={(e) => this.addStoryboard(e)}><FormattedMessage id="Add"/></Button>
                            					</Col>
 											</Row>
 										</Container>

@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import {FaRegNewspaper} from 'react-icons/fa';
 import { connect } from 'react-redux';
+import {FormattedMessage} from 'react-intl';
 
 class GameModeSelection extends Component {
 
@@ -19,7 +20,7 @@ class GameModeSelection extends Component {
                   <div className = "selection">
                       <Row>
                           <div className = "title">
-                              <p><b>Select a Game Mode</b></p>
+                              <p><b><FormattedMessage id="Game Mode"/></b></p>
                           </div>
                       </Row>
                       <Row>
