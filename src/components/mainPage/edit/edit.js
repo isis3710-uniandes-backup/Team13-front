@@ -32,7 +32,7 @@ class Edit extends Component {
             brushRadius: 5,
             lazyRadius: 0,
             currentID: -1,
-            storyboardId: 1,
+            storyboardId: -1,
             title: "New Card",
             imageURL: "https://www.nps.gov/articles/images/Image-w-cred-cap_-1200w-_-Brown-Bear-page_-brown-bear-in-fog_2_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
             timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
@@ -41,7 +41,7 @@ class Edit extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        fetch('/api/cards'+'/'+nextProps.theID)
+        fetch('/api/cards'+'/'+nextProps.theCardID)
         .then(res => {
         return res.json()}).then(res => {
             this.setState({
@@ -78,7 +78,7 @@ class Edit extends Component {
                         this.saveableCanvas.getSaveData())
         const newCard = {
             id: 3,
-            storyboardId:1,
+            storyboardId: this.state.storyboardId,
             title:newTitle,
             imageURL: "https://www.nps.gov/articles/images/Image-w-cred-cap_-1200w-_-Brown-Bear-page_-brown-bear-in-fog_2_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
             timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
@@ -223,12 +223,10 @@ class Edit extends Component {
       </div>
             );
         } else {
-
             return (
                 <div />
             );
         }
     }
 }
-
 export default Edit;

@@ -5,32 +5,62 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import './openSection.css';
 
+const getNewId = (array) => {
+    if (array.length > 0) {
+        return array[array.length - 1].id + 1
+    } else {
+        return 1
+    }
+}
+
 class OpenSection extends Component {
 
 	constructor(props){
-
 		super(props);
-
     	this.state = {
-    		files: [
-    			{
-    				title: 'The First Storyboard!',
-    				id: 0
-    			}
-    		]
+    		storyboards: []
     	};
     }
 
-	render() {
+    componentWillReceiveProps(nextProps) {
+        this.setState({ storyboards: nextProps.storyboardsIn});  
+    }
 
-		const getFiles = this.state.files.map(f => {
+    addStoryboard = (e) => {
+        e.preventDefault();
+        const newID = getNewId(this.state.storyboards)
+        const newStoryboard = {
+    		"id": newID,
+    		"timestamp": "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+    		"title": "Some Title"
+  		}
+        this.setState({
+            storyboards: [...this.state.storyboards, newStoryboard]
+        })
+        this.props.addStoryboardBE(newStoryboard)
+    }
+
+    onEdit = (index) => {
+        this.props.getStoryboardBE(index)
+    }
+
+    removeStoryboard = (index) => {
+        this.props.removeStoryboardBE(index)
+        this.props.handleLoad()
+    }
+
+	render() {
+		const getStoryboards = this.state.storyboards.map((f) => {
 			return (
 				<Col xs = {4}>
 					<Container>
 						<Col xs = {1}>
 						</Col>
-						<Col xs={10} className = "titleCol" onClick={this.props.handleSelected}>
-							<p className="filename">{f.title}</p>
+						<button type="button" class="close close-btn" aria-label="Close" onClick = {() => this.removeStoryboard(f.id)}>
+                                <span aria-hidden="true">&times;</span>
+                        </button>
+						<Col xs={10} className = "titleCol" onClick={() => this.onEdit(f.id)}>
+							<p className="filename">{f.title} {f.id}</p>
 						 </Col>
 						 <Col xs = {1}>
 						 </Col>
@@ -64,12 +94,16 @@ class OpenSection extends Component {
 									<Row>
 										<Col className="title-sbo">
 											<h1>Select a storyboard to open</h1>
+											<b>Double-click on a storyboard to open it</b>
 										</Col>
 									</Row>
 									<Row className = "main-display-sbo">
 										<Container>
 											<Row>
-											{ getFiles }
+											{ getStoryboards }
+											<Col>
+                                				<Button variant="primary" onClick={(e) => this.addStoryboard(e)}>Agregar</Button>
+                           					</Col>
 											</Row>
 										</Container>
 									</Row>
