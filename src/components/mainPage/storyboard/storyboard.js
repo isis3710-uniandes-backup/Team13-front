@@ -114,6 +114,7 @@ class Storyboard extends Component {
                                 </button>
                             </Col>
                         </Row>
+                        <br/>
                         <Row>
                             { getCards }
                             <Col>
