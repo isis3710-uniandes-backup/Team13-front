@@ -11,6 +11,15 @@ import { connect } from 'react-redux';
 import { userActions } from '../../../_actions/user.actions';
 import  { Redirect } from 'react-router-dom';
 
+const getNewId = (array) => {
+    if (array.length > 0) {
+        return array[array.length - 1].id + 1
+    } else {
+        return 1
+    }
+}
+
+let storyboardsArray = []
 
 class Main extends Component {
 
@@ -25,9 +34,10 @@ class Main extends Component {
                 showNewOrOpen: false,
                 showOpen: false,
                 goHome: false,
-                storyboards:[],
                 cards:[],
-                currentCard: -1
+                currentStoryboard:-1,
+                currentCard: -1,
+                storyboards:[],
         };
 
         //Si no hay login, debe reenviar al inicio.
@@ -42,7 +52,6 @@ class Main extends Component {
 
         this.changeStoryboardView = this.changeStoryboardView.bind(this);
         this.changeView = this.changeView.bind(this);
-        this.changeViewMode = this.changeViewMode.bind(this);
         this.changeStoryboardView = this.changeStoryboardView.bind(this);
         this.openStoryboardNewOrOpen = this.openStoryboardNewOrOpen.bind(this);
         this.handleCloseShowNewOrOpen = this.handleCloseShowNewOrOpen.bind(this);
@@ -51,6 +60,14 @@ class Main extends Component {
         this.handleLogout = this.handleLogout.bind(this);
         this.closeEditor = this.closeEditor.bind(this);
         this.closeStoryboard = this.closeStoryboard.bind(this);
+        this.addStoryboardBE = this.addStoryboardBE.bind(this);
+        this.getStoryboardBE = this.getStoryboardBE.bind(this);
+        this.updateStoryboardBE = this.updateStoryboardBE.bind(this);
+        this.removeStoryboardBE = this.removeStoryboardBE.bind(this);
+        this.addCardBE = this.addCardBE.bind(this);
+        this.getCardBE = this.getCardBE.bind(this);
+        this.updateCardBE = this.updateCardBE.bind(this);
+        this.removeCardBE = this.removeCardBE.bind(this); 
     }
 
     changeStoryboardView(event) {
@@ -60,32 +77,49 @@ class Main extends Component {
         if(event) event.preventDefault();
     }
     changeView() {
-        this.setState({
+        fetch("/api/storyboards")
+        .then(res => {
+        return res.json()}).then(res => {
+            let newID = getNewId(res)
+            console.log(res)
+        let newStoryboard = {
+            "id": 1,
+            "timestamp": "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+            "title": "Some Title"
+        }
+        let newCard = {
+            id: 1,
+            storyboardId: newID,
+            title:"New Card",
+            imageURL: "https://www.nps.gov/articles/images/Image-w-cred-cap_-1200w-_-Brown-Bear-page_-brown-bear-in-fog_2_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
+            timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+            text: "Some awesome text for your card :)"
+        }
+        this.addStoryboardBE(newStoryboard)
+        this.addCardBE(newCard)
+            this.setState({
                 showStoryboard: false,
                 showEdition: true,
                 showGameMode: false,
                 showNewOrOpen: false,
                 showOpen: false
+            })
         });
-    }
-    changeViewMode(event) {
-            this.setState({
-                    showStoryboard: true,
-                    showEdition: false,
-                    showGameMode: false,
-                    showNewOrOpen: false,
-                    showOpen: false
-                });
     }
 
     openStoryboardNewOrOpen(){
         this.setState({
-                    showStoryboard: false,
-                    showEdition: false,
-                    showGameMode: false,
-                    showNewOrOpen: true,
-                    showOpen: false
-                });
+            showStoryboard: false,
+            showEdition: false,
+            showGameMode: false,
+            showNewOrOpen: true,
+            showOpen: false,
+            goHome: false,
+            cards:[],
+            currentCard: -1,
+            storyboards:[],
+            currentStoryboard:-1
+        });
     }
 
     handleCloseShowNewOrOpen(event){
@@ -94,17 +128,48 @@ class Main extends Component {
             showEdition: false,
             showGameMode: true,
             showNewOrOpen: false,
-            showOpen: false
+            showOpen: false,
+            goHome: false,
+            cards:[],
+            currentCard: -1,
+            storyboards:[],
+            currentStoryboard:-1
         });
     }
 
     handleStoryboardOpen(event){
-        this.setState({
-            showStoryboard: false,
-            showEdition: false,
-            showGameMode: false,
-            showNewOrOpen: false,
-            showOpen: true
+        fetch("/api/storyboards")
+        .then(res => {
+        return res.json()}).then(res => {
+            this.setState({
+                showStoryboard: false,
+                showEdition: false,
+                showGameMode: false,
+                showNewOrOpen: false,
+                showOpen: true,
+                cards:[],
+                currentCard: -1,
+                currentStoryboard:-1,
+                storyboards:res
+            })
+        });
+    }
+
+    handleStoryboardOpen(event){
+        fetch("/api/storyboards")
+        .then(res => {
+        return res.json()}).then(res => {
+            this.setState({
+                showStoryboard: false,
+                showEdition: false,
+                showGameMode: false,
+                showNewOrOpen: false,
+                showOpen: true,
+                cards:[],
+                currentCard: -1,
+                currentStoryboard:-1,
+                storyboards:res
+            })
         });
     }
 
@@ -114,7 +179,12 @@ class Main extends Component {
             showEdition: false,
             showGameMode: false,
             showNewOrOpen: true,
-            showOpen: false
+            showOpen: false,
+            goHome: false,
+            cards:[],
+            currentCard: -1,
+            storyboards:[],
+            currentStoryboard:-1
         });
     }
 
@@ -125,7 +195,11 @@ class Main extends Component {
             showGameMode: true,
             showNewOrOpen: false,
             showOpen: false,
-            goHome: false
+            goHome: false,
+            cards:[],
+            currentCard: -1,
+            storyboards:[],
+            currentStoryboard:-1
         });
     }
 
@@ -134,17 +208,56 @@ class Main extends Component {
         this.state.goHome = true;
     }
 
-    componentDidMount(){
-        fetch("/api/storyboards")
+    addStoryboardBE = (newStoryboard) => {
+        fetch('/api/storyboards', {
+            method: 'post',
+            body: JSON.stringify(newStoryboard),
+            headers : { 
+                'Content-Type': 'application/json'
+            }
+        }).then(function(res) {
+        return res.json();
+        }).then(function(res) {
+        });
+    }
+
+    getStoryboardBE = (index) => {
+        fetch("/api/cards/story/"+index)
         .then(res => {
         return res.json()}).then(res => {
-            this.setState({storyboards:res})
+            this.setState({
+                cards:res,
+                currentStoryboard:index,
+                showStoryboard: true,
+                showEdition: false,
+                showGameMode: false,
+                showNewOrOpen: false,
+                showOpen: false
+            })
         });
-        fetch("/api/cards")
-        .then(res => {
-        return res.json()}).then(res => {
-            this.setState({cards:res})
+    }
+
+    updateStoryboardBE = (index, newStoryboard) => {
+        fetch('/api/storyboards'+'/'+index, {
+            method: 'put',
+            body: JSON.stringify(newStoryboard),
+            headers : { 
+                'Content-Type': 'application/json'
+            }
+        }).then(function(res) {
+        return res.json();
+        }).then(function(res) {
         });
+    }
+
+    removeStoryboardBE = (index) => {
+        fetch('/api/storyboards'+'/'+index, {
+            method: 'delete',
+        }).then(response =>
+            response.json().then(json => {
+                return json;
+            })
+        );
     }
 
     addCardBE = (newCard) => {
@@ -164,7 +277,14 @@ class Main extends Component {
         fetch('/api/cards'+'/'+index)
         .then(res => {
         return res.json()}).then(res => {
-            this.setState({currentCard:res.id})
+            this.setState({
+                showStoryboard: false,
+                showEdition: true,
+                showGameMode: false,
+                showNewOrOpen: false,
+                showOpen: false,
+                currentCard:index
+            })
         });
     }
 
@@ -192,45 +312,47 @@ class Main extends Component {
     }
 
     closeEditor(){
-        this.setState({
-            showStoryboard: true,
-            showEdition: false,
-            showGameMode: false,
-            showNewOrOpen: false,
-            showOpen: false,
-            goHome: false,
-            cards:[],
-            currentCard: -1
-
+        fetch("/api/cards/story/"+this.state.currentStoryboard)
+        .then(res => {
+        return res.json()}).then(res => {
+            this.setState({
+                showStoryboard: true,
+                showEdition: false,
+                showGameMode: false,
+                showNewOrOpen: false,
+                showOpen: false,
+                goHome: false,
+                cards:res
+            })
         });
-
-        this.componentDidMount();
     }
     
     render() {
-        const cardsToSend = this.state.cards;
-        const idToSend = this.state.currentCard;
+        let idToSend = this.state.currentCard;
+        let storyIdToSend = this.state.currentStoryboard;
         return (
             <div className="Main">
                 <GameModeSelection show={ this.state.showGameMode } onClick={ this.openStoryboardNewOrOpen } />
-                <Storyboard addCardBE={this.addCardBE} getCardBE={this.getCardBE} removeCardBE={this.removeCardBE}
-                cardsIn={cardsToSend} show={ this.state.showStoryboard } onEdit={ this.changeView }
+                <Storyboard theStoryID={storyIdToSend} addCardBE={this.addCardBE} getCardBE={this.getCardBE} removeCardBE={this.removeCardBE}
+                cardsIn={this.state.cards} show={ this.state.showStoryboard } updateStoryboardBE={this.updateStoryboardBE} 
                 closeStoryboard={this.closeStoryboard} />
-                <Edit theID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE} closeEditor={this.closeEditor}/>
+                <Edit theCardID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE} closeEditor={this.closeEditor}/>
                 <NewOrOpenSection show={ this.state.showNewOrOpen} handleClose ={this.handleCloseShowNewOrOpen} 
-                    handleNew={this.handleStoryboardOpen} handleLoad={this.handleStoryboardOpen} 
+                    handleLoad={this.handleStoryboardOpen} 
                     handleNewStoryboard={this.changeView}/>
-                 <OpenSection show={this.state.showOpen} handleClose={this.handleStoryboardOpenClose}
-                    handleSelected={this.changeViewMode}/>
+                <OpenSection addStoryboardBE={this.addStoryboardBE} 
+                handleLoad={this.handleStoryboardOpen}
+                getStoryboardBE={this.getStoryboardBE} 
+                removeStoryboardBE={this.removeStoryboardBE}
+                storyboardsIn={this.state.storyboards} show={this.state.showOpen} 
+                handleClose={this.handleStoryboardOpenClose}/>
                 <NavBarComponent loggedIn={true} handleNew = {() => {console.log('todo');}} 
                 handleLoad = {this.handleStoryboardOpen} handleLogout = {this.handleLogout}/>
-                
                 {
                     this.state.goHome &&
                     <Redirect to='/'  />
                 }
-            </div>
-           
+            </div>  
         );
     }
 }
