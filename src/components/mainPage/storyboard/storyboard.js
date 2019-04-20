@@ -83,7 +83,7 @@ class Storyboard extends Component {
         const getCards = this.state.cards.map((c) => {
             return (
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="https://static3planetadelibroscom.cdnstatics.com/usuaris/web_minisite/fotos/1/original/148__c_comic_mobile3.jpg" />
+                <Card.Img alt="card image" variant="top" src="https://static3planetadelibroscom.cdnstatics.com/usuaris/web_minisite/fotos/1/original/148__c_comic_mobile3.jpg" />
                 <Card.Body>
                     <Card.Title>
                         { c.title }
@@ -101,8 +101,11 @@ class Storyboard extends Component {
                 <div className="Storyboard">
                     <Container>
                         <Row>
+                            <h1 className="AxeH1">Storyboard editor</h1>
+                        </Row>
+                        <Row>
                             <Col className = "no-padding">
-                                <input type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
+                                <input aria-label= "storyboard's title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                             </Col>
                             <Col className = "no-padding">
                                 <Button variant="primary" onClick={(e) => this.updateStoryboard(e)}>Guardar</Button>

@@ -124,8 +124,11 @@ class Edit extends Component {
                 <div className="Edit">
         <Container>
             <Row>
+                <h1 className="AxeH1">Card Editor</h1>
+            </Row>
+            <Row>
                 <Col className = "no-padding">
-                    <input type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
+                    <input aria-label= "card title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                 </Col>
                 <Col>
                     <button type="button" class="close close-btn" aria-label="Close" onClick = {this.props.closeEditor}>
@@ -139,7 +142,7 @@ class Edit extends Component {
                         <label>Canvas Width:</label>
                     </Row>
                     <Row>
-                        <input type="number" value={this.state.width} onChange={e =>
+                        <input aria-label="set canvas width" type="number" value={this.state.width} onChange={e =>
                         this.setState({ width: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>
@@ -148,7 +151,7 @@ class Edit extends Component {
                         <label>Canvas Height:</label>
                     </Row>
                     <Row>
-                        <input type="number" value={this.state.height} onChange={e =>
+                        <input aria-label="set canvas height" type="number" value={this.state.height} onChange={e =>
                         this.setState({ height: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>
@@ -157,7 +160,7 @@ class Edit extends Component {
                         <label>Brush Radius:</label>
                     </Row>
                     <Row>
-                        <input type="number" value={this.state.brushRadius} onChange={e =>
+                        <input aria-label="set bursh radius" type="number" value={this.state.brushRadius} onChange={e =>
                         this.setState({ brushRadius: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>  
@@ -166,7 +169,7 @@ class Edit extends Component {
                         <label>Lazy Radius:</label>
                     </Row>
                     <Row>
-                        <input type="number" value={this.state.lazyRadius} onChange={e =>
+                        <input aria-label="set lazy radius" type="number" value={this.state.lazyRadius} onChange={e =>
                         this.setState({ lazyRadius: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>
@@ -175,19 +178,19 @@ class Edit extends Component {
             <Row>
                 <Col xs={2}>
                     <Row>
-                        <input type="image" src={imgSave} className="btTxt"
+                        <input aria-label="save canvas" type="image" src={imgSave} className="btTxt"
                         width="60" height ="60" 
                         onClick={(e) => this.updateCard(e,"savedDrawing")}/>
                     </Row>
                     <br/>
                     <Row>
-                        <input type="image" src={imgUndo} className="btTxt"
+                        <input aria-label="undo action" type="image" src={imgUndo} className="btTxt"
                         width="60" height ="60" 
                         onClick={() => {this.saveableCanvas.undo();}}/>
                     </Row>
                     <br/>
                     <Row>
-                        <input type="image" src={imgClear} className="btTxt"
+                        <input aria-label="clear canvas" type="image" src={imgClear} className="btTxt"
                         width="60" height ="60" 
                         onClick={() => {this.saveableCanvas.clear();}}/>
                     </Row>
@@ -217,7 +220,7 @@ class Edit extends Component {
             </Row>
             <br/>
             <Row>
-                <input className="txtInEditor" type="text" defaultValue={this.state.txtArea} ref={(ref) => this.inputTxt = ref}/>
+                <input aria-label= "card text" className="txtInEditor" type="text" defaultValue={this.state.txtArea} ref={(ref) => this.inputTxt = ref}/>
             </Row>
         </Container>        
       </div>

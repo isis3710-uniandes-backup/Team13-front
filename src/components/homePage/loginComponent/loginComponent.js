@@ -91,11 +91,11 @@ class LoginComponent extends Component {
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
-                      <FormCheckInput id = "email" className="pinky" type="email" placeholder="Enter email" onChange={this.handleChange} /> <br/>
+                      <FormCheckInput aria-label="email" id = "email" className="pinky" type="email" placeholder="Enter email" onChange={this.handleChange} /> <br/>
                   </FormGroup>
                   <br/>
                   <FormGroup controlId="formBasicPassword">
-                      <FormCheckInput id = "pass" className="pinky" type="password" placeholder="Password" onChange={this.handleChange} />
+                      <FormCheckInput aria-label="password" id = "pass" className="pinky" type="password" placeholder="Password" onChange={this.handleChange} />
                   </FormGroup>
                   <br/>
                   <div className="alignRight">

@@ -94,11 +94,11 @@ class SignupComponent extends Component {
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
-                      <FormCheckInput id = "email" onChange={this.handleChange} className="pinky" type="email" placeholder="Enter email" /> <br/>
+                      <FormCheckInput aria-label="email" id = "email" onChange={this.handleChange} className="pinky" type="email" placeholder="Enter email" /> <br/>
                   </FormGroup>
                   <br/>
                   <FormGroup controlId="formBasicPassword">
-                      <FormCheckInput id = "pass" onChange={this.handleChange} className="pinky" type="password" placeholder="Password" />
+                      <FormCheckInput aria-label="password" id = "pass" onChange={this.handleChange} className="pinky" type="password" placeholder="Password" />
                   </FormGroup>
                   <br/>
                   <br/>
