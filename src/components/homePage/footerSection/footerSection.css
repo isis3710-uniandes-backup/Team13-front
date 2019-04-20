@@ -7,6 +7,9 @@
   padding-top: 5% !important;
   padding-bottom: 5% !important;
   color:gray;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
 }
 
 
@@ -18,7 +21,7 @@
   margin-right: auto;
   top: 0;
   bottom: 0;
-  margin-top: auto;
+  margin-top: 0%;
   margin-bottom: auto;
   pointer-events: none;
   height: 25.3em;

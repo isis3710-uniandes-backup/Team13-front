@@ -45,9 +45,6 @@ class Home extends Component {
     handleLogout(event){
         this.props.dispatch(userActions.logout());
     }
-     scrollTo(id){
-        document.getElementById(id).scrollIntoView();
-    }
 
     changeJustLoginView(event) {
 

@@ -47,7 +47,6 @@ class IntroSection extends Component {
             }
 
         </div>
-        <div id="wave"></div>
       </div>
     );
   }

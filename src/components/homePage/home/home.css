@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Sacramento|Amatic+SC');
 
 .Home {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .section{

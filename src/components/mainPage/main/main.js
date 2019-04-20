@@ -186,16 +186,7 @@ class Main extends Component {
     handleLogout(event){
         this.props.dispatch(userActions.logout());
         this.setState({
-            showStoryboard: false,
-            showEdition: false,
-            showGameMode: true,
-            showNewOrOpen: false,
-            showOpen: false,
-            goHome: true,
-            cards:[],
-            currentCard: -1,
-            storyboards:[],
-            currentStoryboard:-1
+            goHome: true
         });
     }
 
