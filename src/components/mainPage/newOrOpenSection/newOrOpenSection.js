@@ -30,19 +30,12 @@ class NewOrOpenSection extends Component {
 	                  			<Container className="no-padding no-margin">
 	                  				<Row className = "no-margin no-padding">
 	                  					<Col className = "New no-margin" onClick = {this.props.handleNewStoryboard}>
-<<<<<<< HEAD
-	                  						<h1 className="intext-new">Create a new Storyboard</h1>
+s
+	                  						<h1 className="intext-new"><FormattedMessage id="Create a new Storyboard"/></h1>
 	                  					</Col>
 	                  					<Col className = "Open no-margin" onClick = {this.props.handleLoad}>
 	                  					
-	                  						<h1 className="intext-load">Open an existing Storyboard</h1>
-=======
-	                  						<b className="intext-new"><FormattedMessage id="Create a new Storyboard"/></b>
-	                  					</Col>
-	                  					<Col className = "Open no-margin" onClick = {this.props.handleLoad}>
-	                  					
-	                  						<b className="intext-load"><FormattedMessage id="Open an existing storyboard"/></b>
->>>>>>> 8281c75ed3221993cadec40c420f398fca046e1a
+	                  						<h1 className="intext-load"><FormattedMessage id="Open an existing storyboard"/></h1>
 	                  					</Col>
 	                  				</Row>
 	                  			</Container>

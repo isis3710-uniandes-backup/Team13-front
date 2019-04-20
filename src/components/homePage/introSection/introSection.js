@@ -34,15 +34,9 @@ class IntroSection extends Component {
             <div className="mainBerry">
                 <h1>4Berry</h1>
             </div>
-<<<<<<< HEAD
             <h2 className="subtitleBerry">
-                Life started from a storyboard !
-            </h2>
-=======
-            <h4 className="subtitleBerry">
               <FormattedMessage id="Life"/>
-            </h4>
->>>>>>> 8281c75ed3221993cadec40c420f398fca046e1a
+            </h2>
             { !this.state.loggedIn &&
               <Button className="mainButton" onClick={this.props.handleJoin}><FormattedMessage id="Join now"/></Button>
             }
