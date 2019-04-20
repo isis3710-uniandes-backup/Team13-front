@@ -47,7 +47,7 @@ class NavBarComponent extends Component {
         return (
 
             <Navbar className="Fixed-bar" bg="dark" expand="lg">
-                    <Navbar.Brand href="#home" className="whiteFont">
+                    <Navbar.Brand onClick = {this.props.manageScrollIntro} className="whiteFont">
                         <img alt="" src={imgBrand} width="70" height="70" className="d-inline-block align-top"/>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
