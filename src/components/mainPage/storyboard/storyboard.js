@@ -108,7 +108,7 @@ class Storyboard extends Component {
                                 <Button variant="primary" onClick={(e) => this.updateStoryboard(e)}>Guardar</Button>
                             </Col>
                             <Col>
-                                <button type="button" class="close close-btn" aria-label="Close" onClick = {this.props.closeStoryboard}>
+                                <button type="button" className="close close-btn" aria-label="Close" onClick = {this.props.closeStoryboard}>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </Col>

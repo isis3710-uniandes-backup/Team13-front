@@ -6,13 +6,9 @@ class AboutSection extends Component {
   render() {
     return (
       <div className="About section" id="about">
-        <Container>
-          <Row>
-            <Col xs={12} md={12}>
-              <Image class="imgSize" src="about.png" fluid />
-            </Col>
-          </Row>
-        </Container>
+        <div className="about-title"> About 4Berry</div>
+        <div className="phrase-title"> Life started from a storyboard !</div>
+              <Image className="imgSize" src="about.png" fluid />
       </div>
     );
   }

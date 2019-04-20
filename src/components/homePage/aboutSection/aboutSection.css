@@ -1,9 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Sacramento|Amatic+SC');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Raleway|Amatic+SC');
 
 .About {
   text-align: center;
   background-color: #c492b1;
-  padding-top: 5%;
+  font-family: 'Raleway', sans-serif;
+  color: #424651;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+.about-title{
+  font-weight: bold;
+  font-size: 3.5rem;
+
+}
+.phrase-title{
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding:5%;
 }
 
 #wave2 {

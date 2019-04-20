@@ -63,7 +63,7 @@ class NavBarComponent extends Component {
                         }
                         {
                             this.state.loggedIn &&
-                            <Nav.Link className="whiteFont"><Link to = "/main"> Start Playing </Link></Nav.Link>
+                            <Nav.Link className="whiteFont" to = "/main"><Link to = "/main"> Start Playing </Link></Nav.Link>
                         }
                     </Nav>
                     {

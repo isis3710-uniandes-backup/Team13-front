@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Sacramento|Amatic+SC|Raleway');
 
 .Intro {
+  padding-top: 10% !important;
+  padding-bottom: 3%;
   text-align: center;
   alignment: center;
   align-content: center;
@@ -10,8 +12,8 @@
 }
 
 .transformText {
-  padding: 5%;
-  color:white;
+  padding-left: 5%;
+  color: white;
   writing-mode: vertical-rl;
   text-orientation: upright;
   font-size: 1.5rem;
@@ -21,7 +23,6 @@
 }
 
 .pushCenter {
-  padding-top: 25%;
 }
 
 .mainButton {
@@ -35,25 +36,18 @@
   margin-top: 1%;
 }
 
-.mainBerry {
-  font-size: 8rem;
-  color: white
-}
 .subtitleBerry {
   color: white
 }
 
+.mainBerry {
+  font-size: 8rem;
+  color: white;
+}
+
 .Intro-logo{
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
-  pointer-events: none;
-  height: 20em;
-  width: 20em;
-  background-size: 100%;
+  max-width: 100%;
+  width: 22rem;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {

@@ -128,7 +128,7 @@ class Edit extends Component {
                     <input type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                 </Col>
                 <Col>
-                    <button type="button" class="close close-btn" aria-label="Close" onClick = {this.props.closeEditor}>
+                    <button type="button" className="close close-btn" aria-label="Close" onClick = {this.props.closeEditor}>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </Col>

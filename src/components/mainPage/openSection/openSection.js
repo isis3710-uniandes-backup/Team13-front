@@ -56,7 +56,7 @@ class OpenSection extends Component {
 					<Container>
 						<Col xs = {1}>
 						</Col>
-						<button type="button" class="close close-btn" aria-label="Close" onClick = {() => this.removeStoryboard(f.id)}>
+						<button type="button" className="close close-btn" aria-label="Close" onClick = {() => this.removeStoryboard(f.id)}>
                                 <span aria-hidden="true">&times;</span>
                         </button>
 						<Col xs={10} className = "titleCol" onClick={() => this.onEdit(f.id)}>
