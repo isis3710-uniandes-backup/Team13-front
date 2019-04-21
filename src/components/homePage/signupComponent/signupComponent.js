@@ -143,6 +143,8 @@ class SignupComponent extends Component {
                       !this.state.correctEmail &&
                       <div className="supermini red">
                           <FormattedMessage id="incorrect email"/>
+                          <br/>
+                          <FormattedMessage id="EmailExample"/>
                       </div>
                   }
                   <br/>

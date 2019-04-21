@@ -14,7 +14,7 @@ class My404Component extends Component {
               <img className="logoError" src={imgBrand} alt="4Berry Logo"/>
             </Col>
             <Col>
-              <div className="moreThanGreatFont"> 404 </div>
+              <h1 className="moreThanGreatFont"> 404 </h1>
               <div className="greatFont">
                 <FormattedMessage id="page not found"/>
               </div>

@@ -108,6 +108,8 @@ class Storyboard extends Component {
                         <br/>
                         <Row>
                             <Col className = "no-padding">
+                                <label>Storyboard title: </label>
+                                <br/>
                                 <input className="btnContrast" aria-label= "storyboard's title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                             </Col>
                             <Col className = "no-padding">

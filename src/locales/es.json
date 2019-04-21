@@ -47,5 +47,6 @@
 	"att": "att: Equipo 4Berry",
 	"Undo":"Deshacer",
 	"Clear":"Limpiar",
-	"Cancel": "Cancelar"
+	"Cancel": "Cancelar",
+	"EmailExample": "Ejemplo: example@email.com"
 }

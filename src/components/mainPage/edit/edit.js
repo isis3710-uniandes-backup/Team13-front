@@ -128,6 +128,8 @@ class Edit extends Component {
             <br/>
             <Row>
                 <Col className = "no-padding">
+                    <label>Card title: </label>
+                    <br/>
                     <input className="btnContrast" aria-label= "card title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                 </Col>
                 <Col>

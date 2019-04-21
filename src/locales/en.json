@@ -38,7 +38,7 @@
 	"About 4Berry":"About 4Berry",
 	"Made By":"Made By:",
 	"requiredf":"* Required fields",
-	"incorrect email": "Incorrect email. You have to include @ and .something",
+	"incorrect email": "Incorrect email. You have to include @ and .something.",
 	"incorrect password": "Incorrect password. It must be 6 to 20 characters and contain at least one numeric digit, one uppercase and one lowercase. ",
 	"User":"User",
 	"page not found": "Page not found",
@@ -47,6 +47,7 @@
 	"att": "att: 4Berry Team",
 	"Undo":"Undo",
 	"Clear":"Clear",
-	"Okay": "Okay"
+	"Okay": "Okay",
+	"EmailExample": "Example: example@email.com"
 }
 
