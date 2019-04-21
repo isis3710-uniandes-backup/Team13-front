@@ -3,9 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {Col,Row,Container,Button} from 'react-bootstrap';
 import './edit.css'
 import reactCSS from 'reactcss'
-import imgSave from "./save.svg";
-import imgClear from "./clear.svg";
-import imgUndo from "./undo.svg";
 import { SketchPicker } from 'react-color'
 import CanvasDraw from 'react-canvas-draw'
 import {FormattedMessage} from 'react-intl'

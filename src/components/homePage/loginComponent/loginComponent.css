@@ -29,11 +29,11 @@ textarea:focus, input:focus{
 
 input{
   width: 12rem;
-  background-color: #c492b1 !important;
+  background-color: #868e96 !important;
   border-radius: 18px;
   padding: 1%;
   padding-left: 2% !important;
-  color: white !important;
+  color: white  !important;
   border: none;
   font-size: 1.2rem;
 }
