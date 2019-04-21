@@ -313,12 +313,14 @@ class Main extends Component {
                 <GameModeSelection show={ this.state.showGameMode } onClick={ this.openStoryboardNewOrOpen } />
                 <Storyboard theStoryID={storyIdToSend} addCardBE={this.addCardBE} getCardBE={this.getCardBE} removeCardBE={this.removeCardBE}
                 cardsIn={this.state.cards} show={ this.state.showStoryboard } updateStoryboardBE={this.updateStoryboardBE} 
-                closeStoryboard={this.closeStoryboard} />
+                closeStoryboard={this.closeStoryboard} goBackToNewOrOpen={this.openStoryboardNewOrOpen} goBackToGamemode={this.handleCloseShowNewOrOpen}/>
                 <Edit theCardID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE} closeEditor={this.closeEditor}/>
                 <NewOrOpenSection show={ this.state.showNewOrOpen} handleClose ={this.handleCloseShowNewOrOpen} 
                     handleLoad={this.handleStoryboardOpen} 
                     handleNewStoryboard={this.changeView}/>
-                <OpenSection addStoryboardBE={this.addStoryboardBE} 
+                <OpenSection addStoryboardBE={this.addStoryboardBE}
+                             goBackToGamemode={this.handleCloseShowNewOrOpen}
+                             goBackToNewOrOpen={this.openStoryboardNewOrOpen}
                 handleLoad={this.handleStoryboardOpen}
                 getStoryboardBE={this.getStoryboardBE} 
                 removeStoryboardBE={this.removeStoryboardBE}

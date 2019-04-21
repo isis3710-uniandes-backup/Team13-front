@@ -9,6 +9,10 @@
  	font-family: 'Raleway', sans-serif;
  	font-size: 2rem;
 }
+.openSection{
+	height: 100% !important;
+	background-color: #424651 !important;
+}
 
 .Placeholder-open{
   height: 100px;

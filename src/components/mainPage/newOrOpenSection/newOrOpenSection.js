@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import './newOrOpenSection.css';
 import {FormattedMessage} from 'react-intl';
+import {Breadcrumb} from 'react-bootstrap';
 
 class NewOrOpenSection extends Component {
 
@@ -19,6 +20,13 @@ class NewOrOpenSection extends Component {
 						<Col>
 						</Col>
 						<Col>
+
+							<Breadcrumb>
+								<Breadcrumb.Item onClick={this.props.handleClose}>Gamemode</Breadcrumb.Item>
+								<Breadcrumb.Item active>
+									Storyboard
+								</Breadcrumb.Item>
+							</Breadcrumb>
 							<div className = "NewOrOpen no-padding">
 								<Row className = "no-padding no-margin">
 									<Col>
