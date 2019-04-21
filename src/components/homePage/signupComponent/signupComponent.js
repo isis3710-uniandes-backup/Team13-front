@@ -154,22 +154,23 @@ class SignupComponent extends Component {
                   {
                       !this.state.correctPassword &&
                       <div className="supermini">
-                          * required fields
+                          <FormattedMessage id="requiredf"/>
                       </div>
                   }
                   {
                       this.state.correctPassword &&
                       <div className="supermini thepadding">
-                          * required fields
+                          <FormattedMessage id="requiredf"/>
                       </div>
                   }
+                  <br/>
                   <div className="alignRight">
                       <Button id="mainColor" type="submit" onClick={this.handleSubmit}>
                           <FaRegCheckCircle />
                       </Button>
                   </div>
                   <br/>
-                  <div className="mini">Already have an account? <div className="Green-link" onClick={this.props.changeLogIn}>Log in!</div> It's free !</div>
+                  <div className="mini"><FormattedMessage id="yes account"/><div className="Green-link" onClick={this.props.changeLogIn}><FormattedMessage id="Log in"/></div></div>
                   { 
                     this.state.signUpError &&
                     <Alert variant='danger'>

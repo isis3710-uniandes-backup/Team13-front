@@ -7,6 +7,7 @@ import { Router } from 'react-router';
 import { HashLink as Link } from 'react-router-hash-link';
 import { connect } from 'react-redux';
 import {FaRegUser} from "react-icons/fa/index";
+import {FormattedMessage} from 'react-intl';
 
 
 class NavBarComponent extends Component {
@@ -51,31 +52,31 @@ class NavBarComponent extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link className="whiteFont" onClick = {this.props.manageScrollIntro}>Home</Nav.Link>
-                        <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollFeatures}>Features </Nav.Link>
-                        <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollAbout}>About</Nav.Link>
+                        <Nav.Link className="whiteFont" onClick = {this.props.manageScrollIntro}><FormattedMessage id="Home"/></Nav.Link>
+                        <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollFeatures}><FormattedMessage id="Features"/></Nav.Link>
+                        <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollAbout}><FormattedMessage id="About"/></Nav.Link>
                         { !this.state.loggedIn &&
-                        <Nav.Link className="whiteFont" onClick={this.props.handleSignupFunction}>Join</Nav.Link>
+                        <Nav.Link className="whiteFont" onClick={this.props.handleSignupFunction}><FormattedMessage id="Join"/></Nav.Link>
                         }
                         { !this.state.loggedIn &&
-                        <Nav.Link className="whiteFont" onClick={this.props.handleLoginFunction}>Log in</Nav.Link>
+                        <Nav.Link className="whiteFont" onClick={this.props.handleLoginFunction}><FormattedMessage id="Log in"/></Nav.Link>
                         }
                         {
                             this.state.loggedIn &&
-                            <Nav.Link className="whiteFont" to = "/main"><Link to = "/main"> Start Playing </Link></Nav.Link>
+                            <Nav.Link className="whiteFont" to = "/main"><Link to = "/main"><FormattedMessage id="Start playing"/></Link></Nav.Link>
                         }
                     </Nav>
                     {
                         this.state.loggedIn &&
                         <Form inline>
-                            <Dropdown>
+                            <Dropdown alignRight>
                                 <Dropdown.Toggle className="whiteFont">
                                     <FaRegUser/>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
-                                    <Dropdown.Item href="#" onClick={this.props.handleNew}> New </Dropdown.Item>
-                                    <Dropdown.Item href="#" onClick={this.props.handleLoad}> Open </Dropdown.Item>
-                                    <Dropdown.Item href="#" onClick={this.cerrarSesion}> Logout </Dropdown.Item>
+                                    <Dropdown.Item href="#" onClick={this.props.handleNew}> <FormattedMessage id="New"/></Dropdown.Item>
+                                    <Dropdown.Item href="#" onClick={this.props.handleLoad}> <FormattedMessage id="Open"/> </Dropdown.Item>
+                                    <Dropdown.Item href="#" onClick={this.cerrarSesion}><FormattedMessage id="Logout"/></Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </Form>
