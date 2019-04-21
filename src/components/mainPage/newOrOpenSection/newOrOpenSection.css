@@ -63,3 +63,18 @@
 .Placeholder{
   height: 100px;
 }
+
+.btnSelect{
+  border: 0px;
+  color: #ffffff;
+}
+
+.dist{
+  position: relative;
+  top: 10rem !important;
+  background-color: #424651;
+}
+
+.dist:hover{
+  background-color: #B54998;
+}

@@ -21,7 +21,7 @@
 }
 
 .text{
-	color: #bce7fd;
+	color: #424651;
 	width: 100%;
 	font-size: 1.5rem;
 	margin-top: 20px;
@@ -40,4 +40,13 @@ a{
 a:hover{
 	text-decoration: none;
 	color: inherit;
+}
+
+.btnSelect{
+	margin-top: 10px;
+	border-radius: 8%;
+	background-color: #BCE7FD;
+}
+.btnSelect:hover{
+	background-color:#21FA90;
 }

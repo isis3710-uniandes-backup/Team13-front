@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import {FaRegNewspaper} from 'react-icons/fa';
 import { connect } from 'react-redux';
 import {FormattedMessage} from 'react-intl';
+import {Button} from 'react-bootstrap';
 
 class GameModeSelection extends Component {
 
@@ -29,7 +30,9 @@ class GameModeSelection extends Component {
                                   <div className = "Feature1 Feature-core">
                                       <FaRegNewspaper className="Icon"/>
                                   </div>
-                                  <b className="text">Storyboarding</b>
+                                  <Button aria-label="Start Storyboarding"className = "btnSelect" type="button" variant="secondary">
+                                    <b className="text">Storyboarding</b>
+                                  </Button>
                               </div>
                           </Col>
                           <Col>

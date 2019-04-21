@@ -123,7 +123,7 @@ class Edit extends Component {
                 <div className="Edit">
         <Container>
             <Row>
-                <h1 className="AxeH1">{this.state.title}</h1>
+                <h1 className="AxeH1">Card Editor</h1>
             </Row>
             <br/>
             <Row>
