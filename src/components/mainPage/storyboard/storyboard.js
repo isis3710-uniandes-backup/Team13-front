@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Card, Button, Col, Row, Container } from 'react-bootstrap';
+import { Card, Button, Col, Row, Container, Breadcrumb } from 'react-bootstrap';
 import './storyboard.css';
 import {FormattedMessage} from 'react-intl';
 import {FaUserPlus,FaMarker,FaTrash,FaSave} from "react-icons/fa/index";
@@ -102,6 +102,15 @@ class Storyboard extends Component {
             return (
                 <div className="Storyboard">
                     <Container>
+                        <Breadcrumb>
+                            <Breadcrumb.Item onClick={this.props.goBackToGamemode}>
+                                Gamemode
+                            </Breadcrumb.Item>
+                            <Breadcrumb.Item onClick={this.props.goBackToNewOrOpen}>
+                                Storyboard
+                            </Breadcrumb.Item>
+                            <Breadcrumb.Item active>New Storyboard</Breadcrumb.Item>
+                        </Breadcrumb>;
                         <Row>
                             <h1 className="AxeH1">Storyboard editor</h1>
                         </Row>

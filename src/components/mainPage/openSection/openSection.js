@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, Col, Row, Container } from 'react-bootstrap';
+import { Card, Button, Col, Row, Container, Breadcrumb } from 'react-bootstrap';
 import './openSection.css';
 import {FormattedMessage} from 'react-intl';
 import {FaUserPlus,FaMarker,FaTrash} from "react-icons/fa/index";
@@ -66,12 +66,19 @@ class OpenSection extends Component {
 
 		if(this.props.show){
 			return (
-				<div>
+				<div className="openSection">
 					<Container>
 						<Row className = "Placeholder-open">
 						</Row>
 						<Row>
-							<Col>
+							<Col xs ={3}>
+								<Breadcrumb>
+									<Breadcrumb.Item onClick={this.props.goBackToGamemode}>Gamemode</Breadcrumb.Item>
+									<Breadcrumb.Item onClick={this.props.goBackToNewOrOpen}>
+										Storyboard
+									</Breadcrumb.Item>
+									<Breadcrumb.Item active>Open Existing</Breadcrumb.Item>
+								</Breadcrumb>
 							</Col>
 							<Col className="Open-sb sbo-container" xs ={9}>
 								<Container>
