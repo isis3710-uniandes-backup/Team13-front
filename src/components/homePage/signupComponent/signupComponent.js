@@ -103,7 +103,7 @@ class SignupComponent extends Component {
                   </FormGroup>
                   <br/>
                   <div className="supermini">
-                      * required fields
+                      <FormattedMessage id="requiredf"/>
                   </div>
                   <div className="alignRight">
                       <Button id="mainColor" type="submit" onClick={this.handleSubmit}>
@@ -111,7 +111,7 @@ class SignupComponent extends Component {
                       </Button>
                   </div>
                   <br/>
-                  <div className="mini">Already have an account? <div className="Green-link" onClick={this.props.changeLogIn}>Log in!</div> It's free !</div>
+                  <div className="mini"><FormattedMessage id="yes account"/><div className="Green-link" onClick={this.props.changeLogIn}><FormattedMessage id="Log in"/></div></div>
                   { 
                     this.state.signUpError &&
                     <Alert variant='danger'>

@@ -98,7 +98,7 @@ class LoginComponent extends Component {
                   </FormGroup>
                   <br/>
                   <div className="supermini">
-                      * required fields
+                      <FormattedMessage id="requiredf"/>
                   </div>
                   <div className="alignRight">
                       <Button className="mainColor" type="submit" onClick={this.handleSubmit}>
@@ -107,11 +107,11 @@ class LoginComponent extends Component {
                   </div>
                   <br/>
                   <div className="mini">
-                      Don't have an account yet?
+                      <FormattedMessage id="No account"/>
                       <div className="Green-link" onClick={this.props.changeSignUp}>
-                          Sign up!
+                       <FormattedMessage id="Sign up"/>
                       </div>
-                      It's free!
+                      <FormattedMessage id="Free"/>
                   </div>
                   <br/>
                    { 
