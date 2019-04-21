@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 
 
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
+import My404Component from "./components/homePage/404/My404Component";
 
 
 class MainRouter extends Component {
@@ -59,6 +60,7 @@ class MainRouter extends Component {
                     <Route path="/#intro" component={Home}/>
                     <Route path="/main" component={Main}/>
                     <Route path="/topics" component={Topics}/>
+                    <Route path='*' component={My404Component} />
             </Router>
     );
   }
