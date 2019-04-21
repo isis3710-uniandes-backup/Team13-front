@@ -18,11 +18,11 @@
   color: gray !important;
 }
 
-.Green-link{
-  color: #21fa90 !important;
+/*.Green-link{
+  color: #027E42 !important;
   font-size: 1rem;
   font-weight: bolder;
-}
+}*/
 textarea:focus, input:focus{
   outline: none;
 }
@@ -68,10 +68,10 @@ div.form-group{
 }
 
 .mainColor {
-  background-color: #bce7fd !important;
+  background-color: #424651 !important;
   border-radius: 36px;
   border: none;
-  color: #424651;
+  color: white;
   font-size: 1.5rem;
   font-family: 'Raleway';
 }
