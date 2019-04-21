@@ -7,7 +7,6 @@ import { Router } from 'react-router';
 import { HashLink as Link } from 'react-router-hash-link';
 import { connect } from 'react-redux';
 import {FaRegUser} from "react-icons/fa/index";
-import {FormattedMessage} from 'react-intl';
 
 
 class NavBarComponent extends Component {

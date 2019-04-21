@@ -10,7 +10,6 @@ import OpenSection from "../openSection/openSection";
 import { connect } from 'react-redux';
 import { userActions } from '../../../_actions/user.actions';
 import  { Redirect } from 'react-router-dom';
-import {FormattedMessage} from 'react-intl';
 
 const getNewId = (array) => {
     if (array.length > 0) {

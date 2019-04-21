@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './aboutSection.css';
-import { Container, Row, Col, Image} from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
 
 class AboutSection extends Component {

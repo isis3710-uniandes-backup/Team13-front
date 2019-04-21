@@ -3,13 +3,16 @@
 .Login {
   background-color: white;
   position: absolute;
-  top: 30%;
-  left: 34.5%;
+  top: 20%;
+  left: 0%;
+  right: 0%;
   width: 26rem;
   height: 28rem;
-  padding: 2%;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 3%;
 
+  padding: 2%;
   align-items: center !important;
   text-align: center !important;
   alignment: center !important;

@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One|Sacramento|Amatic+SC');
 
-.Login {
-  background-color: white;
-  position: absolute;
-  top: 30%;
-  left: 34.5%;
-  width: 26rem;
-  height: 28rem;
-  padding: 2%;
-  border-radius: 3%;
-
-  align-items: center !important;
-  text-align: center !important;
-  alignment: center !important;
-  align-content: center !important;
-}
-
 .mini{
   font-size: 0.85rem;
 }
