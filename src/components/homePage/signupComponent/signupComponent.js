@@ -141,7 +141,9 @@ class SignupComponent extends Component {
                   </FormGroup>
                   {
                       !this.state.correctEmail &&
-                      <div className="supermini red">Incorrect email. You have to include @ and .something </div>
+                      <div className="supermini red">
+                          <FormattedMessage id="incorrect email"/>
+                      </div>
                   }
                   <br/>
                   <FormGroup controlId="formBasicPassword">
@@ -149,7 +151,9 @@ class SignupComponent extends Component {
                   </FormGroup>
                   {
                       !this.state.correctPassword &&
-                          <div className="supermini red thepadding">Incorrect password. It must be 6 to 20 characters and contain at least one numeric digit, one uppercase and one lowercase.</div>
+                          <div className="supermini red thepadding">}
+                              <FormattedMessage id="incorrect password"/>
+                          </div>
                   }
                   {
                       !this.state.correctPassword &&
