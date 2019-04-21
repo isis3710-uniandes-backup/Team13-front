@@ -21,8 +21,7 @@ class LoginComponent extends Component {
             password: '',
             failedLogin: false,
             redirect: false,
-            correctEmail: true,
-            correctPassword: true
+            correctEmail: true
         };
 
 
@@ -109,16 +108,14 @@ class LoginComponent extends Component {
                   </FormGroup>
                   {
                       !this.state.correctEmail &&
-                      <div className="supermini red">Incorrect email. You have to include @ and .something </div>
+                      <div className="supermini red">
+                          <FormattedMessage id="incorrect email"/>
+                      </div>
                   }
                   <br/>
                   <FormGroup controlId="formBasicPassword">
                       <FormCheckInput aria-label="password" id = "pass" className="pinky" type="password" placeholder="Password *" onChange={this.handleChange} />
                   </FormGroup>
-                  {
-                      !this.state.correctPassword &&
-                      <div className="supermini red"> ERROR</div>
-                  }
                   <br/>
                   <div className="supermini">
                       <FormattedMessage id="requiredf"/>

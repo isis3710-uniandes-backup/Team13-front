@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, Button, Col, Row, Container } from 'react-bootstrap';
 import './openSection.css';
 import {FormattedMessage} from 'react-intl';
+import {FaUserPlus,FaMarker,FaTrash} from "react-icons/fa/index";
 
 const getNewId = (array) => {
     if (array.length > 0) {
@@ -56,8 +57,8 @@ class OpenSection extends Component {
                     <Card.Title>
                         {f.id}. { f.title }
                     </Card.Title>
-                    <Button variant="primary" onClick={() => this.onEdit(f.id)}><FormattedMessage id="Edit"/></Button>
-							<Button variant="primary" onClick={() => this.removeStoryboard(f.id)}><FormattedMessage id="Remove"/></Button>
+                    <Button variant="secondary" onClick={() => this.onEdit(f.id)}><FormattedMessage id="Edit"/><FaMarker/> </Button>
+							<Button variant="secondary" onClick={() => this.removeStoryboard(f.id)}><FormattedMessage id="Remove"/> <FaTrash/></Button>
                 </Card.Body>
             	</Card>
 			);
@@ -96,7 +97,7 @@ class OpenSection extends Component {
 											<Row>
 											{ getStoryboards }
 											<Col>
-                                				<Button variant="primary" onClick={(e) => this.addStoryboard(e)}><FormattedMessage id="Add"/></Button>
+                                				<Button variant="secondary" onClick={(e) => this.addStoryboard(e)}><FormattedMessage id="Add"/> <FaUserPlus/></Button>
                            					</Col>
 											</Row>
 										</Container>

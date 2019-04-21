@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Card, Button, Col, Row, Container } from 'react-bootstrap';
 import './storyboard.css';
 import {FormattedMessage} from 'react-intl';
+import {FaUserPlus,FaMarker,FaTrash,FaSave} from "react-icons/fa/index";
 
 const getNewId = (array) => {
     if (array.length > 0) {
@@ -92,8 +93,8 @@ class Storyboard extends Component {
                     <Card.Text>
                         { c.text }
                     </Card.Text>
-                        <Button variant="primary" onClick={() => this.onEdit(c.id)}><FormattedMessage id="Edit"/></Button>
-                    <Button variant="primary" onClick={() => this.removeCard(c.id)}><FormattedMessage id="Remove"/></Button>
+                        <Button variant="secondary" onClick={() => this.onEdit(c.id)}><FormattedMessage id="Edit"/> <FaMarker/></Button>
+                    <Button variant="secondary" onClick={() => this.removeCard(c.id)}><FormattedMessage id="Remove"/> <FaTrash/></Button>
                 </Card.Body>
             </Card>);
         })
@@ -110,7 +111,7 @@ class Storyboard extends Component {
                                 <input aria-label= "storyboard's title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                             </Col>
                             <Col className = "no-padding">
-                                <Button variant="primary" onClick={(e) => this.updateStoryboard(e)}><FormattedMessage id="Guardar"/></Button>
+                                <Button variant="secondary" onClick={(e) => this.updateStoryboard(e)}><FormattedMessage id="Guardar"/> <FaSave/></Button>
                             </Col>
                             <Col>
                                 <button type="button" className="close close-btn" aria-label="Close" onClick = {this.props.closeStoryboard}>
@@ -122,7 +123,7 @@ class Storyboard extends Component {
                         <Row>
                             { getCards }
                             <Col>
-                                <Button variant="primary" onClick={(e) => this.addCard(e)}><FormattedMessage id="Add"/></Button>
+                                <Button variant="secondary" onClick={(e) => this.addCard(e)}><FormattedMessage id="Add"/> <FaUserPlus/></Button>
                             </Col>
                         </Row>
                     </Container>
