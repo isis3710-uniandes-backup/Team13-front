@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Col, Row, Container } from 'react-bootstrap';
+import {Col,Row,Container,Button} from 'react-bootstrap';
 import './edit.css'
 import reactCSS from 'reactcss'
-import imgSave from "./save.svg";
-import imgClear from "./clear.svg";
-import imgUndo from "./undo.svg";
 import { SketchPicker } from 'react-color'
 import CanvasDraw from 'react-canvas-draw'
 import {FormattedMessage} from 'react-intl'
+import {FaSave,FaRev,FaTrashAlt} from "react-icons/fa/index"
 
 class Edit extends Component {
 
@@ -180,21 +178,21 @@ class Edit extends Component {
             <Row>
                 <Col xs={2}>
                     <Row>
-                        <input type="image" src={imgSave} className="btTxt"
-                        width="60" height ="60" alt="https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
-                        onClick={(e) => this.updateCard(e,"savedDrawing")}/>
+                        <Button type="button" variant="secondary"
+                        width="60" height ="60"
+                        onClick={(e) => this.updateCard(e,"savedDrawing")}><FormattedMessage id="Guardar"/> <FaSave/></Button>
                     </Row>
                     <br/>
                     <Row>
-                        <input type="image" src={imgUndo} className="btTxt"
-                        width="60" height ="60" alt="https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
-                        onClick={() => {this.saveableCanvas.undo();}}/>
+                        <Button type="button" variant="secondary" 
+                        width="60" height ="60"
+                        onClick={() => {this.saveableCanvas.undo();}}><FormattedMessage id="Undo"/> <FaRev/></Button>
                     </Row>
                     <br/>
                     <Row>
-                        <input type="image" src={imgClear} className="btTxt"
-                        width="60" height ="60" alt="https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
-                        onClick={() => {this.saveableCanvas.clear();}}/>
+                        <Button type="button" variant="secondary"
+                        width="60" height ="60"
+                        onClick={() => {this.saveableCanvas.clear();}}><FormattedMessage id="Clear"/> <FaTrashAlt/></Button>
                     </Row>
                     <br/>
                     <Row>

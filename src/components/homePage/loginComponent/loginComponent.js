@@ -96,7 +96,7 @@ class LoginComponent extends Component {
       if(this.props.showLogin){
           return (
               <div className="Login">
-                  <Button type="button" className="close CloseButton" aria-label="Close" onClick={this.props.handleClose}>
+                  <Button type="button" className="close CloseButton" aria-label="Close modal" onClick={this.props.handleClose}>
                     <span aria-hidden="true">&times;</span>
                   </Button>
                   <h1 className="titleBerry">
@@ -121,7 +121,7 @@ class LoginComponent extends Component {
                       <FormattedMessage id="requiredf"/>
                   </div>
                   <div className="alignRight">
-                      <Button className="mainColor" type="submit" onClick={this.handleSubmit}>
+                      <Button aria-label= "submit" className="mainColor" type="submit" onClick={this.handleSubmit}>
                           <FaRegCheckCircle />
                       </Button>
                   </div>

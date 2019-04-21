@@ -21,10 +21,10 @@ class AboutSection extends Component {
             <h2 className="AxeH2">Ana Fandiño</h2>
           </Row>
           <Row>
-            <h2 className="AxeH2">Felipe Velásquez</h2>
+            <h2 className="AxeH2">Santiago Múnera</h2>
           </Row>
           <Row>
-            <h2 className="AxeH2">Santiago Múnera</h2>
+            <h2 className="AxeH2">Felipe Velásquez</h2>
           </Row>
         </Container>
       </div>

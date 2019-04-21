@@ -169,7 +169,7 @@ class SignupComponent extends Component {
                   }
                   <br/>
                   <div className="alignRight">
-                      <Button id="mainColor" type="submit" onClick={this.handleSubmit}>
+                      <Button aria-label= "submit" id="mainColor" type="submit" onClick={this.handleSubmit}>
                           <FaRegCheckCircle />
                       </Button>
                   </div>

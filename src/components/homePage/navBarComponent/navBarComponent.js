@@ -52,9 +52,9 @@ class NavBarComponent extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link className="whiteFont" onClick = {this.props.manageScrollIntro}><FormattedMessage id="Home"/></Nav.Link>
-                        <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollFeatures}><FormattedMessage id="Features"/></Nav.Link>
-                        <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollAbout}><FormattedMessage id="About"/></Nav.Link>
+                        <Nav.Link className="whiteFont" onClick = {this.props.manageScrollIntro}><Link to="/"><FormattedMessage id="Home"/></Link></Nav.Link>
+                        <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollFeatures}><Link to="/"><FormattedMessage id="Features"/></Link></Nav.Link>
+                        <Nav.Link className="whiteFont"  onClick = {this.props.manageScrollAbout}><Link to="/"><FormattedMessage id="About"/></Link></Nav.Link>
                         { !this.state.loggedIn &&
                         <Nav.Link className="whiteFont" onClick={this.props.handleSignupFunction}><FormattedMessage id="Join"/></Nav.Link>
                         }
