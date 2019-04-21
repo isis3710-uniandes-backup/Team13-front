@@ -14,14 +14,20 @@ class SignupComponent extends Component {
     super(props);
 
     this.state = {
-      'signUpOk': false,
-      'signUpError': false,
-      'username': '',
-      'password': ''
+      signUpOk: false,
+      signUpError: false,
+      username: '',
+      password: '',
+        correctEmail: true,
+        correctPassword: true
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeEmail = this.handleChangeEmail.bind(this);
+    this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.checkSignUp = this.checkSignUp.bind(this);
+    this.isEmail = this.isEmail.bind(this);
+    this.isPassword = this.isPassword.bind(this);
   }
 
   handleSubmit(e){
@@ -67,21 +73,57 @@ class SignupComponent extends Component {
   }
 
 
-  handleChange(e){
+    handleChangePassword(e){
     e.preventDefault();
     const email = document.getElementById("email").value;
     const pass = document.getElementById("pass").value;
 
-    this.setState({
+      if(this.isPassword(pass)) {
+          this.setState( {
+              correctPassword: true
+          })
+      } else {
+          this.setState( {
+              correctPassword: false
+          })
+      }
 
-      'signUpOk': this.state.signUpOk,
-      'signUpError': this.state.signUpError,
-      username: email,
-      password: pass
-    });
-
-    console.log(this.state);
+      this.checkSignUp(email, pass)
   }
+  handleChangeEmail(e){
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const pass = document.getElementById("pass").value;
+
+      if(this.isEmail(email)) {
+          this.setState( {
+              correctEmail: true
+          })
+      } else {
+          this.setState( {
+              correctEmail: false
+          })
+      }
+
+    this.checkSignUp(email, pass)
+  }
+  checkSignUp(email, pass) {
+      this.setState({
+          'signUpOk': this.state.signUpOk,
+          'signUpError': this.state.signUpError,
+          username: email,
+          password: pass
+      });
+  }
+
+    isEmail (email) {
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+    isPassword (text) {
+        let passw =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        return text.match(passw)
+    }
 
   render() {
       if(this.props.showSignUp){
@@ -95,16 +137,32 @@ class SignupComponent extends Component {
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
-                      <FormCheckInput aria-label="email" id = "email" onChange={this.handleChange} className="pinky" type="email" placeholder="Enter email *" /> <br/>
+                      <FormCheckInput aria-label="email" id = "email" onChange={this.handleChangeEmail} className="pinky" type="email" placeholder="Enter email *" /> <br/>
                   </FormGroup>
+                  {
+                      !this.state.correctEmail &&
+                      <div className="supermini red">Incorrect email. You have to include @ and .something </div>
+                  }
                   <br/>
                   <FormGroup controlId="formBasicPassword">
-                      <FormCheckInput aria-label="password" id = "pass" onChange={this.handleChange} className="pinky" type="password" placeholder="Password *" />
+                      <FormCheckInput aria-label="password" id = "pass" onChange={this.handleChangePassword} className="pinky" type="password" placeholder="Password *" />
                   </FormGroup>
-                  <br/>
-                  <div className="supermini">
-                      * required fields
-                  </div>
+                  {
+                      !this.state.correctPassword &&
+                          <div className="supermini red thepadding">Incorrect password. It must be 6 to 20 characters and contain at least one numeric digit, one uppercase and one lowercase.</div>
+                  }
+                  {
+                      !this.state.correctPassword &&
+                      <div className="supermini">
+                          * required fields
+                      </div>
+                  }
+                  {
+                      this.state.correctPassword &&
+                      <div className="supermini thepadding">
+                          * required fields
+                      </div>
+                  }
                   <div className="alignRight">
                       <Button id="mainColor" type="submit" onClick={this.handleSubmit}>
                           <FaRegCheckCircle />

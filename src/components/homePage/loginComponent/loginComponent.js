@@ -16,19 +16,19 @@ class LoginComponent extends Component {
   constructor(props){
     super(props);
 
-    //this.props.dispatch(userActions.logout());
-
-
         this.state = {
             username: '',
             password: '',
             failedLogin: false,
-            redirect: false
+            redirect: false,
+            correctEmail: true,
+            correctPassword: true
         };
 
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.isEmail = this.isEmail.bind(this);
   }
 
   handleSubmit(e){
@@ -67,12 +67,27 @@ class LoginComponent extends Component {
       const email = document.getElementById("email").value;
       const pass = document.getElementById("pass").value;
 
+      if(this.isEmail(email)) {
+          this.setState( {
+              correctEmail: true
+          })
+      } else {
+          this.setState( {
+              correctEmail: false
+          })
+      }
+
       this.setState({
         username: email,
         password: pass,
         failedLogin: this.state.failedLogin,
         redirect: this.state.redirect
       });
+  }
+
+  isEmail (email) {
+      let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
   }
 
   render() {
@@ -92,10 +107,18 @@ class LoginComponent extends Component {
                   <FormGroup controlId="formBasicEmail">
                       <FormCheckInput aria-label="email" id = "email" className="pinky" type="email" placeholder="Enter email *" onChange={this.handleChange} /> <br/>
                   </FormGroup>
+                  {
+                      !this.state.correctEmail &&
+                      <div className="supermini red">Incorrect email. You have to include @ and .something </div>
+                  }
                   <br/>
                   <FormGroup controlId="formBasicPassword">
                       <FormCheckInput aria-label="password" id = "pass" className="pinky" type="password" placeholder="Password *" onChange={this.handleChange} />
                   </FormGroup>
+                  {
+                      !this.state.correctPassword &&
+                      <div className="supermini red"> ERROR</div>
+                  }
                   <br/>
                   <div className="supermini">
                       * required fields
