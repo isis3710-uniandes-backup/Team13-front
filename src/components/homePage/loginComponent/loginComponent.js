@@ -108,7 +108,9 @@ class LoginComponent extends Component {
                   </FormGroup>
                   {
                       !this.state.correctEmail &&
-                      <div className="supermini red">Incorrect email. You have to include @ and .something </div>
+                      <div className="supermini red">
+                          <FormattedMessage id="incorrect email"/>
+                      </div>
                   }
                   <br/>
                   <FormGroup controlId="formBasicPassword">
