@@ -71,7 +71,7 @@ class NavBarComponent extends Component {
                         <Form inline>
                             <Dropdown alignRight>
                                 <Dropdown.Toggle className="whiteFont">
-                                    <FaRegUser/>
+                                <FormattedMessage id="User"/> <FaRegUser/>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
                                     <Dropdown.Item href="#" onClick={this.props.handleNew}> <FormattedMessage id="New"/></Dropdown.Item>
