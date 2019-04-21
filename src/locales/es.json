@@ -39,5 +39,6 @@
 	"Made By":"Hecho por:",
 	"requiredf":"* Campos requeridos",
 	"incorrect email": "Email incorrecto. Tienes que incluir un @ y un .algo",
-	"incorrect password": "Clave con formato incorrecto. Tiene que tener de 6 a 20 caracteres, al menos un dígito númerio, una mayúscula y una minúscula."
+	"incorrect password": "Clave con formato incorrecto. Tiene que tener de 6 a 20 caracteres, al menos un dígito númerio, una mayúscula y una minúscula.",
+	"User":"Usuario"
 }

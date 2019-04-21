@@ -39,5 +39,6 @@
 	"Made By":"Made By:",
 	"requiredf":"* Required fields",
 	"incorrect email": "Incorrect email. You have to include @ and .something",
-	"incorrect password": "Incorrect password. It must be 6 to 20 characters and contain at least one numeric digit, one uppercase and one lowercase. "
+	"incorrect password": "Incorrect password. It must be 6 to 20 characters and contain at least one numeric digit, one uppercase and one lowercase. ",
+	"User":"User"
 }
