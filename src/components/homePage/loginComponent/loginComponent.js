@@ -90,22 +90,29 @@ class LoginComponent extends Component {
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
-                      <FormCheckInput aria-label="email" id = "email" className="pinky" type="email" placeholder="Enter email" onChange={this.handleChange} /> <br/>
+                      <FormCheckInput aria-label="email" id = "email" className="pinky" type="email" placeholder="Enter email *" onChange={this.handleChange} /> <br/>
                   </FormGroup>
                   <br/>
                   <FormGroup controlId="formBasicPassword">
-                      <FormCheckInput aria-label="password" id = "pass" className="pinky" type="password" placeholder="Password" onChange={this.handleChange} />
+                      <FormCheckInput aria-label="password" id = "pass" className="pinky" type="password" placeholder="Password *" onChange={this.handleChange} />
                   </FormGroup>
                   <br/>
+                  <div className="supermini">
+                      * required fields
+                  </div>
                   <div className="alignRight">
                       <Button className="mainColor" type="submit" onClick={this.handleSubmit}>
                           <FaRegCheckCircle />
                       </Button>
                   </div>
                   <br/>
-                  <div className="mini">Don't have an account yet? <div className="Green-link" onClick={this.props.changeSignUp}>Sign up!</div> It's free!</div>
-
-                  
+                  <div className="mini">
+                      Don't have an account yet?
+                      <div className="Green-link" onClick={this.props.changeSignUp}>
+                          Sign up!
+                      </div>
+                      It's free!
+                  </div>
                   <br/>
                    { 
                     this.state.failedLogin &&

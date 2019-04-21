@@ -95,13 +95,16 @@ class SignupComponent extends Component {
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
-                      <FormCheckInput aria-label="email" id = "email" onChange={this.handleChange} className="pinky" type="email" placeholder="Enter email" /> <br/>
+                      <FormCheckInput aria-label="email" id = "email" onChange={this.handleChange} className="pinky" type="email" placeholder="Enter email *" /> <br/>
                   </FormGroup>
                   <br/>
                   <FormGroup controlId="formBasicPassword">
-                      <FormCheckInput aria-label="password" id = "pass" onChange={this.handleChange} className="pinky" type="password" placeholder="Password" />
+                      <FormCheckInput aria-label="password" id = "pass" onChange={this.handleChange} className="pinky" type="password" placeholder="Password *" />
                   </FormGroup>
                   <br/>
+                  <div className="supermini">
+                      * required fields
+                  </div>
                   <div className="alignRight">
                       <Button id="mainColor" type="submit" onClick={this.handleSubmit}>
                           <FaRegCheckCircle />
