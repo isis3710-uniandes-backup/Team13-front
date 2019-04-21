@@ -131,7 +131,7 @@ class Edit extends Component {
             <br/>
             <Row>
                 <Col className = "no-padding">
-                    <input aria-label= "card title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
+                    <input className="btnContrast" aria-label= "card title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                 </Col>
                 <Col>
                     <button type="button" className="close close-btn" aria-label="Close" onClick = {this.props.closeEditor}>
@@ -145,7 +145,7 @@ class Edit extends Component {
                         <label><FormattedMessage id="Canvas Width"/></label>
                     </Row>
                     <Row>
-                        <input aria-label="set canvas width" type="number" value={this.state.width} onChange={e =>
+                        <input className="btnContrast" aria-label="set canvas width" type="number" value={this.state.width} onChange={e =>
                         this.setState({ width: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>
@@ -154,7 +154,7 @@ class Edit extends Component {
                         <label><FormattedMessage id="Canvas Height"/></label>
                     </Row>
                     <Row>
-                        <input aria-label="set canvas height" type="number" value={this.state.height} onChange={e =>
+                        <input className="btnContrast" aria-label="set canvas height" type="number" value={this.state.height} onChange={e =>
                         this.setState({ height: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>
@@ -163,7 +163,7 @@ class Edit extends Component {
                         <label><FormattedMessage id="Brush Radius"/></label>
                     </Row>
                     <Row>
-                        <input aria-label="set bursh radius" type="number" value={this.state.brushRadius} onChange={e =>
+                        <input className="btnContrast" aria-label="set bursh radius" type="number" value={this.state.brushRadius} onChange={e =>
                         this.setState({ brushRadius: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>  
@@ -172,7 +172,7 @@ class Edit extends Component {
                         <label><FormattedMessage id="Lazy Radius"/></label>
                     </Row>
                     <Row>
-                        <input aria-label="set lazy radius" type="number" value={this.state.lazyRadius} onChange={e =>
+                        <input className="btnContrast" aria-label="set lazy radius" type="number" value={this.state.lazyRadius} onChange={e =>
                         this.setState({ lazyRadius: parseInt(e.target.value, 10) })}/>
                     </Row>
                 </Col>
@@ -181,19 +181,19 @@ class Edit extends Component {
             <Row>
                 <Col xs={2}>
                     <Row>
-                        <Button type="button" variant="secondary"
+                        <Button className = "btnContrast" type="button" variant="secondary"
                         width="60" height ="60"
                         onClick={(e) => this.updateCard(e,"savedDrawing")}><FormattedMessage id="Guardar"/> <FaSave/></Button>
                     </Row>
                     <br/>
                     <Row>
-                        <Button type="button" variant="secondary" 
+                        <Button className = "btnContrast" type="button" variant="secondary" 
                         width="60" height ="60"
                         onClick={() => {this.saveableCanvas.undo();}}><FormattedMessage id="Undo"/> <FaRev/></Button>
                     </Row>
                     <br/>
                     <Row>
-                        <Button type="button" variant="secondary"
+                        <Button className = "btnContrast" type="button" variant="secondary"
                         width="60" height ="60"
                         onClick={() => {this.saveableCanvas.clear();}}><FormattedMessage id="Clear"/> <FaTrashAlt/></Button>
                     </Row>
@@ -223,7 +223,7 @@ class Edit extends Component {
             </Row>
             <br/>
             <Row>
-                <input aria-label= "card text" className="txtInEditor" type="text" defaultValue={this.state.txtArea} ref={(ref) => this.inputTxt = ref}/>
+                <input aria-label= "card text" className="txtInEditor btnContrast" type="text" defaultValue={this.state.txtArea} ref={(ref) => this.inputTxt = ref}/>
             </Row>
         </Container>        
       </div>

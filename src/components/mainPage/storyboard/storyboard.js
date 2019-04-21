@@ -108,10 +108,10 @@ class Storyboard extends Component {
                         <br/>
                         <Row>
                             <Col className = "no-padding">
-                                <input aria-label= "storyboard's title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
+                                <input className="btnContrast" aria-label= "storyboard's title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                             </Col>
                             <Col className = "no-padding">
-                                <Button variant="secondary" onClick={(e) => this.updateStoryboard(e)}><FormattedMessage id="Guardar"/> <FaSave/></Button>
+                                <Button className="btnContrast"  variant="secondary" onClick={(e) => this.updateStoryboard(e)}><FormattedMessage id="Guardar"/> <FaSave/></Button>
                             </Col>
                             <Col>
                                 <button type="button" className="close close-btn" aria-label="Close" onClick = {this.props.closeStoryboard}>
@@ -123,7 +123,7 @@ class Storyboard extends Component {
                         <Row>
                             { getCards }
                             <Col>
-                                <Button variant="secondary" onClick={(e) => this.addCard(e)}><FormattedMessage id="Add"/> <FaUserPlus/></Button>
+                                <Button className="btnContrast"  variant="secondary" onClick={(e) => this.addCard(e)}><FormattedMessage id="Add"/> <FaUserPlus/></Button>
                             </Col>
                         </Row>
                     </Container>

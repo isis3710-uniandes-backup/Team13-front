@@ -24,3 +24,8 @@ label{
 	color: #ffffff;
 	margin:  0 auto;
 }
+
+.btnContrast{
+	background-color: #BCE7FD !important;
+	color: #424651 !important;
+}
