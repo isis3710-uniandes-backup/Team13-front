@@ -21,8 +21,7 @@ class LoginComponent extends Component {
             password: '',
             failedLogin: false,
             redirect: false,
-            correctEmail: true,
-            correctPassword: true
+            correctEmail: true
         };
 
 
@@ -115,10 +114,6 @@ class LoginComponent extends Component {
                   <FormGroup controlId="formBasicPassword">
                       <FormCheckInput aria-label="password" id = "pass" className="pinky" type="password" placeholder="Password *" onChange={this.handleChange} />
                   </FormGroup>
-                  {
-                      !this.state.correctPassword &&
-                      <div className="supermini red"> ERROR</div>
-                  }
                   <br/>
                   <div className="supermini">
                       <FormattedMessage id="requiredf"/>
