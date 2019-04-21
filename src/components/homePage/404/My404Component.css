@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Dancing+Script');
+
+.errorPage{
+  background-color: #424651;
+  width: 100%;
+  height: 100vh;
+}
+.otherContent{
+  color: #bce7fd;
+}
+.greatFont {
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 3rem !important;
+  color: #bce7fd;
+  font-weight: bolder;
+}
+.moreThanGreatFont{
+  font-size: 15rem;
+  color: #21fa90;
+}
+.logoError {
+  width: 39rem;
+}
+.miniConStyle{
+  padding-top: 40%;
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Dancing Script", cursive;
+  color: #bce7fd;
+}
+.chachan{
+  padding-left: 1%;
+  color: #21fa90;
+}

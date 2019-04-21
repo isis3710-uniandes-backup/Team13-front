@@ -41,7 +41,12 @@
 	"incorrect email": "Incorrect email. You have to include @ and .something",
 	"incorrect password": "Incorrect password. It must be 6 to 20 characters and contain at least one numeric digit, one uppercase and one lowercase. ",
 	"User":"User",
+	"page not found": "Page not found",
+	"ooops": "Oppsss something went wrong, click",
+	"here": "here",
+	"att": "att: 4Berry Team",
 	"Undo":"Undo",
-	"Clear":"Clear"	
+	"Clear":"Clear",
+	"Okay": "Okay"
 }
 

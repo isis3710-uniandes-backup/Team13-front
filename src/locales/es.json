@@ -41,6 +41,11 @@
 	"incorrect email": "Email incorrecto. Tienes que incluir un @ y un .algo",
 	"incorrect password": "Clave con formato incorrecto. Tiene que tener de 6 a 20 caracteres, al menos un dígito númerio, una mayúscula y una minúscula.",
 	"User":"Usuario",
+	"page not found": "Página no encontrada",
+	"ooops": "Oppsss algo salió mal, haz click",
+	"here": "aquí",
+	"att": "att: Equipo 4Berry",
 	"Undo":"Deshacer",
-	"Clear":"Limpiar"
+	"Clear":"Limpiar",
+	"Cancel": "Cancelar"
 }
