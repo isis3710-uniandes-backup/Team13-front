@@ -5,3 +5,12 @@
   	width: 100%;
   	min-height: 100vh;
 }
+
+.breadcrumb{
+	background-color: #BCE7FD;
+	color: #424651;
+}
+
+.active{
+	color: #51585D !important;
+}
