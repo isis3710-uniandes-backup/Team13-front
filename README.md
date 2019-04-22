@@ -86,4 +86,7 @@ After you click on Edit you are redirected to a place where you can draw and edi
 ![alt text](https://i.imgur.com/GF823cG.jpg)
 
 
+#### AXE accessibility
+
+If you run AXE'S plugin to verify accessibility, you will find some color warnings. All of these warnings corresponds to color contrast verifications that AXE is unable to perform automatically. All of these warnings were manually checked in order to ensure a contrast on atleast 4.5:1 on all warnings.
 
