@@ -58,6 +58,7 @@
 	"cardTitle": "Título de la tarjeta",
 	"Email": "Correo electrónico",
 	"Password": "Contraseña",
-	"OpenE": "Abrir existente"
+	"OpenE": "Abrir existente",
+	"cardText": "Texto de la tarjeta"
 
 }

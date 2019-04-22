@@ -236,6 +236,7 @@ class Edit extends Component {
             </Row>
             <br/>
             <Row>
+                <label><FormattedMessage id="cardText"/> </label>
                 <input aria-label= "card text" className="txtInEditor btnContrast" type="text" defaultValue={this.state.txtArea} ref={(ref) => this.inputTxt = ref}/>
             </Row>
         </Container>        

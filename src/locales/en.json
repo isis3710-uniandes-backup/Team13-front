@@ -58,7 +58,8 @@
 	"cardTitle": "Card Title",
 	"Email": "Email",
 	"Password": "Password",
-	"OpenE": "Abrir existente"
+	"OpenE": "Abrir existente",
+	"cardText": "Card Text"
 
 }
 
