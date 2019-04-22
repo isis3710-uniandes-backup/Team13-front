@@ -104,20 +104,20 @@ class Storyboard extends Component {
                     <Container>
                         <Breadcrumb>
                             <Breadcrumb.Item onClick={this.props.goBackToGamemode}>
-                                Gamemode
+                                <FormattedMessage id="GameMode-Bread"/>
                             </Breadcrumb.Item>
                             <Breadcrumb.Item onClick={this.props.goBackToNewOrOpen}>
                                 Storyboard
                             </Breadcrumb.Item>
-                            <Breadcrumb.Item active>Storyboard Editor</Breadcrumb.Item>
+                            <Breadcrumb.Item active><FormattedMessage id="sbEditor"/></Breadcrumb.Item>
                         </Breadcrumb>
                         <Row>
-                            <h1 className="AxeH1">Storyboard editor</h1>
+                            <h1 className="AxeH1"><FormattedMessage id="sbEditor"/></h1>
                         </Row>
                         <br/>
                         <Row>
                             <Col className = "no-padding">
-                                <label>Storyboard title: </label>
+                                <label><FormattedMessage id="sbTitle"/> </label>
                                 <br/>
                                 <input className="btnContrast" aria-label= "storyboard's title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                             </Col>

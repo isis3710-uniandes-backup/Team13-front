@@ -48,5 +48,15 @@
 	"Undo":"Deshacer",
 	"Clear":"Limpiar",
 	"Cancel": "Cancelar",
-	"EmailExample": "Ejemplo: example@email.com"
+	"EmailExample": "Ejemplo: example@email.com",
+	"Open": "Abrir",
+	"Create": "Crear",
+	"GameMode-Bread": "Modo de juego",
+	"sbEditor": "Editor de Storyboard",
+	"cardEditor": "Editor de tarjeta",
+	"sbTitle": "Título del Storyboard",
+	"cardTitle": "Título de la tarjeta",
+	"Email": "Correo electrónico",
+	"Password": "Contraseña"
+
 }

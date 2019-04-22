@@ -88,3 +88,17 @@ a.mainColor:hover {
   right: -16%;
   top: -12%;
 }
+
+.label1{
+  position: absolute;
+  color: #424651;
+  margin-top: -1rem;
+  margin-left: -6rem;
+}
+
+.label2{
+  position: absolute;
+  color: #424651;
+  margin-top: -1rem;
+  margin-left: -6rem;
+}

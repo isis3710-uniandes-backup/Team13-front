@@ -128,21 +128,21 @@ class Edit extends Component {
                 <h1 className="AxeH1">Card Editor</h1>
                 <Breadcrumb>
                     <Breadcrumb.Item onClick={this.props.goBackToGamemode}>
-                        Gamemode
+                       <FormattedMessage id="GameMode-Bread"/>
                     </Breadcrumb.Item>
                     <Breadcrumb.Item  onClick={this.props.goBackToNewOrOpen}>
                         Storyboard
                     </Breadcrumb.Item>
                     <Breadcrumb.Item onClick = {this.props.closeEditor}>
-                        Storyboard Editor
+                        <FormattedMessage id="sbEditor"/>
                     </Breadcrumb.Item>
-                    <Breadcrumb.Item active>Card Editor</Breadcrumb.Item>
+                    <Breadcrumb.Item active><FormattedMessage id="cardEditor"/></Breadcrumb.Item>
                 </Breadcrumb>
             </Row>
             <br/>
             <Row>
                 <Col className = "no-padding">
-                    <label>Card title: </label>
+                    <label><FormattedMessage id="cardTitle"/> </label>
                     <br/>
                     <input className="btnContrast" aria-label= "card title" type="text" defaultValue={this.state.title} ref={(ref) => this.inputTitle = ref}/>
                 </Col>

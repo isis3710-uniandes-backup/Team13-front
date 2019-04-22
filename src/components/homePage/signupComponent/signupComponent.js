@@ -137,6 +137,7 @@ class SignupComponent extends Component {
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
+                      <label className="label1"><FormattedMessage id="Email"/></label>
                       <FormCheckInput aria-label="email" id = "email" onChange={this.handleChangeEmail} className="pinky" type="email" placeholder="Enter email *" /> <br/>
                   </FormGroup>
                   {
@@ -149,6 +150,7 @@ class SignupComponent extends Component {
                   }
                   <br/>
                   <FormGroup controlId="formBasicPassword">
+                      <label className="label2"><FormattedMessage id="Password"/></label>
                       <FormCheckInput aria-label="password" id = "pass" onChange={this.handleChangePassword} className="pinky" type="password" placeholder="Password *" />
                   </FormGroup>
                   {

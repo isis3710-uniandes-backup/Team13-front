@@ -48,6 +48,15 @@
 	"Undo":"Undo",
 	"Clear":"Clear",
 	"Okay": "Okay",
-	"EmailExample": "Example: example@email.com"
+	"EmailExample": "Example: example@email.com",
+	"Open": "Open",
+	"Create": "Create",
+	"GameMode-Bread": "GameMode",
+	"sbEditor": "Storyboard Editor",
+	"cardEditor": "Card Editor",
+	"sbTitle": "Storyboard Title",
+	"cardTitle": "Card Title",
+	"Email": "Email",
+	"Password": "Password"
 }
 

@@ -104,7 +104,8 @@ class LoginComponent extends Component {
                       <hr/>
                   </h1>
                   <FormGroup controlId="formBasicEmail">
-                      <FormCheckInput aria-label="email" id = "email" className="pinky" type="email" placeholder="Enter email *" onChange={this.handleChange} /> <br/>
+                      <label className="label1"><FormattedMessage id="Email"/></label>
+                      <FormCheckInput aria-label="email" id = "email" className="pinky" type="email" placeholder="Email *" onChange={this.handleChange} /> <br/>
                   </FormGroup>
                   {
                       !this.state.correctEmail &&
@@ -116,6 +117,7 @@ class LoginComponent extends Component {
                   }
                   <br/>
                   <FormGroup controlId="formBasicPassword">
+                      <label className="label2"><FormattedMessage id="Password"/></label>
                       <FormCheckInput aria-label="password" id = "pass" className="pinky" type="password" placeholder="Password *" onChange={this.handleChange} />
                   </FormGroup>
                   <br/>

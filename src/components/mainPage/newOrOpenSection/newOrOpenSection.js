@@ -41,14 +41,14 @@ class NewOrOpenSection extends Component {
 
 	                  						<h1 className="intext-new"><FormattedMessage id="Create a new Storyboard"/></h1>
 	                  						<Button aria-label= "Create a new Storyboard" className = "btnSelect dist" type="button" variant="secondary">
-	                  							Create
+	                  							<FormattedMessage id="Create"/>
 	                  						</Button>
 	                  					</Col>
 	                  					<Col className = "Open no-margin" onClick = {this.props.handleLoad}>
 	                  					
 	                  						<h1 className="intext-load"><FormattedMessage id="Open an existing storyboard"/></h1>
 	                  						<Button aria-label= "Open an existing Storyboard" className = "btnSelect dist" type="button" variant="secondary">
-	                  							Open
+	                  							<FormattedMessage id="Open"/>
 	                  						</Button>
 	                  					</Col>
 	                  				</Row>
