@@ -314,7 +314,7 @@ class Main extends Component {
                 <Storyboard theStoryID={storyIdToSend} addCardBE={this.addCardBE} getCardBE={this.getCardBE} removeCardBE={this.removeCardBE}
                 cardsIn={this.state.cards} show={ this.state.showStoryboard } updateStoryboardBE={this.updateStoryboardBE} 
                 closeStoryboard={this.closeStoryboard} goBackToNewOrOpen={this.openStoryboardNewOrOpen} goBackToGamemode={this.handleCloseShowNewOrOpen}/>
-                <Edit theCardID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE} closeEditor={this.closeEditor}/>
+                <Edit theCardID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE} closeEditor={this.closeEditor} goBackToNewOrOpen={this.openStoryboardNewOrOpen} goBackToGamemode={this.handleCloseShowNewOrOpen}/>
                 <NewOrOpenSection show={ this.state.showNewOrOpen} handleClose ={this.handleCloseShowNewOrOpen} 
                     handleLoad={this.handleStoryboardOpen} 
                     handleNewStoryboard={this.changeView}/>

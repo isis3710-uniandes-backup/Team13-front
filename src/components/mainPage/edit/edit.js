@@ -6,7 +6,9 @@ import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 import CanvasDraw from 'react-canvas-draw'
 import {FormattedMessage} from 'react-intl'
+import {Breadcrumb} from 'react-bootstrap';
 import {FaSave,FaRev,FaTrashAlt} from "react-icons/fa/index"
+
 
 class Edit extends Component {
 
@@ -124,6 +126,18 @@ class Edit extends Component {
         <Container>
             <Row>
                 <h1 className="AxeH1">Card Editor</h1>
+                <Breadcrumb>
+                    <Breadcrumb.Item onClick={this.props.goBackToGamemode}>
+                        Gamemode
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item  onClick={this.props.goBackToNewOrOpen}>
+                        Storyboard
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item onClick = {this.props.closeEditor}>
+                        Storyboard Editor
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item active>Card Editor</Breadcrumb.Item>
+                </Breadcrumb>
             </Row>
             <br/>
             <Row>

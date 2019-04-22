@@ -109,8 +109,8 @@ class Storyboard extends Component {
                             <Breadcrumb.Item onClick={this.props.goBackToNewOrOpen}>
                                 Storyboard
                             </Breadcrumb.Item>
-                            <Breadcrumb.Item active>New Storyboard</Breadcrumb.Item>
-                        </Breadcrumb>;
+                            <Breadcrumb.Item active>Storyboard Editor</Breadcrumb.Item>
+                        </Breadcrumb>
                         <Row>
                             <h1 className="AxeH1">Storyboard editor</h1>
                         </Row>

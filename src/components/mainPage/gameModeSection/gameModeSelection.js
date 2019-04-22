@@ -7,6 +7,8 @@ import {FaRegNewspaper} from 'react-icons/fa';
 import { connect } from 'react-redux';
 import {FormattedMessage} from 'react-intl';
 import {Button} from 'react-bootstrap';
+import {Breadcrumb} from 'react-bootstrap';
+
 
 class GameModeSelection extends Component {
 
@@ -16,9 +18,14 @@ class GameModeSelection extends Component {
               <Container>
                   <div className = "selection">
                       <Row>
-                          <div className = "title">
-                              <h1><b><FormattedMessage id="Game Mode"/></b></h1>
-                          </div>
+                        <div className = "title">
+                            <h1><b><FormattedMessage id="Game Mode"/></b></h1>
+                        </div>
+                        <Breadcrumb>
+                            <Breadcrumb.Item active>
+                              Gamemode
+                            </Breadcrumb.Item>
+                        </Breadcrumb>                      
                       </Row>
                       <Row>
                           <Col>
