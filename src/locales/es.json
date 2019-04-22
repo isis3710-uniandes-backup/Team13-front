@@ -57,6 +57,7 @@
 	"sbTitle": "Título del Storyboard",
 	"cardTitle": "Título de la tarjeta",
 	"Email": "Correo electrónico",
-	"Password": "Contraseña"
+	"Password": "Contraseña",
+	"OpenE": "Abrir existente"
 
 }

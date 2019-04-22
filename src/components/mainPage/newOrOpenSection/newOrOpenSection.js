@@ -22,7 +22,9 @@ class NewOrOpenSection extends Component {
 						<Col>
 
 							<Breadcrumb>
-								<Breadcrumb.Item onClick={this.props.handleClose}>Gamemode</Breadcrumb.Item>
+								<Breadcrumb.Item onClick={this.props.handleClose}>
+                              		<FormattedMessage id="GameMode-Bread"/>
+                              	</Breadcrumb.Item>
 								<Breadcrumb.Item active>
 									Storyboard
 								</Breadcrumb.Item>

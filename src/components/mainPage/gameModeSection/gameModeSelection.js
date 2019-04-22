@@ -23,7 +23,7 @@ class GameModeSelection extends Component {
                         </div>
                         <Breadcrumb>
                             <Breadcrumb.Item active>
-                              Gamemode
+                              <FormattedMessage id="GameMode-Bread"/>
                             </Breadcrumb.Item>
                         </Breadcrumb>                      
                       </Row>

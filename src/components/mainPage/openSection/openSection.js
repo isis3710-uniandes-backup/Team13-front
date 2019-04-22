@@ -73,11 +73,11 @@ class OpenSection extends Component {
 						<Row>
 							<Col xs ={3}>
 								<Breadcrumb>
-									<Breadcrumb.Item onClick={this.props.goBackToGamemode}>Gamemode</Breadcrumb.Item>
+									<Breadcrumb.Item onClick={this.props.goBackToGamemode}><FormattedMessage id="GameMode-Bread"/></Breadcrumb.Item>
 									<Breadcrumb.Item onClick={this.props.goBackToNewOrOpen}>
 										Storyboard
 									</Breadcrumb.Item>
-									<Breadcrumb.Item active>Open Existing</Breadcrumb.Item>
+									<Breadcrumb.Item active><FormattedMessage id="OpenE"/></Breadcrumb.Item>
 								</Breadcrumb>
 							</Col>
 							<Col className="Open-sb sbo-container" xs ={9}>
