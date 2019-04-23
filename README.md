@@ -16,9 +16,13 @@ So, in order to run the app, first run these commands on the back-end project's 
 
 Installs node dependencies.
 
-### `npm start`
+### `npm install -g nodemon`
 
-Starts the server at [http://localhost:3000](http://localhost:3001).
+Installs nodemon globally on your computer.
+
+### `nodemon`
+
+Starts the server with nodemon at [http://localhost:3000](http://localhost:3001).
 
 
 On the other hand, run these commands in the back-end project's root directory:
