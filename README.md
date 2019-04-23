@@ -2,6 +2,10 @@
 
 4Berry is an amazing website where you can do Storyboards online !! You start with just your email and a password. Then, there's a world of possibilities. Stories are up to your imagination. You can draw and write the text of every scene of a storyboard. If you are tired and you want to work on it later, you can save it on your profile. We are still on the development of 4Berry but the main idea is to bring stories alive and join a community of storyboarders !!
 
+# Demo Footage
+
+Here's a little video that shows the demo of the app: https://youtu.be/d3Ak4swHZ04
+
 #  To Deploy
 
 This project communicates with a back-end API for it to work properly,therefore you must also clone the back-end repo (you can find the source code here: https://github.com/isis3710-uniandes/Team13-back). 
