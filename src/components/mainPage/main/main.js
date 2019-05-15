@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './main.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import {NavBarComponent} from "../../homePage/navBarComponent/navBarComponent";
+import { NavBarComponent } from "../../homePage/navBarComponent/navBarComponent";
 import Storyboard from "../storyboard/storyboard";
 import Edit from "../edit/edit";
-import {GameModeSelection} from "../gameModeSection/gameModeSelection";
+import { GameModeSelection } from "../gameModeSection/gameModeSelection";
 import NewOrOpenSection from "../newOrOpenSection/newOrOpenSection";
 import OpenSection from "../openSection/openSection";
 import { connect } from 'react-redux';
 import { userActions } from '../../../_actions/user.actions';
-import  { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const getNewId = (array) => {
     if (array.length > 0) {
@@ -21,29 +21,29 @@ const getNewId = (array) => {
 
 class Main extends Component {
 
-    constructor(props)
-    {
+    constructor(props) {
         super(props);
-        this.state =
-            {
-                showStoryboard: false,
-                showEdition: false,
-                showGameMode: true,
-                showNewOrOpen: false,
-                showOpen: false,
-                goHome: false,
-                cards:[],
-                currentStoryboard:-1,
-                currentCard: -1,
-                storyboards:[],
+        this.state = {
+            showStoryboard: false,
+            showEdition: false,
+            showGameMode: true,
+            showNewOrOpen: false,
+            showOpen: false,
+            goHome: false,
+            cards: [],
+            currentStoryboard: -1,
+            currentCard: -1,
+            storyboards: [],
         };
 
+        console.log("MAIN PROPS");
+        console.log(this.props);
+
         //Si no hay login, debe reenviar al inicio.
-        if(this.props.user === undefined || this.props.user === null){
+        if (this.props.user === undefined || this.props.user === null) {
             this.state.goHome = true;
-        }
-        else{
-            if(!this.props.user.isLoggedIn){
+        } else {
+            if (!this.props.user.isLoggedIn) {
                 this.state.goHome = true;
             }
         }
@@ -65,40 +65,45 @@ class Main extends Component {
         this.addCardBE = this.addCardBE.bind(this);
         this.getCardBE = this.getCardBE.bind(this);
         this.updateCardBE = this.updateCardBE.bind(this);
-        this.removeCardBE = this.removeCardBE.bind(this); 
+        this.removeCardBE = this.removeCardBE.bind(this);
     }
 
     changeStoryboardView(event) {
         this.setState({
             showStoryboard: !this.state.showStoryboard
         });
-        if(event) event.preventDefault();
+        if (event) event.preventDefault();
     }
     changeView() {
-        fetch("/api/storyboards")
-        .then(res => {
-        return res.json()}).then(res => {
-            let newID = getNewId(res)
-            console.log(res)
-        let newStoryboard = {
-            "id": newID,
-            "timestamp": "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
-            "title": "Some Title"
-        }
-        this.addStoryboardBE(newStoryboard)
-            this.setState({
-                showStoryboard: true,
-                showEdition: false,
-                showGameMode: false,
-                showNewOrOpen: false,
-                showOpen: false,
-                goHome: false,
-                currentStoryboard: newID
+        fetch("/api/storyboards", {
+                headers: {
+                    'Authorization': `Bearer ${this.props.user.token}`,
+                }
             })
-        });
+            .then(res => {
+                return res.json()
+            }).then(res => {
+                let newID = getNewId(res)
+                console.log(res)
+                let newStoryboard = {
+                    "id": newID,
+                    "timestamp": "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+                    "title": "Some Title"
+                }
+                this.addStoryboardBE(newStoryboard)
+                this.setState({
+                    showStoryboard: true,
+                    showEdition: false,
+                    showGameMode: false,
+                    showNewOrOpen: false,
+                    showOpen: false,
+                    goHome: false,
+                    currentStoryboard: newID
+                })
+            });
     }
 
-    openStoryboardNewOrOpen(){
+    openStoryboardNewOrOpen() {
         this.setState({
             showStoryboard: false,
             showEdition: false,
@@ -106,14 +111,14 @@ class Main extends Component {
             showNewOrOpen: true,
             showOpen: false,
             goHome: false,
-            cards:[],
+            cards: [],
             currentCard: -1,
-            storyboards:[],
-            currentStoryboard:-1
+            storyboards: [],
+            currentStoryboard: -1
         });
     }
 
-    handleCloseShowNewOrOpen(event){
+    handleCloseShowNewOrOpen(event) {
         this.setState({
             showStoryboard: false,
             showEdition: false,
@@ -121,33 +126,38 @@ class Main extends Component {
             showNewOrOpen: false,
             showOpen: false,
             goHome: false,
-            cards:[],
+            cards: [],
             currentCard: -1,
-            storyboards:[],
-            currentStoryboard:-1
+            storyboards: [],
+            currentStoryboard: -1
         });
     }
 
-    handleStoryboardOpen(event){
-        fetch("/api/storyboards")
-        .then(res => {
-        return res.json()}).then(res => {
-            this.setState({
-                showStoryboard: false,
-                showEdition: false,
-                showGameMode: false,
-                showNewOrOpen: false,
-                showOpen: true,
-                goHome: false,
-                cards:[],
-                currentCard: -1,
-                currentStoryboard:-1,
-                storyboards:res
+    handleStoryboardOpen(event) {
+        fetch("/api/storyboards", {
+                headers: {
+                    'Authorization': `Bearer ${this.props.user.token}`,
+                }
             })
-        });
+            .then(res => {
+                return res.json()
+            }).then(res => {
+                this.setState({
+                    showStoryboard: false,
+                    showEdition: false,
+                    showGameMode: false,
+                    showNewOrOpen: false,
+                    showOpen: true,
+                    goHome: false,
+                    cards: [],
+                    currentCard: -1,
+                    currentStoryboard: -1,
+                    storyboards: res
+                })
+            });
     }
 
-    handleStoryboardOpenClose(event){
+    handleStoryboardOpenClose(event) {
         this.setState({
             showStoryboard: false,
             showEdition: false,
@@ -155,14 +165,14 @@ class Main extends Component {
             showNewOrOpen: true,
             showOpen: false,
             goHome: false,
-            cards:[],
+            cards: [],
             currentCard: -1,
-            storyboards:[],
-            currentStoryboard:-1
+            storyboards: [],
+            currentStoryboard: -1
         });
     }
 
-    closeStoryboard(){
+    closeStoryboard() {
         this.setState({
             showStoryboard: false,
             showEdition: false,
@@ -170,14 +180,14 @@ class Main extends Component {
             showNewOrOpen: false,
             showOpen: false,
             goHome: false,
-            cards:[],
+            cards: [],
             currentCard: -1,
-            storyboards:[],
-            currentStoryboard:-1
+            storyboards: [],
+            currentStoryboard: -1
         });
     }
 
-    handleLogout(event){
+    handleLogout(event) {
         this.props.dispatch(userActions.logout());
         this.setState({
             goHome: true
@@ -188,50 +198,61 @@ class Main extends Component {
         fetch('/api/storyboards', {
             method: 'post',
             body: JSON.stringify(newStoryboard),
-            headers : { 
-                'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.props.user.token}`
             }
         }).then(function(res) {
-        return res.json();
-        }).then(function(res) {
-        });
+            return res.json();
+        }).then(function(res) {});
     }
 
     getStoryboardBE = (index) => {
-        fetch("/api/cards/story/"+index)
-        .then(res => {
-        return res.json()}).then(res => {
-            this.setState({
-                cards:res,
-                currentStoryboard:index,
-                showStoryboard: true,
-                showEdition: false,
-                showGameMode: false,
-                showNewOrOpen: false,
-                showOpen: false,
-                goHome: false
+        fetch("/api/cards/story/" + index, {
+                headers: {
+                    'Authorization': `Bearer ${this.props.user.token}`,
+                }
             })
-        });
+            .then(res => {
+                return res.json()
+            }).then(res => {
+                this.setState({
+                    cards: res,
+                    currentStoryboard: index,
+                    showStoryboard: true,
+                    showEdition: false,
+                    showGameMode: false,
+                    showNewOrOpen: false,
+                    showOpen: false,
+                    goHome: false
+                })
+            });
     }
 
     updateStoryboardBE = (index, newStoryboard) => {
-        fetch('/api/storyboards/'+index, {
+        fetch('/api/storyboards/' + index, {
             method: 'put',
             body: JSON.stringify(newStoryboard),
-            headers : { 
-                'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.props.user.token}`
             }
         }).then(function(res) {
-        return res.json();
-        }).then(function(res) {
-        });
+            return res.json();
+        }).then(function(res) {});
     }
 
     removeStoryboardBE = (index) => {
-        fetch('/api/storyboards/'+index, {
+        fetch('/api/storyboards/' + index, {
             method: 'delete',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.props.user.token}`
+            }
         }).then(response =>
             response.json().then(json => {
+                console.log("Save SB");
+                console.log(json);
                 return json;
             })
         );
@@ -241,47 +262,55 @@ class Main extends Component {
         fetch('/api/cards', {
             method: 'post',
             body: JSON.stringify(newCard),
-            headers : { 
-                'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.props.user.token}`
             }
         }).then(function(res) {
-        return res.json();
-        }).then(function(res) {
-        });
+            return res.json();
+        }).then(function(res) {});
     }
 
     getCardBE = (index) => {
-        fetch('/api/cards/'+index)
-        .then(res => {
-        return res.json()}).then(res => {
-            this.setState({
-                showStoryboard: false,
-                showEdition: true,
-                showGameMode: false,
-                showNewOrOpen: false,
-                showOpen: false,
-                goHome: false,
-                currentCard:index
+        fetch('/api/cards/' + index, {
+                headers: {
+                    'Authorization': `Bearer ${this.props.user.token}`,
+                }
             })
-        });
+            .then(res => {
+                return res.json()
+            }).then(res => {
+                this.setState({
+                    showStoryboard: false,
+                    showEdition: true,
+                    showGameMode: false,
+                    showNewOrOpen: false,
+                    showOpen: false,
+                    goHome: false,
+                    currentCard: index
+                })
+            });
     }
 
     updateCardBE = (index, newCard) => {
-        fetch('/api/cards/'+index, {
+        fetch('/api/cards/' + index, {
             method: 'put',
             body: JSON.stringify(newCard),
-            headers : { 
-                'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.props.user.token}`
             }
         }).then(function(res) {
-        return res.json();
-        }).then(function(res) {
-        });
+            return res.json();
+        }).then(function(res) {});
     }
 
     removeCardBE = (index) => {
-        fetch('/api/cards/'+index, {
+        fetch('/api/cards/' + index, {
             method: 'delete',
+            headers: {
+                'Authorization': `Bearer ${this.props.user.token}`,
+            }
         }).then(response =>
             response.json().then(json => {
                 return json;
@@ -289,32 +318,37 @@ class Main extends Component {
         );
     }
 
-    closeEditor(){
-        fetch("/api/cards/story/"+this.state.currentStoryboard)
-        .then(res => {
-        return res.json()}).then(res => {
-            this.setState({
-                showStoryboard: true,
-                showEdition: false,
-                showGameMode: false,
-                showNewOrOpen: false,
-                showOpen: false,
-                goHome: false,
-                cards:res
+    closeEditor() {
+        fetch("/api/cards/story/" + this.state.currentStoryboard, {
+                headers: {
+                    'Authorization': `Bearer ${this.props.user.token}`,
+                }
             })
-        });
+            .then(res => {
+                return res.json()
+            }).then(res => {
+                this.setState({
+                    showStoryboard: true,
+                    showEdition: false,
+                    showGameMode: false,
+                    showNewOrOpen: false,
+                    showOpen: false,
+                    goHome: false,
+                    cards: res
+                })
+            });
     }
-    
+
     render() {
         let idToSend = this.state.currentCard;
         let storyIdToSend = this.state.currentStoryboard;
         return (
             <div className="Main">
                 <GameModeSelection show={ this.state.showGameMode } onClick={ this.openStoryboardNewOrOpen } />
-                <Storyboard theStoryID={storyIdToSend} addCardBE={this.addCardBE} getCardBE={this.getCardBE} removeCardBE={this.removeCardBE}
+                <Storyboard user={this.props.user} theStoryID={storyIdToSend} addCardBE={this.addCardBE} getCardBE={this.getCardBE} removeCardBE={this.removeCardBE}
                 cardsIn={this.state.cards} show={ this.state.showStoryboard } updateStoryboardBE={this.updateStoryboardBE} 
                 closeStoryboard={this.closeStoryboard} goBackToNewOrOpen={this.openStoryboardNewOrOpen} goBackToGamemode={this.handleCloseShowNewOrOpen}/>
-                <Edit theCardID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE} closeEditor={this.closeEditor} goBackToNewOrOpen={this.openStoryboardNewOrOpen} goBackToGamemode={this.handleCloseShowNewOrOpen}/>
+                <Edit user={this.props.user} theCardID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE} closeEditor={this.closeEditor} goBackToNewOrOpen={this.openStoryboardNewOrOpen} goBackToGamemode={this.handleCloseShowNewOrOpen}/>
                 <NewOrOpenSection show={ this.state.showNewOrOpen} handleClose ={this.handleCloseShowNewOrOpen} 
                     handleLoad={this.handleStoryboardOpen} 
                     handleNewStoryboard={this.changeView}/>
@@ -332,7 +366,7 @@ class Main extends Component {
                     this.state.goHome &&
                     <Redirect to='/'  />
                 }
-            </div>  
+            </div>
         );
     }
 }

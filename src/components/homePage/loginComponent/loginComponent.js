@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import './loginComponent.css';
-import {FormGroup} from "react-bootstrap";
+import { FormGroup } from "react-bootstrap";
 import FormCheckInput from "react-bootstrap/FormCheckInput";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import { connect } from 'react-redux';
 import { userActions } from '../../../_actions/user.actions';
-import {store} from '../../../_helpers/store';
+import { store } from '../../../_helpers/store';
 import { Redirect } from 'react-router';
 import { FaRegCheckCircle } from "react-icons/fa/index";
-import {FormattedMessage} from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 class LoginComponent extends Component {
 
-  constructor(props){
-    super(props);
+    constructor(props) {
+        super(props);
 
         this.state = {
             username: '',
@@ -25,77 +25,79 @@ class LoginComponent extends Component {
         };
 
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.isEmail = this.isEmail.bind(this);
-  }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.isEmail = this.isEmail.bind(this);
+    }
 
-  handleSubmit(e){
-    e.preventDefault();
-    e.preventDefault();
-    const { username, password } = this.state;
-    const { dispatch } = this.props;
-    if (username && password) {
-      dispatch(userActions.login(username, password))
+    handleSubmit(e) {
+        e.preventDefault();
+        e.preventDefault();
+        const { username, password } = this.state;
+        const { dispatch } = this.props;
+        if (username && password) {
 
-      if(store.getState().authentication.user !== undefined && store.getState().authentication.user.isLoggedIn){
-        this.setState({
-            username: '',
-            password: '',
-            failedLogin: true,
-            redirect: true
-        })
-      }
-      else {
-       this.setState({
-              username: '',
-              password: '',
-              failedLogin: true,
-              redirect: false
-        })
-      }
+            let onReady = () => {
+
+                if (store.getState().authentication.user !== undefined && store.getState().authentication.user.isLoggedIn) {
+                    this.setState({
+                        username: '',
+                        password: '',
+                        failedLogin: true,
+                        redirect: true
+                    })
+                } else {
+                    this.setState({
+                        username: '',
+                        password: '',
+                        failedLogin: true,
+                        redirect: false
+                    })
+                }
+            }
+            dispatch(userActions.login(username, password, onReady));
+
+        }
+
 
     }
 
+    handleChange(e) {
+        e.preventDefault();
 
-  }
+        const email = document.getElementById("email").value;
+        const pass = document.getElementById("pass").value;
 
-   handleChange(e) {
-      e.preventDefault();
+        if (this.isEmail(email)) {
+            this.setState({
+                correctEmail: true
+            })
+        } else {
+            this.setState({
+                correctEmail: false
+            })
+        }
 
-      const email = document.getElementById("email").value;
-      const pass = document.getElementById("pass").value;
+        this.setState({
+            username: email,
+            password: pass,
+            failedLogin: this.state.failedLogin,
+            redirect: this.state.redirect
+        });
+    }
 
-      if(this.isEmail(email)) {
-          this.setState( {
-              correctEmail: true
-          })
-      } else {
-          this.setState( {
-              correctEmail: false
-          })
-      }
+    isEmail(email) {
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
 
-      this.setState({
-        username: email,
-        password: pass,
-        failedLogin: this.state.failedLogin,
-        redirect: this.state.redirect
-      });
-  }
-
-  isEmail (email) {
-      let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(String(email).toLowerCase());
-  }
-
-  render() {
-      if (this.state.redirect) {
-        return <Redirect push to="/main" />;
-      }   
-      if(this.props.showLogin){
-          return (
-              <div className="Login">
+    render() {
+        if (this.state.redirect) {
+            return <Redirect push to="/main" />;
+        }
+        if (this.props.showLogin) {
+            return (
+                <div className="Login">
                   <Button type="button" className="close CloseButton" aria-label="Close modal" onClick={this.props.handleClose}>
                     <span aria-hidden="true">&times;</span>
                   </Button>
@@ -145,12 +147,12 @@ class LoginComponent extends Component {
                     </Alert>
                   }
               </div>
-          );
-      } else {
-          return (<div />)
-      }
+            );
+        } else {
+            return (<div />)
+        }
 
-  }
+    }
 }
 
 
@@ -163,5 +165,4 @@ function mapStateToProps(state) {
 }
 
 const connectedLoginPage = connect(mapStateToProps)(LoginComponent);
-export { connectedLoginPage as LoginComponent }; 
-
+export { connectedLoginPage as LoginComponent };

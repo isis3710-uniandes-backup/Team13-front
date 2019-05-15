@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import {Col,Row,Container,Button} from 'react-bootstrap';
+import { Col, Row, Container, Button } from 'react-bootstrap';
 import './edit.css'
 import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 import CanvasDraw from 'react-canvas-draw'
-import {FormattedMessage} from 'react-intl'
-import {Breadcrumb} from 'react-bootstrap';
-import {FaSave,FaRev,FaTrashAlt} from "react-icons/fa/index"
+import { FormattedMessage } from 'react-intl'
+import { Breadcrumb } from 'react-bootstrap';
+import { FaSave, FaRev, FaTrashAlt } from "react-icons/fa/index"
 
 
 class Edit extends Component {
@@ -42,22 +42,28 @@ class Edit extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        fetch('/api/cards/'+nextProps.theCardID)
-        .then(res => {
-        return res.json()}).then(res => {
-            this.setState({
-                currentID:res.id,
-                storyboardId:res.storyboardId,
-                title:res.title,
-                imageURL:res.imageURL,
-                timestamp:res.timestamp,
-                txtArea:res.text
+        fetch('/api/cards/' + nextProps.theCardID, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.props.user.token}`
+                }
             })
-        });
+            .then(res => {
+                return res.json()
+            }).then(res => {
+                this.setState({
+                    currentID: res.id,
+                    storyboardId: res.storyboardId,
+                    title: res.title,
+                    imageURL: res.imageURL,
+                    timestamp: res.timestamp,
+                    txtArea: res.text
+                })
+            });
     }
 
     handleClick = () => {
-    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+        this.setState({ displayColorPicker: !this.state.displayColorPicker })
     };
 
     handleClose = () => {
@@ -65,60 +71,60 @@ class Edit extends Component {
     };
 
     handleChange = (color) => {
-        this.setState({ color: color.rgb})
+        this.setState({ color: color.rgb })
         let newColor = `rgba(${this.state.color.r},${this.state.color.g},${this.state.color.b},
         ${this.state.color.a})`
-        this.setState({brushColor: newColor})
+        this.setState({ brushColor: newColor })
     };
 
-    updateCard = (e,name) => {
+    updateCard = (e, name) => {
         e.preventDefault();
         let newTitle = this.inputTitle.value;
         let newTxt = this.inputTxt.value
         localStorage.setItem(name,
-                        this.saveableCanvas.getSaveData())
+            this.saveableCanvas.getSaveData())
         const newCard = {
             id: 3,
             storyboardId: this.state.storyboardId,
-            title:newTitle,
+            title: newTitle,
             imageURL: "https://www.nps.gov/articles/images/Image-w-cred-cap_-1200w-_-Brown-Bear-page_-brown-bear-in-fog_2_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
             timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
             text: newTxt
         }
-        if(this.state.currentID !== -1 && this.state.currentID !== undefined){
-            this.props.updateCardBE(this.state.currentID,newCard)
+        if (this.state.currentID !== -1 && this.state.currentID !== undefined) {
+            this.props.updateCardBE(this.state.currentID, newCard)
         }
     }
 
     render() {
         const styles = reactCSS({
-          'default': {
-            color: {
-              width: '36px',
-              height: '14px',
-              borderRadius: '2px',
-              background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,
+            'default': {
+                color: {
+                    width: '36px',
+                    height: '14px',
+                    borderRadius: '2px',
+                    background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,
+                },
+                swatch: {
+                    padding: '5px',
+                    background: '#fff',
+                    borderRadius: '1px',
+                    boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
+                    display: 'inline-block',
+                    cursor: 'pointer',
+                },
+                popover: {
+                    position: 'absolute',
+                    zIndex: '99',
+                },
+                cover: {
+                    position: 'fixed',
+                    top: '0px',
+                    right: '0px',
+                    bottom: '0px',
+                    left: '0px',
+                },
             },
-            swatch: {
-              padding: '5px',
-              background: '#fff',
-              borderRadius: '1px',
-              boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
-              display: 'inline-block',
-              cursor: 'pointer',
-            },
-            popover: {
-              position: 'absolute',
-              zIndex: '99',
-            },
-            cover: {
-              position: 'fixed',
-              top: '0px',
-              right: '0px',
-              bottom: '0px',
-              left: '0px',
-            },
-          },
         });
         if (this.props.show) {
             return (

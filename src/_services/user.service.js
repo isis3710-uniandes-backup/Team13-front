@@ -1,5 +1,7 @@
 //Adaptado de http://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example#user-service-js
 
+var md5 = require('md5');
+
 export const userService = {
     login,
     logout,
@@ -7,35 +9,35 @@ export const userService = {
 };
 
 function login(username, password) {
-    /*const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-    };*/
 
-    //Solución temporal para simular login sin be
+    return new Promise((resolve, reject) => {
 
-    if(username !== "123" || password !== "123"){
-        return {"isLoggedIn": false};
-    }
+        fetch("/api/users/login", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ "nickname": username, "password": md5(password) })
+        }).then(async (res) => {
+            return res.json()
+        }).then((res) => {
 
-    localStorage.setItem('uid', 1);
-    localStorage.setItem('isLoggedIn', true);
-    return {"uid": 1,
-            "isLoggedIn": true};
+            console.log("login fetch")
+            console.log(res);
 
-    // Reemplazar aquí el fetch 
-
-
-    /*return fetch('/users/authenticate', requestOptions)
-        .then(handleResponse)
-        .then(user => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
-            localStorage.setItem('isLoggedIn', true);
-
-            return user;
-        });*/
+            if (res.message === "Authentication successful!") {
+                resolve({
+                    "uid": res.user.id,
+                    "isLoggedIn": true,
+                    "token": res.token
+                });
+            } else {
+                resolve({ "isLoggedIn": false });
+            }
+        });
+    });
 }
 
 function logout() {
@@ -45,9 +47,8 @@ function logout() {
 }
 
 function register(user) {
-    
+
     //Enviar petición a BE para POST user.
 
     //return fetch(`${config.apiUrl}/users/register`, requestOptions).then(handleResponse);
 }
-

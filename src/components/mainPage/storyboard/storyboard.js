@@ -26,7 +26,12 @@ class Storyboard extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        fetch('/api/storyboards/'+nextProps.theStoryID)
+        fetch('/api/storyboards/'+nextProps.theStoryID, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.props.user.token}`
+            }
+        })
         .then(res => {
         return res.json()}).then(res => {
             this.setState({
