@@ -36,8 +36,6 @@ class Main extends Component {
             storyboards: [],
         };
 
-        console.log("MAIN PROPS");
-        console.log(this.props);
 
         //Si no hay login, debe reenviar al inicio.
         if (this.props.user === undefined || this.props.user === null) {
@@ -47,6 +45,7 @@ class Main extends Component {
                 this.state.goHome = true;
             }
         }
+
 
         this.changeStoryboardView = this.changeStoryboardView.bind(this);
         this.changeView = this.changeView.bind(this);

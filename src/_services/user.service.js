@@ -5,7 +5,6 @@ var md5 = require('md5');
 export const userService = {
     login,
     logout,
-    register
 };
 
 function login(username, password) {
@@ -28,12 +27,20 @@ function login(username, password) {
             console.log(res);
 
             if (res.message === "Authentication successful!") {
-                resolve({
+                let user = {
                     "uid": res.user.id,
                     "isLoggedIn": true,
                     "token": res.token
-                });
+                };
+
+                localStorage.setItem("user", JSON.stringify(user));
+                console.log("LS ITEM SET");
+
+                console.log("LOCALSTORAGE");
+                console.log(localStorage.getItem("user").token);
+                resolve(user);
             } else {
+                localStorage.setItem({ "isLoggedIn": false });
                 resolve({ "isLoggedIn": false });
             }
         });
@@ -42,13 +49,5 @@ function login(username, password) {
 
 function logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('uid');
-    localStorage.setItem('isLoggedIn', false);
-}
-
-function register(user) {
-
-    //Enviar petición a BE para POST user.
-
-    //return fetch(`${config.apiUrl}/users/register`, requestOptions).then(handleResponse);
+    localStorage.removeItem('user');
 }
