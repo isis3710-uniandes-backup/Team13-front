@@ -4,30 +4,29 @@ import imgBrand from "./logo.svg";
 import Button from "react-bootstrap/es/Button";
 import { connect } from 'react-redux';
 import { HashLink as Link } from 'react-router-hash-link';
-import {FormattedMessage} from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 
 class IntroSection extends Component {
 
-  constructor(props){
-    super(props);
+    constructor(props) {
+        super(props);
 
-    if(this.props.user !== undefined && this.props.user !== null){
+        if (this.props.user !== undefined && this.props.user !== null) {
             this.state = {
                 loggedIn: this.props.user.isLoggedIn
-      };
+            };
+        } else {
+            this.state = {
+                loggedIn: false
+            }
+        }
     }
-    else{
-      this.state = {
-        loggedIn: false
-      }
-    }
-  }
 
-  render() {
+    render() {
 
-    return (
-      <div className="Intro section" id="intro" onClick={this.props.onClick}>
+        return (
+            <div className="Intro section" id="intro" onClick={this.props.onClick}>
           <div className="transformText">4Berry</div>
         <img className="Intro-logo" src={imgBrand} alt="4Berry Logo"/>
         <div className="pushCenter">
@@ -42,15 +41,15 @@ class IntroSection extends Component {
             }
             {
               this.state.loggedIn &&
-              <Button className="mainButton">
+              <Button className="mainButton" id="bt1">
                 <Link to = "/main"><FormattedMessage id="Start playing"/></Link>
               </Button>
             }
 
         </div>
       </div>
-    );
-  }
+        );
+    }
 
 }
 

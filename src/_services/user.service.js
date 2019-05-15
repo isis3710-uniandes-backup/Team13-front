@@ -40,7 +40,7 @@ function login(username, password) {
                 console.log(localStorage.getItem("user").token);
                 resolve(user);
             } else {
-                localStorage.setItem({ "isLoggedIn": false });
+                //localStorage.setItem("user", JSON.stringify({ "isLoggedIn": false });
                 resolve({ "isLoggedIn": false });
             }
         });

@@ -34,18 +34,41 @@ class Main extends Component {
             currentStoryboard: -1,
             currentCard: -1,
             storyboards: [],
+            loggedIn: true
         };
 
 
         //Si no hay login, debe reenviar al inicio.
         if (this.props.user === undefined || this.props.user === null) {
             this.state.goHome = true;
+
         } else {
             if (!this.props.user.isLoggedIn) {
                 this.state.goHome = true;
             }
         }
 
+        if (this.props.user) {
+            fetch("/api/users/isLogin", {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 'token': this.props.user.token })
+            }).then((res) => {
+                return res.json()
+            }).then((res) => {
+
+                if (!res.valid) {
+                    this.setState({
+                        goHome: true,
+                        loggedIn: false
+                    })
+                }
+            })
+        }
 
         this.changeStoryboardView = this.changeStoryboardView.bind(this);
         this.changeView = this.changeView.bind(this);
@@ -65,6 +88,9 @@ class Main extends Component {
         this.getCardBE = this.getCardBE.bind(this);
         this.updateCardBE = this.updateCardBE.bind(this);
         this.removeCardBE = this.removeCardBE.bind(this);
+
+
+
     }
 
     changeStoryboardView(event) {
@@ -359,7 +385,7 @@ class Main extends Component {
                 removeStoryboardBE={this.removeStoryboardBE}
                 storyboardsIn={this.state.storyboards} show={this.state.showOpen} 
                 handleClose={this.handleStoryboardOpenClose}/>
-                <NavBarComponent loggedIn={true} handleNew = {this.changeView} 
+                <NavBarComponent loggedIn={this.state.loggedIn} handleNew = {this.changeView} 
                 handleLoad = {this.handleStoryboardOpen} handleLogout = {this.handleLogout}/>
                 {
                     this.state.goHome &&
