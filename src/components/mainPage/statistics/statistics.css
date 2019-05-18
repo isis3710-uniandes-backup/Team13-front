@@ -1,0 +1,27 @@
+.statistics{
+    background-color: #424651;
+    text-align: center;
+    color: whitesmoke;
+    padding: 10%;
+}
+.line {
+    fill: none;
+    stroke: #ffab00;
+    stroke-width: 3;
+}
+
+.overlay {
+    fill: none;
+    pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+    fill: #ffab00 !important;
+    stroke: #fff !important;
+}
+
+.focus circle {
+    fill: none;
+    stroke: steelblue !important;
+}

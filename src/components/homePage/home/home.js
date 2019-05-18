@@ -34,7 +34,6 @@ class Home extends Component {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 'token': this.props.user.token })
             }).then((res) => {
                 return res.json()
@@ -119,11 +118,11 @@ class Home extends Component {
                                manageScrollFeatures= { () => {document.getElementById('features').scrollIntoView();}}
                                manageScrollAbout = { () => {document.getElementById('about').scrollIntoView();}}
                                handleLoginFunction={this.changeJustLoginView} handleSignupFunction = {this.changeSignUpView}/>
-                <NavBarComponent manageScrollIntro = { () => {document.getElementById('intro').scrollIntoView();}} 
+                <NavBarComponent manageScrollIntro = { () => {document.getElementById('intro').scrollIntoView();}}
                 manageScrollFeatures= { () => {document.getElementById('features').scrollIntoView();}}
-                manageScrollAbout = { () => {document.getElementById('about').scrollIntoView();}} 
+                manageScrollAbout = { () => {document.getElementById('about').scrollIntoView();}}
                 handleLoginFunction={this.changeJustLoginView} handleSignupFunction = {this.changeSignUpView}
-                handleNew = {() => {console.log('todo');}} 
+                handleNew = {() => {console.log('todo');}}
                 handleLoad = {() => console.log('todo')}
                 handleLogout = {this.handleLogout}/>
             </div>

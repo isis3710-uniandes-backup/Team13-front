@@ -7,6 +7,7 @@ import Edit from "../edit/edit";
 import { GameModeSelection } from "../gameModeSection/gameModeSelection";
 import NewOrOpenSection from "../newOrOpenSection/newOrOpenSection";
 import OpenSection from "../openSection/openSection";
+import Statistics from "../statistics/statistics";
 import { connect } from 'react-redux';
 import { userActions } from '../../../_actions/user.actions';
 import { Redirect } from 'react-router-dom';
@@ -24,12 +25,15 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            data: [50,30,20,10,20, 30, 40, 20, 130, 20, 10, 20],
+            size: [500,500],
             showStoryboard: false,
             showEdition: false,
             showGameMode: true,
             showNewOrOpen: false,
             showOpen: false,
             goHome: false,
+            showStatistics: false,
             cards: [],
             currentStoryboard: -1,
             currentCard: -1,
@@ -55,7 +59,6 @@ class Main extends Component {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 'token': this.props.user.token })
             }).then((res) => {
                 return res.json()
@@ -76,6 +79,7 @@ class Main extends Component {
         this.openStoryboardNewOrOpen = this.openStoryboardNewOrOpen.bind(this);
         this.handleCloseShowNewOrOpen = this.handleCloseShowNewOrOpen.bind(this);
         this.handleStoryboardOpen = this.handleStoryboardOpen.bind(this);
+        this.handleStatistics = this.handleStatistics.bind(this);
         this.handleStoryboardOpenClose = this.handleStoryboardOpenClose.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
         this.closeEditor = this.closeEditor.bind(this);
@@ -180,6 +184,32 @@ class Main extends Component {
                     storyboards: res
                 })
             });
+    }
+
+
+    handleStatistics(event) {
+        fetch("/api/storyboards", {
+            headers: {
+                'Authorization': `Bearer ${this.props.user.token}`,
+            }
+        })
+            .then(res => {
+                return res.json()
+            }).then(res => {
+            this.setState({
+                showStoryboard: false,
+                showEdition: false,
+                showGameMode: false,
+                showNewOrOpen: false,
+                showOpen: false,
+                showStatistics: true,
+                goHome: false,
+                cards: [],
+                currentCard: -1,
+                currentStoryboard: -1,
+                storyboards: res
+            })
+        });
     }
 
     handleStoryboardOpenClose(event) {
@@ -371,22 +401,23 @@ class Main extends Component {
             <div className="Main">
                 <GameModeSelection show={ this.state.showGameMode } onClick={ this.openStoryboardNewOrOpen } />
                 <Storyboard user={this.props.user} theStoryID={storyIdToSend} addCardBE={this.addCardBE} getCardBE={this.getCardBE} removeCardBE={this.removeCardBE}
-                cardsIn={this.state.cards} show={ this.state.showStoryboard } updateStoryboardBE={this.updateStoryboardBE} 
+                cardsIn={this.state.cards} show={ this.state.showStoryboard } updateStoryboardBE={this.updateStoryboardBE}
                 closeStoryboard={this.closeStoryboard} goBackToNewOrOpen={this.openStoryboardNewOrOpen} goBackToGamemode={this.handleCloseShowNewOrOpen}/>
                 <Edit user={this.props.user} theCardID={idToSend} show={ this.state.showEdition} updateCardBE={this.updateCardBE} closeEditor={this.closeEditor} goBackToNewOrOpen={this.openStoryboardNewOrOpen} goBackToGamemode={this.handleCloseShowNewOrOpen}/>
-                <NewOrOpenSection show={ this.state.showNewOrOpen} handleClose ={this.handleCloseShowNewOrOpen} 
-                    handleLoad={this.handleStoryboardOpen} 
+                <NewOrOpenSection show={ this.state.showNewOrOpen} handleClose ={this.handleCloseShowNewOrOpen}
+                    handleLoad={this.handleStoryboardOpen}
                     handleNewStoryboard={this.changeView}/>
                 <OpenSection addStoryboardBE={this.addStoryboardBE}
                              goBackToGamemode={this.handleCloseShowNewOrOpen}
                              goBackToNewOrOpen={this.openStoryboardNewOrOpen}
                 handleLoad={this.handleStoryboardOpen}
-                getStoryboardBE={this.getStoryboardBE} 
+                getStoryboardBE={this.getStoryboardBE}
                 removeStoryboardBE={this.removeStoryboardBE}
-                storyboardsIn={this.state.storyboards} show={this.state.showOpen} 
+                storyboardsIn={this.state.storyboards} show={this.state.showOpen}
                 handleClose={this.handleStoryboardOpenClose}/>
-                <NavBarComponent loggedIn={this.state.loggedIn} handleNew = {this.changeView} 
-                handleLoad = {this.handleStoryboardOpen} handleLogout = {this.handleLogout}/>
+                <Statistics show={this.state.showStatistics} data={this.state.data} size={this.state.size}/>
+                <NavBarComponent loggedIn={this.state.loggedIn} handleNew = {this.changeView}
+                handleLoad = {this.handleStoryboardOpen} handleStatistics = {this.handleStatistics} handleLogout = {this.handleLogout}/>
                 {
                     this.state.goHome &&
                     <Redirect to='/'  />

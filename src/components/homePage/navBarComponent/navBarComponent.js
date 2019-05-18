@@ -25,7 +25,7 @@ class NavBarComponent extends Component {
         else{
             this.state = {
                 loggedIn: false
-            };   
+            };
         }
 
         this.cerrarSesion = this.cerrarSesion.bind(this);
@@ -76,6 +76,7 @@ class NavBarComponent extends Component {
                                 <Dropdown.Menu>
                                     <Dropdown.Item href="#" onClick={this.props.handleNew}> <FormattedMessage id="New"/></Dropdown.Item>
                                     <Dropdown.Item href="#" onClick={this.props.handleLoad}> <FormattedMessage id="Open"/> </Dropdown.Item>
+                                    <Dropdown.Item href="#" onClick={this.props.handleStatistics}><FormattedMessage id="Statistics"/></Dropdown.Item>
                                     <Dropdown.Item href="#" onClick={this.cerrarSesion}><FormattedMessage id="Logout"/></Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
@@ -91,7 +92,7 @@ class NavBarComponent extends Component {
 function mapStateToProps(state) {
     const { user } = state.authentication;
     return {
-        user    
+        user
     };
 }
 
