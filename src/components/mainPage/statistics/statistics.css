@@ -4,6 +4,12 @@
     color: whitesmoke;
     padding: 10%;
 }
+.statisticsTitle{
+    font-size: 3rem;
+}
+.graph{
+    padding: 5%;
+}
 .line {
     fill: none;
     stroke: #ffab00;

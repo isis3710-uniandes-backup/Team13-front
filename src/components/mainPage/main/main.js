@@ -25,8 +25,8 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [50,30,20,10,20, 30, 40, 20, 130, 20, 10, 20],
-            size: [500,500],
+            data: [{ date: '03/01/2014', value: 70},{ date: '04/01/2014', value: 20},{ date: '05/01/2014', value: 50},{ date: '06/01/2014', value: 10}],
+            size: [1000,500],
             showStoryboard: false,
             showEdition: false,
             showGameMode: true,

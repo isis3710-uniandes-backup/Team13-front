@@ -59,6 +59,8 @@
 	"Email": "Correo electrónico",
 	"Password": "Contraseña",
 	"OpenE": "Abrir existente",
-	"cardText": "Texto de la tarjeta"
+	"cardText": "Texto de la tarjeta",
+	"Statistics": "Estadísticas",
+	"YourActivity": "Tu Actividad"
 
 }
