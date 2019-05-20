@@ -26,21 +26,30 @@ class Storyboard extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        fetch('/api/storyboards/'+nextProps.theStoryID, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.props.user.token}`
-            }
-        })
-        .then(res => {
-        return res.json()}).then(res => {
+        if(!navigator.onLine){
             this.setState({
-                currentID:res.id,
-                title:res.title,
-                timestamp:res.timestamp,
-                cards:nextProps.cardsIn
+                currentID: 1,
+                title: "New Card",
+                timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+                cards: []
             })
-        });
+        }else{
+            fetch('http://localhost:3001/api/storyboards/'+nextProps.theStoryID, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.props.user.token}`
+                }
+            })
+            .then(res => {
+            return res.json()}).then(res => {
+                this.setState({
+                    currentID:res.id,
+                    title:res.title,
+                    timestamp:res.timestamp,
+                    cards:nextProps.cardsIn
+                })
+            });
+        }
     }
 
     addCard = (e) => {
@@ -57,7 +66,9 @@ class Storyboard extends Component {
         this.setState({
             cards: [...this.state.cards, newCard]
         })
-        this.props.addCardBE(newCard)
+        if(navigator.onLine){
+            this.props.addCardBE(newCard)
+        }
     }
 
     onEdit = (index) => {
@@ -70,7 +81,9 @@ class Storyboard extends Component {
           mCards = mCards.filter(p => p.id !== index)
           return { cards: mCards }
         })
-        this.props.removeCardBE(index)
+        if(navigator.onLine){
+             this.props.removeCardBE(index)
+        }
     }
 
     updateStoryboard = (e) => {
@@ -81,7 +94,7 @@ class Storyboard extends Component {
             timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
             title: newTitle
         }
-        if(this.state.currentID !== -1 && this.state.currentID !== undefined){
+        if(this.state.currentID !== -1 && this.state.currentID !== undefined && navigator.onLine){
             this.props.updateStoryboardBE(this.state.currentID,newStoryboard)
         }
     }

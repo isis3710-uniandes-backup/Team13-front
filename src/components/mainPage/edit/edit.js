@@ -42,7 +42,8 @@ class Edit extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        fetch('/api/cards/' + nextProps.theCardID, {
+        if(navigator.onLine){
+            fetch('http://localhost:3001/api/cards/' + nextProps.theCardID, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${this.props.user.token}`
@@ -60,6 +61,7 @@ class Edit extends Component {
                     txtArea: res.text
                 })
             });
+        } 
     }
 
     handleClick = () => {
@@ -91,7 +93,7 @@ class Edit extends Component {
             timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
             text: newTxt
         }
-        if (this.state.currentID !== -1 && this.state.currentID !== undefined) {
+        if (this.state.currentID !== -1 && this.state.currentID !== undefined && navigator.onLine) {
             this.props.updateCardBE(this.state.currentID, newCard)
         }
     }

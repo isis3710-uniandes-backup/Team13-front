@@ -10,34 +10,18 @@ export const userActions = {
 };
 
 function login(username, password, onReady) {
-
     return dispatch => {
         dispatch(request({ username }));
-
         userService.login(username, password).then((obj) => {
-
             if (obj.isLoggedIn) {
                 dispatch(success(obj));
             } else {
                 dispatch(failure(obj));
             }
-
             onReady();
-
         })
-
-        /*userService(username,password).then(
-            user => { 
-                dispatch(success(user));
-                history.push('/');
-            },
-            error => {
-                dispatch(failure(error));
-                dispatch(alertActions.error(error));
-            }
-        );*/
     };
-
+    
     function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
 
     function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }

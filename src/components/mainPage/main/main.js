@@ -53,7 +53,7 @@ class Main extends Component {
         }
 
         if (this.props.user) {
-            fetch("/api/users/isLogin", {
+            fetch("http://localhost:3001/api/users/isLogin", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -104,7 +104,23 @@ class Main extends Component {
         if (event) event.preventDefault();
     }
     changeView() {
-        fetch("/api/storyboards", {
+        if(!navigator.onLine){
+            let newStoryboard = {
+                "id": 1,
+                "timestamp": "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+                "title": "Some Title"
+            }
+            this.setState({
+                showStoryboard: true,
+                showEdition: false,
+                showGameMode: false,
+                showNewOrOpen: false,
+                showOpen: false,
+                goHome: false,
+                currentStoryboard: 1
+            })
+        }else{
+            fetch("http://localhost:3001/api/storyboards", {
                 headers: {
                     'Authorization': `Bearer ${this.props.user.token}`,
                 }
@@ -130,6 +146,7 @@ class Main extends Component {
                     currentStoryboard: newID
                 })
             });
+        }   
     }
 
     openStoryboardNewOrOpen() {
@@ -163,7 +180,10 @@ class Main extends Component {
     }
 
     handleStoryboardOpen(event) {
-        fetch("/api/storyboards", {
+        if(!navigator.onLine){
+            alert("¡No tienes internet! No puedes ver los storyboards guardados pero puedes crear nuevos.");
+        }else{
+            fetch("http://localhost:3001/api/storyboards", {
                 headers: {
                     'Authorization': `Bearer ${this.props.user.token}`,
                 }
@@ -184,11 +204,12 @@ class Main extends Component {
                     storyboards: res
                 })
             });
+        }
     }
 
 
     handleStatistics(event) {
-        fetch("/api/storyboards", {
+        fetch("http://localhost:3001/api/storyboards", {
             headers: {
                 'Authorization': `Bearer ${this.props.user.token}`,
             }
@@ -250,7 +271,7 @@ class Main extends Component {
     }
 
     addStoryboardBE = (newStoryboard) => {
-        fetch('/api/storyboards', {
+        fetch('http://localhost:3001/api/storyboards', {
             method: 'post',
             body: JSON.stringify(newStoryboard),
             headers: {
@@ -263,7 +284,7 @@ class Main extends Component {
     }
 
     getStoryboardBE = (index) => {
-        fetch("/api/cards/story/" + index, {
+        fetch("http://localhost:3001/api/cards/story/" + index, {
                 headers: {
                     'Authorization': `Bearer ${this.props.user.token}`,
                 }
@@ -285,7 +306,7 @@ class Main extends Component {
     }
 
     updateStoryboardBE = (index, newStoryboard) => {
-        fetch('/api/storyboards/' + index, {
+        fetch('http://localhost:3001/api/storyboards/' + index, {
             method: 'put',
             body: JSON.stringify(newStoryboard),
             headers: {
@@ -298,7 +319,7 @@ class Main extends Component {
     }
 
     removeStoryboardBE = (index) => {
-        fetch('/api/storyboards/' + index, {
+        fetch('http://localhost:3001/api/storyboards/' + index, {
             method: 'delete',
             headers: {
                 'Content-Type': 'application/json',
@@ -314,7 +335,7 @@ class Main extends Component {
     }
 
     addCardBE = (newCard) => {
-        fetch('/api/cards', {
+        fetch('http://localhost:3001/api/cards', {
             method: 'post',
             body: JSON.stringify(newCard),
             headers: {
@@ -327,28 +348,19 @@ class Main extends Component {
     }
 
     getCardBE = (index) => {
-        fetch('/api/cards/' + index, {
-                headers: {
-                    'Authorization': `Bearer ${this.props.user.token}`,
-                }
-            })
-            .then(res => {
-                return res.json()
-            }).then(res => {
-                this.setState({
-                    showStoryboard: false,
-                    showEdition: true,
-                    showGameMode: false,
-                    showNewOrOpen: false,
-                    showOpen: false,
-                    goHome: false,
-                    currentCard: index
-                })
-            });
+        this.setState({
+            showStoryboard: false,
+            showEdition: true,
+            showGameMode: false,
+            showNewOrOpen: false,
+            showOpen: false,
+            goHome: false,
+            currentCard: index
+        })
     }
 
     updateCardBE = (index, newCard) => {
-        fetch('/api/cards/' + index, {
+        fetch('http://localhost:3001/api/cards/' + index, {
             method: 'put',
             body: JSON.stringify(newCard),
             headers: {
@@ -361,7 +373,7 @@ class Main extends Component {
     }
 
     removeCardBE = (index) => {
-        fetch('/api/cards/' + index, {
+        fetch('http://localhost:3001/api/cards/' + index, {
             method: 'delete',
             headers: {
                 'Authorization': `Bearer ${this.props.user.token}`,
@@ -374,7 +386,7 @@ class Main extends Component {
     }
 
     closeEditor() {
-        fetch("/api/cards/story/" + this.state.currentStoryboard, {
+        fetch("http://localhost:3001/api/cards/story/" + this.state.currentStoryboard, {
                 headers: {
                     'Authorization': `Bearer ${this.props.user.token}`,
                 }

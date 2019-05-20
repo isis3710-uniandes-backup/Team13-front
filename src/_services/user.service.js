@@ -11,18 +11,18 @@ function login(username, password) {
 
     return new Promise((resolve, reject) => {
 
-        fetch("/api/users/login", {
+        fetch("http://localhost:3001/api/users/login", {
+            crossDomain:true,
             method: 'POST',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
             },
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ "nickname": username, "password": md5(password) })
         }).then(async (res) => {
             return res.json()
         }).then((res) => {
-
             console.log("login fetch")
             console.log(res);
 
@@ -37,10 +37,9 @@ function login(username, password) {
                 console.log("LS ITEM SET");
 
                 console.log("LOCALSTORAGE");
-                console.log(localStorage.getItem("user").token);
+                console.log(localStorage.getItem("user"));
                 resolve(user);
             } else {
-                //localStorage.setItem("user", JSON.stringify({ "isLoggedIn": false });
                 resolve({ "isLoggedIn": false });
             }
         });

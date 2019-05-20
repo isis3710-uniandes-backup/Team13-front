@@ -33,46 +33,45 @@ class SignupComponent extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const { username, password } = this.state;
+          const { username, password } = this.state;
+          console.log(this.state)
 
 
-        console.log(this.state)
+          if (username && password) {
+              //Hacer petición al backend.
+              //Si se puede este estado.
 
-
-        if (username && password) {
-            //Hacer petición al backend.
-            //Si se puede este estado.
-
-            fetch("/api/users/register", {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ "nickname": username, "password": md5(password) })
-            }).then(async (res) => {
-                return res.json()
-            }).then((res) => {
-                if (res.message === "Username already taken" || res.message === "Missing nickname or password") {
-                    //Si hay error, este otro:
-                    this.setState({
-                        'signUpOk': false,
-                        'signUpError': true,
-                        'username': this.state.username,
-                        'password': this.state.password
-                    });
-                } else {
-                    this.setState({
-                        'signUpOk': true,
-                        'signUpError': false,
-                        'username': this.state.username,
-                        'password': this.state.password
-                    });
-                }
-            });
-        }
-        return true;
+              fetch("http://localhost:3001/api/users/register", {
+                  crossDomain:true,
+                  method: 'POST',
+                  headers: {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                  },
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ "nickname": username, "password": md5(password) })
+              }).then(async (res) => {
+                  return res.json()
+              }).then((res) => {
+                  if (res.message === "Username already taken" || res.message === "Missing nickname or password") {
+                      //Si hay error, este otro:
+                      this.setState({
+                          'signUpOk': false,
+                          'signUpError': true,
+                          'username': this.state.username,
+                          'password': this.state.password
+                      });
+                  } else {
+                      this.setState({
+                          'signUpOk': true,
+                          'signUpError': false,
+                          'username': this.state.username,
+                          'password': this.state.password
+                      });
+                  }
+              });
+          }
+          return true;
     }
 
 

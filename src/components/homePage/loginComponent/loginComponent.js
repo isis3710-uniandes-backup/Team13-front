@@ -33,33 +33,31 @@ class LoginComponent extends Component {
     handleSubmit(e) {
         e.preventDefault();
         e.preventDefault();
-        const { username, password } = this.state;
-        const { dispatch } = this.props;
-        if (username && password) {
+          const { username, password } = this.state;
+          const { dispatch } = this.props;
+          if (username && password) {
 
-            let onReady = () => {
+              let onReady = () => {
 
-                if (store.getState().authentication.user !== undefined && store.getState().authentication.user.isLoggedIn) {
-                    this.setState({
-                        username: '',
-                        password: '',
-                        failedLogin: true,
-                        redirect: true
-                    })
-                } else {
-                    this.setState({
-                        username: '',
-                        password: '',
-                        failedLogin: true,
-                        redirect: false
-                    })
-                }
-            }
-            dispatch(userActions.login(username, password, onReady));
+                  if (store.getState().authentication.user !== undefined && store.getState().authentication.user.isLoggedIn) {
+                      this.setState({
+                          username: '',
+                          password: '',
+                          failedLogin: true,
+                          redirect: true
+                      })
+                  } else {
+                      this.setState({
+                          username: '',
+                          password: '',
+                          failedLogin: true,
+                          redirect: false
+                      })
+                  }
+              }
+              dispatch(userActions.login(username, password, onReady));
 
-        }
-
-
+          }
     }
 
     handleChange(e) {

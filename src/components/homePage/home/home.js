@@ -27,30 +27,32 @@ class Home extends Component {
         this.reload1 = this.reload1.bind(this);
         this.reload2 = this.reload2.bind(this);
 
-        if (this.props.user) {
-            fetch("/api/users/isLogin", {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ 'token': this.props.user.token })
-            }).then((res) => {
-                return res.json()
-            }).then((res) => {
+        if(navigator.onLine){
+            if (this.props.user) {
+                fetch("http://localhost:3001/api/users/isLogin", {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 'token': this.props.user.token })
+                }).then((res) => {
+                    return res.json()
+                }).then((res) => {
 
-                if (!res.valid) {
-                    console.log("IVnVALID HOME")
-                    this.props.dispatch(userActions.logout());
-                    this.reload1();
-                    this.reload2();
-                    console.log("STATE CH")
-                }
-            })
+                    if (!res.valid) {
+                        console.log("IVnVALID HOME")
+                        this.props.dispatch(userActions.logout());
+                        this.reload1();
+                        this.reload2();
+                        console.log("STATE CH")
+                    }
+                })
+            }
+
+            console.log("HOME");
+            console.log(this.props);
         }
-
-        console.log("HOME");
-        console.log(this.props);
     }
     reload1() {
         this.setState({
