@@ -2,18 +2,43 @@ import React, { Component } from 'react'
 import './statistics.css'
 import * as d3 from 'd3';
 import {FormattedMessage} from "react-intl";
+import {userActions} from "../../../_actions/user.actions";
+import {store} from "../../../_helpers/store";
 
 class Statistics extends Component {
 
     constructor(props) {
         super(props);
         this.createLineChart = this.createLineChart.bind(this)
+        this.getData = this.getData.bind(this)
     }
     componentDidMount() {
         this.createLineChart()
     }
     componentDidUpdate() {
         this.createLineChart()
+    }
+    getData() {
+        if(this.props.user && this.props.user.uid){
+            fetch("/api/storyboards/users?id=" + this.props.user.uid, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }).then((res) => {
+                return res.json()
+            }).then((res) => {
+
+                if (!res.valid) {
+                    console.log("IVnVALID HOME")
+                    this.props.dispatch(userActions.logout());
+                    this.reload1();
+                    this.reload2();
+                    console.log("STATE CH")
+                }
+            })
+        }
     }
     createLineChart() {
 
@@ -38,7 +63,7 @@ class Statistics extends Component {
 
         let dataset = this.props.data
 
-console.log("prueba")
+
         let svg = d3.select(node2).append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("width", width + margin.left + margin.right)

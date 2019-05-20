@@ -415,7 +415,7 @@ class Main extends Component {
                 removeStoryboardBE={this.removeStoryboardBE}
                 storyboardsIn={this.state.storyboards} show={this.state.showOpen}
                 handleClose={this.handleStoryboardOpenClose}/>
-                <Statistics show={this.state.showStatistics} data={this.state.data} size={this.state.size}/>
+                <Statistics user={this.props.user} show={this.state.showStatistics} data={this.state.data} size={this.state.size}/>
                 <NavBarComponent loggedIn={this.state.loggedIn} handleNew = {this.changeView}
                 handleLoad = {this.handleStoryboardOpen} handleStatistics = {this.handleStatistics} handleLogout = {this.handleLogout}/>
                 {
