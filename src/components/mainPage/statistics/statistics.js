@@ -25,13 +25,13 @@ class Statistics extends Component {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Authorization': `Bearer ${this.props.user.token}`
                 }
             }).then((res) => {
                 return res.json()
             }).then((res) => {
                 console.log("el json")
-                console.log(res.json())
+                console.log(res)
                 if (!res.valid) {
                     console.log("IVnVALID HOME")
                     this.props.dispatch(userActions.logout());
@@ -42,6 +42,7 @@ class Statistics extends Component {
             })
         }
     }
+    get
     createLineChart() {
 
         const node2 = this.node2
