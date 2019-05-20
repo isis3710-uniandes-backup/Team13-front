@@ -10,8 +10,12 @@ class Statistics extends Component {
     constructor(props) {
         super(props);
         this.createLineChart = this.createLineChart.bind(this)
+        this.getStatistics = this.getStatistics.bind(this)
         this.getData = this.getData.bind(this)
         this.getData()
+        this.state = {
+            graphData: [],
+        }
     }
     componentDidMount() {
         this.createLineChart()
@@ -21,7 +25,7 @@ class Statistics extends Component {
     }
     getData() {
         if(this.props.user && this.props.user.uid){
-            fetch("/api/storyboards/users/" + this.props.user.uid, {
+            fetch("/api/storyboards/user/" + this.props.user.uid, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',
@@ -30,8 +34,14 @@ class Statistics extends Component {
             }).then((res) => {
                 return res.json()
             }).then((res) => {
-                console.log("el json")
-                console.log(res)
+                let data = res
+
+                for(let i = 0; i<data.length; i++){
+                    this.getStatistics(data[i].id)
+                }
+
+                this.createLineChart()
+
                 if (!res.valid) {
                     console.log("IVnVALID HOME")
                     console.log("STATE CH")
@@ -39,7 +49,44 @@ class Statistics extends Component {
             })
         }
     }
-    get
+    getStatistics(id){
+        if(id){
+            fetch("/api/cards/story/" + id, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${this.props.user.token}`
+                }
+            }).then((res) => {
+                return res.json()
+            }).then((res) => {
+
+                console.log(res)
+                let total = this.state.graphData
+                res.forEach(x => {
+                    for(let i = 0; i<total.length; i++){
+                        if(total[i].date === x.timestamp) total[i].value = total[i].value + 1
+                    }
+                    if(!total.length){
+                        total.push({date: x.timestamp, value: 1})
+                    }
+                })
+                console.log(total)
+
+                this.createLineChart()
+
+                this.setState({
+                    graphData: total
+                })
+
+
+                if (!res.valid) {
+                    console.log("IVnVALID HOME")
+                    console.log("STATE CH")
+                }
+            })
+        }
+    }
     createLineChart() {
 
         const node2 = this.node2
@@ -50,10 +97,10 @@ class Statistics extends Component {
         let xScale = d3.scaleBand()
             .domain(this.props.data.map(d => d.date) )
             .range([0, width])
-            .padding(1);; // output
+            .padding(1); // output
 
         let yScale = d3.scaleLinear()
-            .domain([0, 100]) // input
+            .domain([0, 10]) // input
             .range([height, 0]); // output
 
         let line = d3.line()
@@ -61,7 +108,7 @@ class Statistics extends Component {
             .y(function(d) { return yScale(d.value); })
             .curve(d3.curveMonotoneX) // apply smoothing to the line
 
-        let dataset = this.props.data
+        let dataset = this.state.graphData
 
 
         let svg = d3.select(node2).append("svg")
