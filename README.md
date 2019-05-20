@@ -59,9 +59,15 @@ And now the footer... with our social media of course.
 
 ![alt text](https://i.imgur.com/9IVajQC.png)
 
+### Register
+
+Create an account!
+
+![alt text](https://i.imgur.com/AJSJgk6.png)
+
 ### Log in
 
-Write 123 as email and 123 as password. Then, just click on Log In. This method is currently not connected with the backend.
+Write your username and password in order to log in!
 
 ![alt text](https://i.imgur.com/NxHbNUV.png)
 
