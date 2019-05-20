@@ -34,9 +34,6 @@ class Statistics extends Component {
                 console.log(res)
                 if (!res.valid) {
                     console.log("IVnVALID HOME")
-                    this.props.dispatch(userActions.logout());
-                    this.reload1();
-                    this.reload2();
                     console.log("STATE CH")
                 }
             })
