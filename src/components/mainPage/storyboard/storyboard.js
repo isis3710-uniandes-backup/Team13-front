@@ -20,7 +20,7 @@ class Storyboard extends Component {
         this.state = {
             currentID: -1,
             title: "New Card",
-            timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+            timestamp: (new Date()).toString(),
             cards: []
         };
     }
@@ -51,7 +51,7 @@ class Storyboard extends Component {
             storyboardId: this.state.currentID,
             title:"New Card",
             imageURL: "https://www.nps.gov/articles/images/Image-w-cred-cap_-1200w-_-Brown-Bear-page_-brown-bear-in-fog_2_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
-            timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+            timestamp: (new Date()).toString(),
             text: "Some awesome text for your card :)"
         }
         this.setState({
@@ -78,7 +78,7 @@ class Storyboard extends Component {
         let newTitle = this.inputTitle.value;
         const newStoryboard = {
             id: 1,
-            timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+            timestamp: (new Date()).toString(),
             title: newTitle,
             "userID": this.props.user.uid
         }

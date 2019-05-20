@@ -30,7 +30,7 @@ class OpenSection extends Component {
         const newID = getNewId(this.state.storyboards)
         const newStoryboard = {
     		"id": newID,
-    		"timestamp": "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+    		"timestamp": (new Date()).toString(),
     		"title": "Some Title",
 			"userID": this.props.user.uid
   		}
