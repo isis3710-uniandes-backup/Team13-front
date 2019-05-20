@@ -4,7 +4,7 @@
 
 # Demo Footage
 
-Here's a little video that shows the demo of the app: <Currently uploading>
+Here's a little video that shows the demo of the app: Currently uploading
 
 # Deployed App
 
