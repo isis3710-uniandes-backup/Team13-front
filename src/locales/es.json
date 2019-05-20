@@ -60,7 +60,10 @@
 	"Password": "Contraseña",
 	"OpenE": "Abrir existente",
 	"cardText": "Texto de la tarjeta",
+	"StatisticsPhrase": "Tus Estadísticas",
+	"Wow": "(wow, vas genial !)",
 	"Statistics": "Estadísticas",
-	"YourActivity": "Tu Actividad"
+	"YourActivity": "Tu Actividad",
+	"CardsCreated": "Tarjetas que has creado"
 
 }

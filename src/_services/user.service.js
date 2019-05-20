@@ -42,7 +42,7 @@ function login(username, password) {
             } else {
                 resolve({ "isLoggedIn": false });
             }
-        });
+        }).catch(e => alert(e));
     });
 }
 

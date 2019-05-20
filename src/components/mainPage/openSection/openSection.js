@@ -22,7 +22,7 @@ class OpenSection extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({ storyboards: nextProps.storyboardsIn});  
+        this.setState({ storyboards: nextProps.storyboardsIn});
     }
 
     addStoryboard = (e) => {
@@ -31,7 +31,8 @@ class OpenSection extends Component {
         const newStoryboard = {
     		"id": newID,
     		"timestamp": "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
-    		"title": "Some Title"
+    		"title": "Some Title",
+			"userID": this.props.user.uid
   		}
         this.setState({
             storyboards: [...this.state.storyboards, newStoryboard]

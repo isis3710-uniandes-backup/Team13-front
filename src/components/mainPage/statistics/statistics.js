@@ -2,18 +2,90 @@ import React, { Component } from 'react'
 import './statistics.css'
 import * as d3 from 'd3';
 import {FormattedMessage} from "react-intl";
+import {userActions} from "../../../_actions/user.actions";
+import {store} from "../../../_helpers/store";
 
 class Statistics extends Component {
 
     constructor(props) {
         super(props);
         this.createLineChart = this.createLineChart.bind(this)
+        this.getStatistics = this.getStatistics.bind(this)
+        this.getData = this.getData.bind(this)
+        this.getData()
+        this.state = {
+            graphData: [],
+        }
     }
     componentDidMount() {
         this.createLineChart()
     }
     componentDidUpdate() {
         this.createLineChart()
+    }
+    getData() {
+        if(this.props.user && this.props.user.uid){
+            fetch("/api/storyboards/user/" + this.props.user.uid, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${this.props.user.token}`
+                }
+            }).then((res) => {
+                return res.json()
+            }).then((res) => {
+                let data = res
+
+                for(let i = 0; i<data.length; i++){
+                    this.getStatistics(data[i].id)
+                }
+
+                this.createLineChart()
+
+                if (!res.valid) {
+                    console.log("IVnVALID HOME")
+                    console.log("STATE CH")
+                }
+            })
+        }
+    }
+    getStatistics(id){
+        if(id){
+            fetch("/api/cards/story/" + id, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${this.props.user.token}`
+                }
+            }).then((res) => {
+                return res.json()
+            }).then((res) => {
+
+                console.log(res)
+                let total = this.state.graphData
+                res.forEach(x => {
+                    for(let i = 0; i<total.length; i++){
+                        if(total[i].date === x.timestamp) total[i].value = total[i].value + 1
+                    }
+                    if(!total.length){
+                        total.push({date: x.timestamp, value: 1})
+                    }
+                })
+                console.log(total)
+
+                this.createLineChart()
+
+                this.setState({
+                    graphData: total
+                })
+
+
+                if (!res.valid) {
+                    console.log("IVnVALID HOME")
+                    console.log("STATE CH")
+                }
+            })
+        }
     }
     createLineChart() {
 
@@ -23,12 +95,12 @@ class Statistics extends Component {
             , height = window.innerHeight/2 - margin.top - margin.bottom; // Use the window's height
 
         let xScale = d3.scaleBand()
-            .domain(this.props.data.map(d => d.date) )
+            .domain(this.state.graphData.map(d => d.date) )
             .range([0, width])
-            .padding(1);; // output
+            .padding(1); // output
 
         let yScale = d3.scaleLinear()
-            .domain([0, 100]) // input
+            .domain([0, 10]) // input
             .range([height, 0]); // output
 
         let line = d3.line()
@@ -36,7 +108,7 @@ class Statistics extends Component {
             .y(function(d) { return yScale(d.value); })
             .curve(d3.curveMonotoneX) // apply smoothing to the line
 
-        let dataset = this.props.data
+        let dataset = this.state.graphData
 
 
         let svg = d3.select(node2).append("svg")
@@ -82,11 +154,15 @@ class Statistics extends Component {
             return (
                 <div className="statistics">
                     <div className="statisticsTitle">
-                        Statistics
+                        <FormattedMessage id="StatisticsPhrase"/>
                     </div>
-                    <div className="graph">
+
+                    <div className="statisticsTitle">
+                        <FormattedMessage id="Wow"/>
+                    </div>
+                    <div className="graph" id="graph">
                         <div className="graphTitle">
-                            <FormattedMessage id="YourActivity"/>
+                            <FormattedMessage id="CardsCreated"/>
                         </div>
                         <svg ref={node2 => this.node2 = node2}
                              width={500} height={500}>

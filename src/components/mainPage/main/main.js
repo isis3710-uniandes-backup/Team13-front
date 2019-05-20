@@ -133,7 +133,8 @@ class Main extends Component {
                 let newStoryboard = {
                     "id": newID,
                     "timestamp": "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
-                    "title": "Some Title"
+                    "title": "Some Title",
+                    "userID": this.props.user.uid
                 }
                 this.addStoryboardBE(newStoryboard)
                 this.setState({
@@ -419,7 +420,9 @@ class Main extends Component {
                 <NewOrOpenSection show={ this.state.showNewOrOpen} handleClose ={this.handleCloseShowNewOrOpen}
                     handleLoad={this.handleStoryboardOpen}
                     handleNewStoryboard={this.changeView}/>
-                <OpenSection addStoryboardBE={this.addStoryboardBE}
+                <OpenSection
+                    user={this.props.user}
+                    addStoryboardBE={this.addStoryboardBE}
                              goBackToGamemode={this.handleCloseShowNewOrOpen}
                              goBackToNewOrOpen={this.openStoryboardNewOrOpen}
                 handleLoad={this.handleStoryboardOpen}
@@ -427,7 +430,7 @@ class Main extends Component {
                 removeStoryboardBE={this.removeStoryboardBE}
                 storyboardsIn={this.state.storyboards} show={this.state.showOpen}
                 handleClose={this.handleStoryboardOpenClose}/>
-                <Statistics show={this.state.showStatistics} data={this.state.data} size={this.state.size}/>
+                <Statistics user={this.props.user} show={this.state.showStatistics} data={this.state.data} size={this.state.size}/>
                 <NavBarComponent loggedIn={this.state.loggedIn} handleNew = {this.changeView}
                 handleLoad = {this.handleStoryboardOpen} handleStatistics = {this.handleStatistics} handleLogout = {this.handleLogout}/>
                 {
