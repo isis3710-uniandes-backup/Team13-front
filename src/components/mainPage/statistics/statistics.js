@@ -38,7 +38,7 @@ class Statistics extends Component {
 
         let dataset = this.props.data
 
-
+console.log("prueba")
         let svg = d3.select(node2).append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("width", width + margin.left + margin.right)
