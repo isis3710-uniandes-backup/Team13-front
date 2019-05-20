@@ -117,7 +117,8 @@ class Main extends Component {
                 let newStoryboard = {
                     "id": newID,
                     "timestamp": "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
-                    "title": "Some Title"
+                    "title": "Some Title",
+                    "userID": this.props.user.uid
                 }
                 this.addStoryboardBE(newStoryboard)
                 this.setState({
@@ -407,7 +408,9 @@ class Main extends Component {
                 <NewOrOpenSection show={ this.state.showNewOrOpen} handleClose ={this.handleCloseShowNewOrOpen}
                     handleLoad={this.handleStoryboardOpen}
                     handleNewStoryboard={this.changeView}/>
-                <OpenSection addStoryboardBE={this.addStoryboardBE}
+                <OpenSection
+                    user={this.props.user}
+                    addStoryboardBE={this.addStoryboardBE}
                              goBackToGamemode={this.handleCloseShowNewOrOpen}
                              goBackToNewOrOpen={this.openStoryboardNewOrOpen}
                 handleLoad={this.handleStoryboardOpen}

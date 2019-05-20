@@ -79,7 +79,8 @@ class Storyboard extends Component {
         const newStoryboard = {
             id: 1,
             timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
-            title: newTitle
+            title: newTitle,
+            "userID": this.props.user.uid
         }
         if(this.state.currentID !== -1 && this.state.currentID !== undefined){
             this.props.updateStoryboardBE(this.state.currentID,newStoryboard)

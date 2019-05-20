@@ -154,11 +154,15 @@ class Statistics extends Component {
             return (
                 <div className="statistics">
                     <div className="statisticsTitle">
-                        Statistics
+                        <FormattedMessage id="StatisticsPhrase"/>
+                    </div>
+
+                    <div className="statisticsTitle">
+                        <FormattedMessage id="Wow"/>
                     </div>
                     <div className="graph" id="graph">
                         <div className="graphTitle">
-                            <FormattedMessage id="YourActivity"/>
+                            <FormattedMessage id="CardsCreated"/>
                         </div>
                         <svg ref={node2 => this.node2 = node2}
                              width={500} height={500}>

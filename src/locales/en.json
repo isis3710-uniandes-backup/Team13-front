@@ -60,8 +60,11 @@
 	"Password": "Password",
 	"OpenE": "Abrir existente",
 	"cardText": "Card Text",
+	"StatisticsPhrase": "Your statistics",
+	"Wow": "(wow you're doing great !)",
 	"Statistics": "Statistics",
-	"YourActivity": "Your Activity"
+	"YourActivity": "Your Activity",
+	"CardsCreated": "Cards you have created"
 
 }
 
