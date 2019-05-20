@@ -4,7 +4,9 @@
 
 # Demo Footage
 
-Here's a little video that shows the demo of the app: Currently uploading
+Here's a little video that shows the demo of the app: https://www.youtube.com/watch?v=r39n5e4ZzFo
+
+Description: Demo for the App 4Berry. Now deployed on Heroku, you can Sign In or Sign up, make storyboards while offline and still logged in (PWA behavior), an you can visualize the cards that you've created in a menu option.
 
 # Deployed App
 
