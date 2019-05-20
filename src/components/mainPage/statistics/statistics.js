@@ -64,10 +64,14 @@ class Statistics extends Component {
                 console.log(res)
                 let total = this.state.graphData
                 res.forEach(x => {
+                    let existe= false
                     for(let i = 0; i<total.length; i++){
-                        if(total[i].date === x.timestamp) total[i].value = total[i].value + 1
+                        if(total[i].date === x.timestamp) {
+                            existe = true
+                            total[i].value = total[i].value + 1
+                        }
                     }
-                    if(!total.length){
+                    if(!total.length || !existe){
                         total.push({date: x.timestamp, value: 1})
                     }
                 })
@@ -90,9 +94,9 @@ class Statistics extends Component {
     createLineChart() {
 
         const node2 = this.node2
-        let margin = {top: 50, right: 50, bottom: 50, left: 50}
-            , width = window.innerWidth/4 - margin.left - margin.right // Use the window's width
-            , height = window.innerHeight/2 - margin.top - margin.bottom; // Use the window's height
+        let margin = {top: 50, right: 50, bottom: 100, left: 100}
+            , width = 1600 - margin.left - margin.right // Use the window's width
+            , height = 500 - margin.top - margin.bottom; // Use the window's height
 
         let xScale = d3.scaleBand()
             .domain(this.state.graphData.map(d => d.date) )
@@ -164,10 +168,11 @@ class Statistics extends Component {
                         <div className="graphTitle">
                             <FormattedMessage id="CardsCreated"/>
                         </div>
-                        <svg ref={node2 => this.node2 = node2}
-                             width={500} height={500}>
-                        </svg>
                     </div>
+
+                    <svg ref={node2 => this.node2 = node2}
+                         width={window.innerWidth} height={window.innerHeight}>
+                    </svg>
                 </div>
 
             );

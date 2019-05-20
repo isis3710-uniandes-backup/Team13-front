@@ -36,7 +36,7 @@ class Edit extends Component {
             storyboardId: -1,
             title: "New Card",
             imageURL: "https://www.nps.gov/articles/images/Image-w-cred-cap_-1200w-_-Brown-Bear-page_-brown-bear-in-fog_2_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
-            timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+            timestamp: (new Date()).toString(),
             txtArea: "Some awesome text for your card :)"
         };
     }
@@ -90,7 +90,7 @@ class Edit extends Component {
             storyboardId: this.state.storyboardId,
             title: newTitle,
             imageURL: "https://www.nps.gov/articles/images/Image-w-cred-cap_-1200w-_-Brown-Bear-page_-brown-bear-in-fog_2_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
-            timestamp: "Mon Aug 27 2018 15:16:17 GMT+0200 (CEST)",
+            timestamp: (new Date()).toString(),
             text: newTxt
         }
         if (this.state.currentID !== -1 && this.state.currentID !== undefined && navigator.onLine) {
@@ -187,7 +187,7 @@ class Edit extends Component {
                         <input className="btnContrast" aria-label="set bursh radius" type="number" value={this.state.brushRadius} onChange={e =>
                         this.setState({ brushRadius: parseInt(e.target.value, 10) })}/>
                     </Row>
-                </Col>  
+                </Col>
                 <Col>
                     <Row>
                         <label><FormattedMessage id="Lazy Radius"/></label>
@@ -208,7 +208,7 @@ class Edit extends Component {
                     </Row>
                     <br/>
                     <Row>
-                        <Button className = "btnContrast" type="button" variant="secondary" 
+                        <Button className = "btnContrast" type="button" variant="secondary"
                         width="60" height ="60"
                         onClick={() => {this.saveableCanvas.undo();}}><FormattedMessage id="Undo"/> <FaRev/></Button>
                     </Row>
@@ -229,7 +229,7 @@ class Edit extends Component {
                               <SketchPicker color={ this.state.color } onChange={ this.handleChange } />
                             </div> : null }
                         </Col>
-                    </Row>    
+                    </Row>
                 </Col>
                 <Col xs={10}>
                     <CanvasDraw
@@ -247,7 +247,7 @@ class Edit extends Component {
                 <label><FormattedMessage id="cardText"/> </label>
                 <input aria-label= "card text" className="txtInEditor btnContrast" type="text" defaultValue={this.state.txtArea} ref={(ref) => this.inputTxt = ref}/>
             </Row>
-        </Container>        
+        </Container>
       </div>
             );
         } else {
