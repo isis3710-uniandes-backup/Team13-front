@@ -11,6 +11,7 @@ class Statistics extends Component {
         super(props);
         this.createLineChart = this.createLineChart.bind(this)
         this.getData = this.getData.bind(this)
+        this.getData()
     }
     componentDidMount() {
         this.createLineChart()
@@ -20,7 +21,7 @@ class Statistics extends Component {
     }
     getData() {
         if(this.props.user && this.props.user.uid){
-            fetch("/api/storyboards/users?id=" + this.props.user.uid, {
+            fetch("/api/storyboards/users/" + this.props.user.uid, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json',

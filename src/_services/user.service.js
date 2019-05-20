@@ -43,7 +43,7 @@ function login(username, password) {
                 //localStorage.setItem("user", JSON.stringify({ "isLoggedIn": false });
                 resolve({ "isLoggedIn": false });
             }
-        });
+        }).catch(e => alert(e));
     });
 }
 
