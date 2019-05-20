@@ -8,9 +8,9 @@ Here's a little video that shows the demo of the app: Currently uploading
 
 # Deployed App
 
-The app is currently being deployed and the working link will be uploaded as soon as it is done!
+The app is currently being deployed at : https://b4berry.herokuapp.com/
 
-#  To Deploy
+#  To run locally
 
 This project communicates with a back-end API for it to work properly,therefore you must also clone the back-end repo (you can find the source code here: https://github.com/isis3710-uniandes/Team13-back). 
 
