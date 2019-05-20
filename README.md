@@ -4,7 +4,11 @@
 
 # Demo Footage
 
-Here's a little video that shows the demo of the app: https://youtu.be/d3Ak4swHZ04
+Here's a little video that shows the demo of the app: <Currently uploading>
+
+# Deployed App
+
+The app is currently being deployed and the working link will be uploaded as soon as it is done!
 
 #  To Deploy
 
