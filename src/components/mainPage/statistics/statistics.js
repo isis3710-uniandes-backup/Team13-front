@@ -28,6 +28,9 @@ class Statistics extends Component {
                     'Content-Type': 'application/json'
                 }
             }).then((res) => {
+
+                console.log("el json")
+                console.log(res.json())
                 return res.json()
             }).then((res) => {
 
